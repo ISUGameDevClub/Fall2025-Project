@@ -7,10 +7,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float horizontalSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float groundedCheckLength;
+    [SerializeField] private float coyoteTime;
+    [SerializeField] private float jumpLock;
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private LayerMask floorLayer;
     private Rigidbody2D rb;
     private Vector2 movement;
+    private float timer_coyoteTime;
+    private float timer_jumpLock;
+    private bool grounded;
+    private bool jumpedThisFrame;
 
     private void Awake()
     {
@@ -24,12 +30,25 @@ public class PlayerMovement : MonoBehaviour
 
         //ground check
         Debug.DrawRay(this.transform.position, new Vector2(0, -groundedCheckLength), Color.yellow);
-        bool grounded = Physics2D.Raycast(this.transform.position, Vector2.down, groundedCheckLength, floorLayer);
+        grounded = Physics2D.Raycast(this.transform.position, Vector2.down, groundedCheckLength, floorLayer);
+
+        //Grounded logic, timers
+        if ( grounded )
+        {
+            timer_coyoteTime = coyoteTime;
+        }
+        else
+        {
+            timer_coyoteTime -= Time.deltaTime;
+        }
+        timer_jumpLock -= Time.deltaTime;
 
         //jump
-        if (playerInput.actions["Jump"].triggered && grounded)
+        if (playerInput.actions["Jump"].triggered && timer_coyoteTime > 0f && timer_jumpLock < 0f)
         {
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            jumpedThisFrame = true;
+            timer_coyoteTime = 0f;
+            timer_jumpLock = jumpLock;
         }
     }
 
@@ -37,13 +56,23 @@ public class PlayerMovement : MonoBehaviour
     {
         //apply movement value
         rb.linearVelocityX = movement.x * horizontalSpeed;
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if ( collision.gameObject.tag == "Platform" )
+        //apply jump value
+        if( jumpedThisFrame )
         {
-            //Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
+            Vector2 v = rb.linearVelocity;
+            v.y = jumpForce;
+            rb.linearVelocity = v;
+
+            jumpedThisFrame = false;
         }
+
+        ////bring player down faster on downward movement
+        //if (rb.linearVelocity.y < 0.3f)
+        //{
+        //    Vector2 v = rb.linearVelocity;
+        //    v.y = rb.linearVelocity.y * 1.1f;
+        //    rb.linearVelocity = v;
+        //}
     }
 }
