@@ -115,7 +115,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -136,7 +136,6 @@ MonoBehaviour:
   groundedCheckLength: 1
   coyoteTime: 0.2
   jumpLock: 0.5
-  playerInput: {fileID: 1936713101077806825}
   floorLayer:
     serializedVersion: 2
     m_Bits: 64
