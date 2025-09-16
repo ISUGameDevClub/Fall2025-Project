@@ -132,10 +132,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpeed: 7
-  jumpForce: 10
-  groundedCheckLength: 1
+  jumpForce: 8
+  groundedCheckLength: 0.65
   coyoteTime: 0.2
   jumpLock: 0.5
+  jumpHeldTime: 0.25
   floorLayer:
     serializedVersion: 2
     m_Bits: 64

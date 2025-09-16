@@ -8,7 +8,8 @@ public class BasePlayerColorChange : MonoBehaviour
     {
         if (GetComponent<SpriteRenderer>() != null)
         {
-            GetComponent<SpriteRenderer>().color = Random.ColorHSV(0f, 1f, 0.8f, 1f,0.8f, 1f);
+            //GetComponent<SpriteRenderer>().color = Random.ColorHSV(0f, 1f, 0.8f, 1f,0.8f, 1f);
         }
+        this.gameObject.name = "Player | ID: " + Random.Range(1000, 9999); //i just give the player a random id here for clarity's sake
     }
 }
