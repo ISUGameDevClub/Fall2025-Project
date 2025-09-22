@@ -1,75 +1,61 @@
-/*using UnityEngine;
+using System.Collections.Generic;
+using System.Security.Cryptography;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Users;
+using UnityEngine.UI;
 
 public class PlayerCursor : MonoBehaviour
 {
-    [SerializeField] private PlayerInput playerInput;
-    [SerializeField] RectTransform cursorTransform;
-    [SerializeField] private float cursorSpeed = 1000f;
+    private PlayerInput playerInput;
+    [SerializeField] private float cursorSpeed;
+    [SerializeField] private Image cursorImg;
+    private Vector2 movement;
 
-    private bool previousMouseState;
-    private Mouse virtualMouse;
 
-    private void OnEnable()
+    public void AssignPlayerInput(PlayerInput playerInput)
     {
-        if (virtualMouse != null)
-        {
-            virtualMouse = (Mouse) InputSystem.AddDevice("VirtualMouse");
-        }
-        else if (!virtualMouse.added)
-        {
-            InputSystem.AddDevice(virtualMouse);
-        }
-
-        //Pair device to user to use PlayerInput component with event system and virtual mouse
-        InputUser.PerformPairingWithDevice(virtualMouse, playerInput.user);
-
-        if (cursorTransform != null)
-        {
-            Vector2 position = cursorTransform.anchoredPosition;
-            InputState.Change(virtualMouse.position, position);
-        }
-
-        InputSystem.onAfterUpdate += UpdateMotion;
+        this.playerInput = playerInput;
     }
 
-    private void OnDisable()
+    public void AssignColor(Color color)
     {
-        InputSystem.RemoveDevice(virtualMouse);
-        InputSystem.onAfterUpdate -= UpdateMotion;
+        cursorImg.color = color;
     }
 
-    private void UpdateMotion()
+    //public void OnMove(InputAction.CallbackContext context)
+    //{
+    //    movement = context.ReadValue<Vector2>();
+    //}
+
+    private void Update()
     {
-        if (virtualMouse == null || Gamepad.current == null)
+        movement = playerInput.actions["Move"].ReadValue<Vector2>();
+        this.transform.position += new Vector3(movement.x, movement.y, 0) * cursorSpeed * Time.deltaTime;
+
+        if (playerInput.actions["Jump"].triggered) 
         {
-            return;
-        }
+            //Debug.Log("click");
 
-        Vector2 deltaValue = Gamepad.current.leftStick.ReadValue();
-        deltaValue *= cursorSpeed * Time.deltaTime;
+            PointerEventData pointerData = new PointerEventData(EventSystem.current);
+            pointerData.position = this.transform.position; 
 
-        Vector2 curPos = virtualMouse.position.ReadValue();
-        Vector2 newPos = curPos + deltaValue;
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerData, results);
 
-        newPos.x = Mathf.Clamp(newPos.x, 0, Screen.width); // TODO - add padding
-        newPos.y = Mathf.Clamp(newPos.y, 0, Screen.height);
-
-        InputState.Change(virtualMouse.position, newPos);
-        InputState.Change(virtualMouse.delta, deltaValue);
-
-        bool aButtonIsPressed = Gamepad.current.aButton.IsPressed();
-        if (previousMouseState != aButtonIsPressed) //TODO - change to input system
-        {
-            virtualMouse.CopyState<MouseState>(out var mouseState);
-            mouseState.WithButton(MouseButton.Left, aButtonIsPressed);
-            InputState.Change(virtualMouse, mouseState);
-            previousMouseState = aButtonIsPressed;
+            if(results.Count > 0)
+            {
+                foreach(RaycastResult result in results)
+                {
+                    //Debug.Log("Hit UI Element: " + result.gameObject.name);
+                    if (result.gameObject.GetComponent<Button>() != null)
+                    {
+                        result.gameObject.GetComponent<Button>().onClick.Invoke();
+                    }
+                }
+            }
         }
     }
-
-
 }
-*/
