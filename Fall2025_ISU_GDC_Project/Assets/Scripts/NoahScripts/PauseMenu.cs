@@ -2,7 +2,6 @@ using System;
 using System.Runtime.CompilerServices;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace UserInterface {
 	/*
@@ -17,44 +16,67 @@ namespace UserInterface {
 	/// </summary>
 
 	public class PauseMenu : MonoBehaviour {
-		private enum Status : byte {
-			Valid,
+		public enum Status : byte {
+			Hidden,
+			Active,
 			QuitToTitle,
 			QuitGame
 		};
 
-		/// <summary>
-		/// TODO: change this later when needed
-		/// </summary>
-		private static readonly string PAUSE_MENU_SCENE_PATH = "Assets/Scenes/NoahScenes/PauseMenu";
+		public CanvasGroup PauseMenuGroup;
 
 		public Canvas PapaPauseMenu;
 		public Canvas ConfirmMenu;
 
-		private static Status _status = Status.Valid;
+		public event Action ResumePressed;
+		public event Action QuitToTitlePressed;
+
+		private Status State = Status.Hidden;
+
 		private static Action<bool> _cachedCallback = null;
+
+		/*
+		===============
+		Awake
+		===============
+		*/
+		/// <summary>
+		/// Ensures <see cref="_cachedCallback"/> is properly allocated
+		/// </summary>
+		private void Awake() {
+			_cachedCallback ??= ( status ) => OnConfirmMenuButtonSelected( status );
+		}
 
 		/*
 		===============
 		Pause
 		===============
 		*/
-		/// <summary>
-		/// The only way to instantiate the PauseMenu
-		/// </summary>
-		public static void Pause() {
-			SceneManager.LoadScene( PAUSE_MENU_SCENE_PATH, LoadSceneMode.Additive );
+		public void Pause() {
+			PauseMenuGroup.alpha = 1.0f;
+
+			ConfirmMenu.enabled = false;
+			PapaPauseMenu.enabled = true;
+
+			State = Status.Active;
 		}
 
 		/*
 		===============
-		Start
+		UnPause
 		===============
 		*/
-		public void Start() {
-			Time.timeScale = 0.0f;
-			_status = Status.Valid;
-			_cachedCallback ??= ( status ) => OnConfirmMenuButtonSelected( status );
+		/// <summary>
+		/// Hides the PauseMenu's canvas group and the ConfirmMenu's canvas group
+		/// </summary>
+		public void UnPause() {
+			PauseMenuGroup.alpha = 0.0f;
+
+			// ensure we don't have a hanging ConfirmMenu
+			ConfirmMenu.enabled = false;
+			PapaPauseMenu.enabled = false;
+
+			State = Status.Hidden;
 		}
 
 		/*
@@ -66,11 +88,8 @@ namespace UserInterface {
 		/// Callback function for ResumeButton OnClick event
 		/// </summary>
 		public void OnResumeButtonClicked() {
-			Debug.Log( "Resuming game..." );
-
-			Time.timeScale = 1.0f;
-			PapaPauseMenu.enabled = false;
-			Destroy( this );
+			UnPause();
+			ResumePressed?.Invoke();
 		}
 
 		/*
@@ -114,7 +133,7 @@ namespace UserInterface {
 			}
 			PapaPauseMenu.enabled = false;
 			ConfirmMenu.enabled = true;
-			_status = Status.QuitGame;
+			State = Status.QuitGame;
 			ConfirmMenu.GetComponent<ConfirmMenu>().Show( _cachedCallback );
 		}
 
@@ -127,27 +146,28 @@ namespace UserInterface {
 		/// Handles the ConfirmMenu button callbacks
 		/// </summary>
 		/// <param name="option">True if YesButton is pressed</param>
-		/// <exception cref="ArgumentOutOfRangeException">Thrown if <see cref="_status"/> is out of range</exception>
+		/// <exception cref="ArgumentOutOfRangeException">Thrown if <see cref="State"/> is out of range</exception>
 		private void OnConfirmMenuButtonSelected( bool option ) {
 			// cancel the exit
 			if ( !option ) {
 				Debug.Log( "Showing PauseMenu." );
-				_status = Status.Valid;
+				State = Status.Active;
 				PapaPauseMenu.enabled = true;
 				return;
 			}
 
-			switch ( _status ) {
+			switch ( State ) {
 				case Status.QuitToTitle:
-					// TODO: instantiate the stitlescreen here
 					Debug.Log( "Loading titlescreen..." );
+					State = Status.Hidden;
+					QuitToTitlePressed?.Invoke();
 					break;
 				case Status.QuitGame:
 					Debug.Log( "Exiting application..." );
 					Application.Quit( 1 );
 					break;
 				default:
-					throw new ArgumentOutOfRangeException( nameof( _status ) );
+					throw new ArgumentOutOfRangeException( nameof( State ) );
 			}
 		}
 	};

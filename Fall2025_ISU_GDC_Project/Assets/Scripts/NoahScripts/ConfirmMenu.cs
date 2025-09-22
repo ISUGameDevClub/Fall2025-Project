@@ -16,10 +16,14 @@ namespace UserInterface {
 	/// </summary>
 
 	public class ConfirmMenu : MonoBehaviour {
+		[SerializeField]
+		private CanvasGroup ConfirmMenuGroup;
+
+		[SerializeField]
 		/// <summary>
 		/// The Canvas object of the ConfirmMenu
 		/// </summary>
-		public GameObject ConfirmMenuObject;
+		private GameObject ConfirmMenuObject;
 		
 		/// <summary>
 		/// _callback handler for both buttons
@@ -38,6 +42,8 @@ namespace UserInterface {
 		/// <exception cref="ArgumentNullException">Thrown if <paramref name="callback"/> is null</exception>
 		public void Show( Action<bool> callback ) {
 			Debug.Log( "Showing ConfirmMenu..." );
+
+			ConfirmMenuGroup.alpha = 1.0f;
 			ConfirmMenuObject.SetActive( true );
 			_callback = callback ?? throw new ArgumentNullException( nameof( callback ) );
 		}
@@ -84,6 +90,8 @@ namespace UserInterface {
 			if ( _callback == null ) {
 				throw new ArgumentNullException( nameof( _callback ) );
 			}
+			// hide it
+			ConfirmMenuGroup.alpha = 0.0f;
 
 			ConfirmMenuObject.SetActive( false );
 			_callback.Invoke( status );
