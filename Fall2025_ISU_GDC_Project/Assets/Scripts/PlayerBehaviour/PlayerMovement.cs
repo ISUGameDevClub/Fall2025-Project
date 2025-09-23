@@ -68,6 +68,16 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpHoldOnce = false;
         }
+
+        //flip object based on movement direction
+        if ( movement.x > 0f )
+        {
+            this.transform.localEulerAngles = new Vector3(0, 0, 0);
+        }
+        if ( movement.x < 0f )
+        {
+            this.transform.localEulerAngles = new Vector3(0, 180, 0);
+        }
     }
 
     private void FixedUpdate()
