@@ -25,20 +25,14 @@ public class PlayerCursor : MonoBehaviour
         cursorImg.color = color;
     }
 
-    //public void OnMove(InputAction.CallbackContext context)
-    //{
-    //    movement = context.ReadValue<Vector2>();
-    //}
-
     private void Update()
     {
         movement = playerInput.actions["Move"].ReadValue<Vector2>();
         this.transform.position += new Vector3(movement.x, movement.y, 0) * cursorSpeed * Time.deltaTime;
 
+        //UI cursor interaction is handled with "Jump" button for now (should be changed later for code clarity)
         if (playerInput.actions["Jump"].triggered) 
         {
-            //Debug.Log("click");
-
             PointerEventData pointerData = new PointerEventData(EventSystem.current);
             pointerData.position = this.transform.position; 
 
@@ -52,7 +46,14 @@ public class PlayerCursor : MonoBehaviour
                     //Debug.Log("Hit UI Element: " + result.gameObject.name);
                     if (result.gameObject.GetComponent<Button>() != null)
                     {
+                        //we hit a button
                         result.gameObject.GetComponent<Button>().onClick.Invoke();
+
+                        if ( result.gameObject.GetComponent<CharacterSelectButton>() != null )
+                        {
+                            //if this is a character select button, apply extra logic to its CharacterSelectButton component with playerInput
+                            result.gameObject.GetComponent<CharacterSelectButton>().OnSelectButton(playerInput);
+                        }
                     }
                 }
             }

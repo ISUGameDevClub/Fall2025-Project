@@ -14,18 +14,12 @@ public class PlayerState : MonoBehaviour
         Inactive //player is NOT visible, does NOT respond to input
     }
 
-    private void Awake()
-    {
-        //playerMovement = GetComponent<PlayerMovement>(); // have to assign before runtime, otherwise callbacks don't register in time
-        //gfx = GetComponent<SpriteRenderer>();
-    }
-
     private void Update()
     {
-        if (Input.GetKeyDown("m")) //test call DELETE THIS
+/*        if (Input.GetKeyDown("m")) //test call DELETE THIS
         {
             ChangePlayerState(PlayerStateEnum.Inactive);
-        }
+        }*/
     }
 
     public void ChangePlayerState(PlayerStateEnum newState)

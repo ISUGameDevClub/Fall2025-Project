@@ -68,7 +68,12 @@ public class InputConnectionManager : MonoBehaviour
 
     public void OnPlayerLeft(PlayerInput pi)
     {
+        //this will be empty for now, but we likely will need logic here eventually
+    }
 
+    public Color GetColorFromPlayerInput(PlayerInput pi)
+    {
+        return playerInputMapToColor[pi];
     }
 
     private void AddDeviceIdentifierToGroup(DeviceType deviceType, PlayerInput pi)
