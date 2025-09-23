@@ -286,8 +286,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuGroup: {fileID: 378202034}
+  PauseActionReference: {fileID: -4182147184822052282, guid: 8c4dd45cf45313c4a836f091d49b4bf3, type: 3}
   PapaPauseMenu: {fileID: 378202032}
   ConfirmMenu: {fileID: 482973184}
+  ResumeButton: {fileID: 1339157019}
+  QuitToTitleButton: {fileID: 2012408751}
+  QuitGameButton: {fileID: 1854555249}
 --- !u!114 &378202030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &482973182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1443,8 +1447,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuGroup: {fileID: 0}
+  PauseActionReference: {fileID: 0}
   PapaPauseMenu: {fileID: 0}
   ConfirmMenu: {fileID: 0}
+  ResumeButton: {fileID: 0}
+  QuitToTitleButton: {fileID: 0}
+  QuitGameButton: {fileID: 0}
 --- !u!114 &1339157021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1707,7 +1715,6 @@ GameObject:
   - component: {fileID: 1786077547}
   - component: {fileID: 1786077546}
   - component: {fileID: 1786077545}
-  - component: {fileID: 1786077544}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1715,20 +1722,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1786077544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1786077542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b46992cd5312684aad5d7c92d4a47b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PauseMenuPrefab: {fileID: 378202028}
-  PauseActionReference: {fileID: -4182147184822052282, guid: 8c4dd45cf45313c4a836f091d49b4bf3, type: 3}
 --- !u!114 &1786077545
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,7 +1,8 @@
 using System;
 using System.Runtime.CompilerServices;
-using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace UserInterface {
 	/*
@@ -23,29 +24,26 @@ namespace UserInterface {
 			QuitGame
 		};
 
-		public CanvasGroup PauseMenuGroup;
+		/// <summary>
+		/// The <see cref="CanvasGroup"/> of the PauseMenu User Interface element.
+		/// </summary>
+		/// <remarks>
+		/// Used to hide and show the PauseMenu
+		/// </remarks>
+		[SerializeField]
+		private CanvasGroup PauseMenuGroup;
 
-		public Canvas PapaPauseMenu;
-		public Canvas ConfirmMenu;
+		[SerializeField]
+		private InputActionReference PauseActionReference;
 
-		public event Action ResumePressed;
-		public event Action QuitToTitlePressed;
-
+		[SerializeField]
+		private Canvas PapaPauseMenu;
+		[SerializeField]
+		private Canvas ConfirmMenu;
+		
 		private Status State = Status.Hidden;
 
 		private static Action<bool> _cachedCallback = null;
-
-		/*
-		===============
-		Awake
-		===============
-		*/
-		/// <summary>
-		/// Ensures <see cref="_cachedCallback"/> is properly allocated
-		/// </summary>
-		private void Awake() {
-			_cachedCallback ??= ( status ) => OnConfirmMenuButtonSelected( status );
-		}
 
 		/*
 		===============
@@ -53,12 +51,16 @@ namespace UserInterface {
 		===============
 		*/
 		public void Pause() {
+			// ... it works, but this right here for some reason is "unassigned"
 			PauseMenuGroup.alpha = 1.0f;
-
+			
 			ConfirmMenu.enabled = false;
 			PapaPauseMenu.enabled = true;
 
 			State = Status.Active;
+
+			Time.timeScale = 0.0f;
+			Time.fixedDeltaTime = 0.0f;
 		}
 
 		/*
@@ -77,6 +79,9 @@ namespace UserInterface {
 			PapaPauseMenu.enabled = false;
 
 			State = Status.Hidden;
+
+			Time.timeScale = 1.0f;
+			Time.fixedDeltaTime = 1.0f;
 		}
 
 		/*
@@ -88,8 +93,10 @@ namespace UserInterface {
 		/// Callback function for ResumeButton OnClick event
 		/// </summary>
 		public void OnResumeButtonClicked() {
-			UnPause();
-			ResumePressed?.Invoke();
+			if ( GameStateManager.Instance.GameState != GameState.Paused ) {
+				return;
+			}
+			GameStateManager.Instance.UnPauseGame();
 		}
 
 		/*
@@ -102,6 +109,9 @@ namespace UserInterface {
 		/// </summary>
 		/// <exception cref="ArgumentNullException">Thrown if <see cref="ConfirmMen"/> is nulls</exception>
 		public void OnQuitToTitleButtonClicked() {
+			if ( GameStateManager.Instance.GameState != GameState.Paused ) {
+				return;
+			}
 			OnExitButtonClicked( Status.QuitToTitle );
 		}
 
@@ -115,6 +125,9 @@ namespace UserInterface {
 		/// </summary>
 		/// <exception cref="ArgumentNullException">Thrown if <see cref="ConfirmMenu"/> is null</exception>
 		public void OnQuitGameButtonClicked() {
+			if ( GameStateManager.Instance.GameState != GameState.Paused ) {
+				return;
+			}
 			OnExitButtonClicked( Status.QuitGame );
 		}
 
@@ -133,8 +146,75 @@ namespace UserInterface {
 			}
 			PapaPauseMenu.enabled = false;
 			ConfirmMenu.enabled = true;
-			State = Status.QuitGame;
+			State = newStatus;
 			ConfirmMenu.GetComponent<ConfirmMenu>().Show( _cachedCallback );
+		}
+
+		/*
+		===============
+		OnEnable
+		===============
+		*/
+		private void OnEnable() {
+			if ( PauseActionReference != null ) {
+				PauseActionReference.action.performed += OnPauseInput;
+				PauseActionReference.action.Enable();
+			}
+		}
+
+		/*
+		===============
+		OnDisable
+		===============
+		*/
+		private void OnDisable() {
+			if ( PauseActionReference != null ) {
+				PauseActionReference.action.performed -= OnPauseInput;
+				PauseActionReference.action.Disable();
+			}
+		}
+
+		/*
+		===============
+		OnPauseInput
+		===============
+		*/
+		private void OnPauseInput( InputAction.CallbackContext context ) {
+			if ( !context.performed ) {
+				return;
+			}
+			TogglePauseState();
+		}
+
+		/*
+		===============
+		TogglePauseState
+		===============
+		*/
+		/// <summary>
+		/// Toggles the <see cref="PauseMenu"/>'s state
+		/// </summary>
+		private void TogglePauseState() {
+			if ( GameStateManager.Instance.GameState == GameState.Paused ) {
+				GameStateManager.Instance.UnPauseGame();
+			} else {
+				GameStateManager.Instance.PauseGame();
+			}
+		}
+
+		/*
+		===============
+		Start
+		===============
+		*/
+		/// <summary>
+		/// Ensures <see cref="_cachedCallback"/> is properly allocated
+		/// </summary>
+		private void Start() {
+			_cachedCallback ??= ( status ) => OnConfirmMenuButtonSelected( status );
+
+			GameStateManager.Instance.SubscribeToGameStateEvent( GameState.Paused, StateEventType.Entered, ( state ) => { Pause(); } );
+			GameStateManager.Instance.SubscribeToGameStateEvent( GameState.Level, StateEventType.Entered, ( state ) => { UnPause(); } );
 		}
 
 		/*
@@ -160,7 +240,8 @@ namespace UserInterface {
 				case Status.QuitToTitle:
 					Debug.Log( "Loading titlescreen..." );
 					State = Status.Hidden;
-					QuitToTitlePressed?.Invoke();
+
+					GameStateManager.Instance.ActivateTitleScreen();
 					break;
 				case Status.QuitGame:
 					Debug.Log( "Exiting application..." );
