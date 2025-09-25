@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int HP = 100;
+    [SerializeField] private GameObject damageParticles;
+    private ParticleSystem damageParticlesInstance;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,5 +24,14 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         HP -= dmg;
+        //play particle effect
+        SpawnDamageParticles();
+
+    }
+
+    private void SpawnDamageParticles()
+    {
+        GameObject particleEffectObject = Instantiate(damageParticles, transform.position, Quaternion.identity);
+        particleEffectObject.GetComponent<ParticleSystem>().Play();
     }
 }
