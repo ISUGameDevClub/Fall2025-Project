@@ -48,10 +48,14 @@ public class HitboxProperties : MonoBehaviour
                 if (hurtEnemies.IndexOf(enemy) == -1)//-1 means not found in list.
                 {
                     PlayerHealth enemyHP = enemy.GetComponentInParent<PlayerHealth>();
+                    Rigidbody2D enemyRB = enemy.GetComponentInParent<Rigidbody2D>(); //for the knockback
                     if (enemyHP != null)
                     {
                         hurtEnemies.Add(enemy);
                         enemyHP.TakeDamage(damage);
+                        //apply force backwards to enemy
+                        Vector2 knockbackDirection = new Vector2(transform.localScale.x > 0 ? 1f : -1f, 0f); //knockback
+                        enemyRB.AddForce(knockbackDirection * 5f, ForceMode2D.Impulse); //knockback
                     }
                 }
             }
