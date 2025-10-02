@@ -48,10 +48,16 @@ public class HitboxProperties : MonoBehaviour
                 if (hurtEnemies.IndexOf(enemy) == -1)//-1 means not found in list.
                 {
                     PlayerHealth enemyHP = enemy.GetComponentInParent<PlayerHealth>();
+                    DummyHealth dummyHP = enemy.GetComponentInParent<DummyHealth>();
                     if (enemyHP != null)
                     {
                         hurtEnemies.Add(enemy);
                         enemyHP.TakeDamage(damage);
+                    }
+                    if (dummyHP != null)
+                    {
+                        hurtEnemies.Add(enemy);
+                        dummyHP.TakeDamage(damage);
                     }
                 }
             }
