@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.TextCore.Text;
+using System.Security.Cryptography;
 
 public class HitboxProperties : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class HitboxProperties : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Hurtbox")
+        if (collision.gameObject.tag == "Hurtbox" || collision.gameObject.tag == "Hazard")
         {
             inRange.Add(collision.gameObject);
         }
@@ -47,12 +48,25 @@ public class HitboxProperties : MonoBehaviour
             {
                 if (hurtEnemies.IndexOf(enemy) == -1)//-1 means not found in list.
                 {
-                    PlayerHealth enemyHP = enemy.GetComponentInParent<PlayerHealth>();
-                    if (enemyHP != null)
+                    if (enemy.tag == "Hurtbox")
                     {
-                        hurtEnemies.Add(enemy);
-                        enemyHP.TakeDamage(damage);
+                        PlayerHealth enemyHP = enemy.GetComponentInParent<PlayerHealth>();
+                        if (enemyHP != null)
+                        {
+                            hurtEnemies.Add(enemy);
+                            enemyHP.TakeDamage(damage);
+                        }
                     }
+                    else if (enemy.tag == "Hazard")
+                    {
+                        FallingTile tileHP = enemy.GetComponentInParent<FallingTile>();
+                        if (tileHP != null)
+                        {
+                            hurtEnemies.Add(enemy);
+                            tileHP.TakeDamage(damage);
+                        }
+                    }
+                    
                 }
             }
         }

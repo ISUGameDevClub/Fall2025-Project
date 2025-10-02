@@ -22,7 +22,8 @@ public class PlayerHealth : MonoBehaviour
         //Get players RB 
         playerRB = GetComponent<Rigidbody2D>();
         //Add listeners (We must do this here (and not in heirarchy) as player objects are Prefabs)
-        playerDeath.AddListener(GameObject.FindGameObjectWithTag("GameController").GetComponent<GameSequenceManager>().doVictoryStuff);
+        //TEMPORARILY TURN OFF LISTENER FOR SPHINX ULT PROTOTYPE ------------
+        //playerDeath.AddListener(GameObject.FindGameObjectWithTag("GameController").GetComponent<GameSequenceManager>().doVictoryStuff);
     }
 
     // Update is called once per frame

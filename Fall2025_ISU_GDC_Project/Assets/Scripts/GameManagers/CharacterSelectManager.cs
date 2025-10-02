@@ -7,6 +7,7 @@ public class CharacterSelectManager : MonoBehaviour
     [SerializeField] private List<PlayerCharacter> playerCharacterList;
     [SerializeField] private GameObject charSelectGroup;
     [SerializeField] private GameObject charSelectButtonPrefab;
+    
 
     private void Start()
     {

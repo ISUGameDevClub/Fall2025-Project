@@ -18,7 +18,6 @@ public class GameSequenceManager : MonoBehaviour
     //private SpriteRenderer spriteRenderer;
     private Image spriteImage;
     [SerializeField] private Animation winAnimation;
-    //[SerializeField] private bool gameOver = false;
     [SerializeField] private CinemachineCamera cmc;
 
     [SerializeField] private InputManager inputManager;
@@ -28,7 +27,6 @@ public class GameSequenceManager : MonoBehaviour
     {
         //disable victory canvas on awake
         victoryCanvas.GetComponent<Canvas>().enabled = false;
-        //spriteRenderer = sprite.GetComponent<SpriteRenderer>();
         podiumStuff.SetActive(false);
         spriteImage = sprite.GetComponent<Image>();
     }
@@ -39,7 +37,7 @@ public class GameSequenceManager : MonoBehaviour
     }
 
     /* 
-    /  Method that handles all victory stuff. Subscribed to playerDeath Event
+    /  Listener Method that handles all victory stuff. Subscribed to playerDeath Event
     /  playerDeath event is located in PlayerHealth.cs
     */
     public void doVictoryStuff()
@@ -49,23 +47,30 @@ public class GameSequenceManager : MonoBehaviour
         List<GameObject> currPlayers = inputManager.GetPlayersCurrentlyInGame();
 
         //Set podium sprite to winner; Currently only will work for 1v1
+        SpriteRenderer winPlayerSR = null;
         for (int i = 0; i < currPlayers.Count; i++)
         {
             if (currPlayers[i].GetComponent<PlayerHealth>().GetStocks() != 0)
             {
-                SpriteRenderer winPlayerSR = currPlayers[i].GetComponent<SpriteRenderer>();
-                spriteImage.sprite = winPlayerSR.sprite;
-                spriteImage.color = winPlayerSR.color;
+                winPlayerSR = currPlayers[i].GetComponent<SpriteRenderer>();
             }
+            
         }
-        
+        //Should ensure someone always displays
+        if (winPlayerSR == null)
+        {
+            winPlayerSR = currPlayers[0].GetComponent<SpriteRenderer>();
+        }
+        spriteImage.sprite = winPlayerSR.sprite;
+        spriteImage.color = winPlayerSR.color;
+        //These values work best for camera zoom in. 
         StartCoroutine(VictoryAnims(.01f, cmc, .05f, 1f));
     }
 
-    /* Zoom in on winning player(s) <- (not working right) | Play UI Animation | Enable Podium (need more work later)
-    /  waitTime - time between decrements of lens size
+    /* Zoom in on winning player(s) <- (not working right so disabled) | Play UI Animation | Enable Podium (need more work later)
+    /  @param waitTime - time between decrements of lens size
     /  @param camera - camera to alter
-    /  @param decrementAmount - amount to decrement c ,amera lens size after each period of waitTime 
+    /  @param decrementAmount - amount to decrement camera lens size after each period of waitTime 
     /  @param finalSize - final lens size (loop will stop once this size is reached) (lens size starts at 5f, I recc stopping at 1f)
     */
     IEnumerator VictoryAnims(float waitTime, CinemachineCamera camera, float decrementAmount, float finalSize)
