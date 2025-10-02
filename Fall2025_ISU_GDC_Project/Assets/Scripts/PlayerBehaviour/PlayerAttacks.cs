@@ -3,10 +3,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerAttacks : MonoBehaviour
 {
-
+    public GameObject selfHurtbox;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private AnimationClip[] lightAttacks;
     [SerializeField] private AnimationClip[] heavyAttacks;
+    public GameObject projectile;
 
     private int lightComboIndexer = 0;
     private int heavyComboIndexer = 0;
@@ -31,6 +32,11 @@ public class PlayerAttacks : MonoBehaviour
             heavyComboIndexer = 0;
             //Then reset the combo.
         }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            shootProjectile();
+        }
+
     }
 
     public void OnLightAttack(InputAction.CallbackContext context)
@@ -47,7 +53,7 @@ public class PlayerAttacks : MonoBehaviour
                 playerAnimator.Play(lightAttacks[lightComboIndexer].name);
                 lightComboIndexer += 1;
             }
-            
+
         }
     }
 
@@ -67,6 +73,13 @@ public class PlayerAttacks : MonoBehaviour
             }
         }
     }
-    
+    public void shootProjectile()
+    {
+        move bullet = Instantiate(projectile, gameObject.transform.position, Quaternion.identity).GetComponent<move>();
+        bullet.selfShooter = selfHurtbox;
+        
+    }
+
 
 }
+
