@@ -21,7 +21,6 @@ public class HitboxProperties : MonoBehaviour
     //This is used to see if the player is in a state of attacking. If true then they can't use other attacks.
     //Will use this also to make it so the player can't move while this is true.
 
-
     private List<GameObject> hurtEnemies = new List<GameObject>();
     private List<GameObject> inRange = new List<GameObject>();
 

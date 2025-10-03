@@ -18,13 +18,18 @@ public class PlayerHealth : MonoBehaviour
 
     private int startingHP;
 
+    [SerializeField] private GameObject damageParticles;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //Get players RB 
         playerRB = GetComponent<Rigidbody2D>();
         //Add listeners (We must do this here (and not in heirarchy) as player objects are Prefabs)
-        playerDeath.AddListener(FindFirstObjectByType<GameSequenceManager>().doVictoryStuff);
+        if (FindFirstObjectByType<GameSequenceManager>() != null)
+        {
+            playerDeath.AddListener(FindFirstObjectByType<GameSequenceManager>().doVictoryStuff);
+        }
         Debug.Log("set startingHp to HP");
         startingHP = HP;
     }
@@ -39,7 +44,14 @@ public class PlayerHealth : MonoBehaviour
             //when the player dies, they need to respawn
             totalStocks--;
             ResetPlayerHealth();
-            FindFirstObjectByType<RespawnManager>().RespawnPlayer(this);
+            if (FindFirstObjectByType<RespawnManager>() != null)
+            {
+                FindFirstObjectByType<RespawnManager>().RespawnPlayer(this);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
         if (totalStocks <= 0 && !active)
         {
@@ -65,6 +77,15 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         HP -= dmg;
+        //play particle effect
+        SpawnDamageParticles();
+
+    }
+
+    private void SpawnDamageParticles()
+    {
+        GameObject particleEffectObject = Instantiate(damageParticles, transform.position, Quaternion.identity);
+        particleEffectObject.GetComponent<ParticleSystem>().Play();
     }
 
     public int GetStocks()
