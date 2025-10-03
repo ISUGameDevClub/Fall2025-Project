@@ -8,6 +8,7 @@ public class CharacterSelectManager : MonoBehaviour
     [SerializeField] private List<PlayerCharacter> playerCharacterList;
     [SerializeField] private GameObject charSelectGroup;
     [SerializeField] private GameObject charSelectButtonPrefab;
+    
 
     //main dict for storing which players select which characters | PlayerInput -> PlayerCharacter
     private Dictionary<PlayerInput, PlayerCharacter> currentlySelectedChars = new Dictionary<PlayerInput, PlayerCharacter>();
