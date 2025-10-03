@@ -276,6 +276,7 @@ MonoBehaviour:
   HP: 100
   totalStocks: 3
   playerRB: {fileID: 0}
+  active: 0
   playerDeath:
     m_PersistentCalls:
       m_Calls:
@@ -291,6 +292,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+  damageParticles: {fileID: 2218294301218356312, guid: 51e75b3e49c28b04796979f6ff7b74c5, type: 3}
 --- !u!114 &8107855282545786083
 MonoBehaviour:
   m_ObjectHideFlags: 0
