@@ -7,8 +7,6 @@ using System.Collections;
 using Unity.Cinemachine;
 using Image = UnityEngine.UI.Image;
 using System.Runtime.CompilerServices;
-using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 
 public class GameSequenceManager : MonoBehaviour
 {
