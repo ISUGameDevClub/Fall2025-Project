@@ -161,6 +161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  knockbackForce: 5
+  knocbackDuration: 0.5
   isActive: 0
   currentlyAttacking: 0
 --- !u!1 &8072521018718476684
@@ -182,6 +184,7 @@ GameObject:
   - component: {fileID: 6211446524978881606}
   - component: {fileID: 4923723245739650263}
   - component: {fileID: 6663647585971147134}
+  - component: {fileID: 3890417148057156894}
   m_Layer: 0
   m_Name: BasePlayer
   m_TagString: Untagged
@@ -607,3 +610,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 8107855282545786083}
   gfx: {fileID: 7178392906862967062}
+--- !u!114 &3890417148057156894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072521018718476684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42339c9dacfa55d4386f4fc746113123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

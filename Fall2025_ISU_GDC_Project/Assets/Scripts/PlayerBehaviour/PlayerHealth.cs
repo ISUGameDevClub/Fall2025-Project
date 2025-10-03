@@ -84,8 +84,11 @@ public class PlayerHealth : MonoBehaviour
 
     private void SpawnDamageParticles()
     {
-        GameObject particleEffectObject = Instantiate(damageParticles, transform.position, Quaternion.identity);
-        particleEffectObject.GetComponent<ParticleSystem>().Play();
+        if (damageParticles != null)
+        {
+            GameObject particleEffectObject = Instantiate(damageParticles, transform.position, Quaternion.identity);
+            particleEffectObject.GetComponent<ParticleSystem>().Play();
+        }
     }
 
     public int GetStocks()

@@ -11,7 +11,10 @@ public class HitboxProperties : MonoBehaviour
 
     //SerializeField hitstun variable should go here.
 
-    //SerializeField knockback variable should go here.
+    [SerializeField] private float knockbackForce = 5f;
+    //knockback
+
+    [SerializeField] private float knocbackDuration = 0.5f;
 
     [SerializeField] private bool isActive = false;
     //If true then when the hitbox is overlapping with someone, they take damage.
@@ -51,13 +54,24 @@ public class HitboxProperties : MonoBehaviour
                     {
                         PlayerHealth enemyHP = enemy.GetComponentInParent<PlayerHealth>();
                         Rigidbody2D enemyRB = enemy.GetComponentInParent<Rigidbody2D>(); //for the knockback
+                        PlayerKnockbackController playerKnockbackController = enemy.GetComponentInParent<PlayerKnockbackController>();
                         if (enemyHP != null)
                         {
                             hurtEnemies.Add(enemy);
                             enemyHP.TakeDamage(damage);
                             //apply force backwards to enemy
-                            Vector2 knockbackDirection = new Vector2(transform.localScale.x > 0 ? 1f : -1f, 0f); //knockback
-                            enemyRB.AddForce(knockbackDirection * 5f, ForceMode2D.Impulse); //knockback
+                            bool onLeft;
+                            if (this.gameObject.transform.parent.position.x < playerKnockbackController.gameObject.transform.position.x)
+                            {
+                                onLeft = true;
+                            }
+                            else
+                            {
+                                onLeft = false;
+                            }
+
+                            Vector2 knockbackDirection = new Vector2(onLeft ? 1f : -1f, 0f); //knockback
+                            playerKnockbackController.ApplyKnockback(knockbackDirection, knockbackForce, knocbackDuration);
                         }
                     }
                     else if (enemy.tag == "Hazard")
@@ -83,6 +97,4 @@ public class HitboxProperties : MonoBehaviour
     {
         return currentlyAttacking;
     }
-    
-
 }
