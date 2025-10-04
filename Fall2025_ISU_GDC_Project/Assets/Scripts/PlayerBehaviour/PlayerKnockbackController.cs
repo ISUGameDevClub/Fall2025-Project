@@ -14,13 +14,19 @@ public class PlayerKnockbackController : MonoBehaviour
 
     public void ApplyKnockback(Vector2 knockbackDir, float force, float duration)
     {
-        playerMovement.enabled = false;
+        if (playerMovement != null)
+        {
+            playerMovement.enabled = false;
+        }
         rb.AddForce(knockbackDir * force, ForceMode2D.Impulse); //knockback
         Invoke("ResetPlayerMovement", duration);
     }
 
     private void ResetPlayerMovement()
     {
-        playerMovement.enabled = true;
+        if (playerMovement != null)
+        {
+            playerMovement.enabled = true;
+        }
     }
 }

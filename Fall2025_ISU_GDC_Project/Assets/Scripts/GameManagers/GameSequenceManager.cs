@@ -7,11 +7,12 @@ using System.Collections;
 using Unity.Cinemachine;
 using Image = UnityEngine.UI.Image;
 using System.Runtime.CompilerServices;
+using TMPro;
 
 public class GameSequenceManager : MonoBehaviour
 {
     //this script handles all the logic for controlling the sequence of a normal round
-    //(player input connection -> character select -> battle -> victory screen -> character select)
+    //(player input connection -> character select -> battle -> victory screen)
 
     [SerializeField] private Canvas victoryCanvas;
     [SerializeField] private GameObject podiumStuff;
@@ -22,6 +23,8 @@ public class GameSequenceManager : MonoBehaviour
     [SerializeField] private CinemachineCamera cmc;
 
     [SerializeField] private InputManager inputManager;
+
+    [SerializeField] private TextMeshProUGUI victoryText;
 
     //Runs before start
     void Awake()
@@ -99,6 +102,10 @@ public class GameSequenceManager : MonoBehaviour
         //Need to find winning player(s)
         List<GameObject> currPlayers = inputManager.GetPlayersCurrentlyInGame();
 
+        //hardcoded right now as default, will be overwritten by ScriptableObject Data later on
+        string winText = "Eat Justice";
+        StartCoroutine(DisplayTextStaggered(winText));
+
         //Set podium sprite to winner; Currently only will work for 1v1
         SpriteRenderer winPlayerSR = null;
         for (int i = 0; i < currPlayers.Count; i++)
@@ -120,6 +127,18 @@ public class GameSequenceManager : MonoBehaviour
         StartCoroutine(VictoryAnims(.01f, cmc, .05f, 1f));
     }
 
+    private IEnumerator DisplayTextStaggered(string textToShow)
+    {
+        string textShown = "";
+
+        for (int i = 0; i < textToShow.Length; i++)
+        {
+            textShown += textToShow[i];
+            victoryText.text = textShown;
+            yield return new WaitForSeconds(.1f);
+        }
+    }
+
     /* Zoom in on winning player(s) <- (not working right so disabled) | Play UI Animation | Enable Podium (need more work later)
     /  @param waitTime - time between decrements of lens size
     /  @param camera - camera to alter
@@ -135,6 +154,7 @@ public class GameSequenceManager : MonoBehaviour
         // }
         //reset camera OS
         yield return new WaitForSeconds(3f);
+        victoryText.gameObject.transform.parent.gameObject.SetActive(false);
         winAnimation.Play();
         yield return new WaitForSeconds(1.5f);
         podiumStuff.SetActive(true);

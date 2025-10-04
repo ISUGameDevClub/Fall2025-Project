@@ -30,7 +30,6 @@ public class PlayerHealth : MonoBehaviour
         {
             playerDeath.AddListener(FindFirstObjectByType<GameSequenceManager>().doVictoryStuff);
         }
-        Debug.Log("set startingHp to HP");
         startingHP = HP;
     }
 
