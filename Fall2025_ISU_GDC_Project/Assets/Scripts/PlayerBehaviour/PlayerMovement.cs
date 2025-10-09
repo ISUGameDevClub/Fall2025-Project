@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         //ground check
         Debug.DrawRay(this.transform.position, new Vector2(0, -groundedCheckLength), Color.yellow);
         grounded = Physics2D.Raycast(this.transform.position, Vector2.down, groundedCheckLength, floorLayer);
-
+        
         //Grounded logic, timers
         if ( grounded )
         {
@@ -81,14 +81,14 @@ public class PlayerMovement : MonoBehaviour
             Vector2 v = rb.linearVelocity;
             v.y = jumpForce;
             rb.linearVelocity = v;
-
+            
             queueJump = false;
             timer_jumpHeld = jumpHeldTime;
             jumpHoldOnce = true;
         }
 
         //if jump held, continue to go higher until key is released
-        if (jumpBeingHeld && jumpHoldOnce )
+        if (jumpBeingHeld && jumpHoldOnce)
         {
             if (timer_jumpHeld > 0f)
             {

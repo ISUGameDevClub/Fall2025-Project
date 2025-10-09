@@ -9,7 +9,9 @@ public class HitboxProperties : MonoBehaviour
     //Change this value in the animation clips to tie damage values to different attack animations.
 
     //SerializeField hitstun variable should go here.
-
+    [SerializeField] private int hitStun;
+    private CharacterController player;
+    private Vector3 holdPosition;
     //SerializeField knockback variable should go here.
 
     [SerializeField] private bool isActive = false;
@@ -31,6 +33,8 @@ public class HitboxProperties : MonoBehaviour
         {
             inRange.Add(collision.gameObject);
         }
+
+        player = GetComponentInParent<CharacterController>();
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -43,6 +47,8 @@ public class HitboxProperties : MonoBehaviour
     {
         if (isActive)
         {
+            player.transform.position = holdPosition;
+            
             foreach (GameObject enemy in inRange)
             {
                 if (hurtEnemies.IndexOf(enemy) == -1)//-1 means not found in list.
@@ -65,6 +71,11 @@ public class HitboxProperties : MonoBehaviour
     public bool GetCurrentlyAttacking()
     {
         return currentlyAttacking;
+    }
+
+    public int GetHitStun()
+    {
+        return hitStun;
     }
     
 
