@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerAttacks : MonoBehaviour
 {
     public GameObject selfHurtbox;
+    public GameObject player;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private AnimationClip[] lightAttacks;
     [SerializeField] private AnimationClip[] heavyAttacks;
@@ -77,6 +78,7 @@ public class PlayerAttacks : MonoBehaviour
     {
         move bullet = Instantiate(projectile, gameObject.transform.position, Quaternion.identity).GetComponent<move>();
         bullet.selfShooter = selfHurtbox;
+        bullet.player = player;
         
     }
 

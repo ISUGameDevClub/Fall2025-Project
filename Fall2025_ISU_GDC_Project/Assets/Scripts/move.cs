@@ -3,28 +3,27 @@ using UnityEngine;
 public class move : MonoBehaviour
 {
     public GameObject selfShooter;
+    public GameObject player;
     private Rigidbody2D rb;
     public int damage = 200;
     public float projectileSpeed = 0f;
     public float projectileLifetime = 5f;
-    private float time = 0;
-  //  private bool isMoving = false;
-   // private bool isJumpPressed = false;
- 
+    private float time = 0; 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    private void OnCollisionEnter2D(Collider2D col)
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        //if(col.gameObject!=selfShooter)
+        if(col.gameObject!=selfShooter&&col.gameObject!=player)
         Destroy(gameObject);
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-            if (collision.tag == "Hurtbox"&& collision.gameObject!=selfShooter)
+        if (collision.tag == "Hurtbox" && collision.gameObject != selfShooter)
         {
             collision.GetComponentInParent<PlayerHealth>().TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
     void FixedUpdate()
