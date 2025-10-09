@@ -95,6 +95,11 @@ public class PlayerAttacks : MonoBehaviour
     public void shootProjectile()
     {
         move bullet = Instantiate(projectile, projectileSpawn.transform.position, Quaternion.identity).GetComponent<move>();
+
+        if (player.transform.rotation.eulerAngles.y == -180f || player.transform.rotation.eulerAngles.y == 180f)
+            bullet.direction = 0;
+        else
+            bullet.direction = 1;
         bullet.selfShooter = selfHurtbox;
         bullet.player = player;
         
