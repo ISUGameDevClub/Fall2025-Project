@@ -39,40 +39,57 @@ public class PlayerAttacks : MonoBehaviour
             shootProjectile();
         }
 
-    }
+    
 
-    public void OnLightAttack(InputAction.CallbackContext context)
-    {
-        if (context.performed)
+
+        PlayerInput pi = null;
+        //we have a parent, use its PlayerInput component
+        if (transform.parent != null)
         {
-            if (lightComboIndexer > lightAttacks.Count() - 1)
-            {
-                lightComboIndexer = 0;
-            }
-            if (!hitboxRef.GetCurrentlyAttacking())
-            {
-                comboTimer = Time.time + comboWindowDuration;
-                playerAnimator.Play(lightAttacks[lightComboIndexer].name);
-                lightComboIndexer += 1;
-            }
+            GameObject parent = transform.parent.gameObject;
+            pi = parent.GetComponent<PlayerInput>();
+        }
+        else //we dont have a parent, enable our own PlayerInput and use that
+        {
+            GetComponent<PlayerInput>().enabled = true;
+            pi = GetComponent<PlayerInput>();
+        }
 
+        if (pi.actions["Light Attack"].triggered)
+        {
+            OnLightAttack();
+        }
+        if (pi.actions["Heavy Attack"].triggered)
+        {
+            OnHeavyAttack();
         }
     }
 
-    public void OnHeavyAttack(InputAction.CallbackContext context)
+    public void OnLightAttack()
     {
-        if (context.performed)
+        if (lightComboIndexer > lightAttacks.Count() - 1)
         {
-            if (heavyComboIndexer > heavyAttacks.Count() - 1)
-            {
-                heavyComboIndexer = 0;
-            }
-            if (!hitboxRef.GetCurrentlyAttacking())
-            {
-                comboTimer = Time.time + comboWindowDuration;
-                playerAnimator.Play(heavyAttacks[heavyComboIndexer].name);
-                heavyComboIndexer += 1;
-            }
+            lightComboIndexer = 0;
+        }
+        if (!hitboxRef.GetCurrentlyAttacking())
+        {
+            comboTimer = Time.time + comboWindowDuration;
+            playerAnimator.Play(lightAttacks[lightComboIndexer].name);
+            lightComboIndexer += 1;
+        }
+    }
+
+    public void OnHeavyAttack()
+    {
+        if (heavyComboIndexer > heavyAttacks.Count() - 1)
+        {
+            heavyComboIndexer = 0;
+        }
+        if (!hitboxRef.GetCurrentlyAttacking())
+        {
+            comboTimer = Time.time + comboWindowDuration;
+            playerAnimator.Play(heavyAttacks[heavyComboIndexer].name);
+            heavyComboIndexer += 1;
         }
     }
     public void shootProjectile()
