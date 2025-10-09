@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    //i(jake) will probably delete this class, as it has no purpose. All input storage logic should be handled in InputConnectionManager
+    //i(jake o) will probably delete this class, as it has no purpose. All input storage logic should be handled in InputConnectionManager
     //keeping it now for debugging purposes
 
     [SerializeField] private List<GameObject> curPlayers;

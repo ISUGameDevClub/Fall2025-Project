@@ -161,6 +161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  knockbackForce: 5
+  knocbackDuration: 0.5
   isActive: 0
   currentlyAttacking: 0
 --- !u!1 &8072521018718476684
@@ -178,9 +180,11 @@ GameObject:
   - component: {fileID: 430878357311010213}
   - component: {fileID: 1188004892975633885}
   - component: {fileID: 1936713101077806825}
-  - component: {fileID: 2294795731502655698}
   - component: {fileID: 6211446524978881606}
   - component: {fileID: 4923723245739650263}
+  - component: {fileID: 6663647585971147134}
+  - component: {fileID: 3890417148057156894}
+  - component: {fileID: 8108792525606552194}
   m_Layer: 0
   m_Name: BasePlayer
   m_TagString: Untagged
@@ -273,6 +277,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 100
+  totalStocks: 3
+  playerRB: {fileID: 0}
+  active: 0
+  playerDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  damageParticles: {fileID: 2218294301218356312, guid: 51e75b3e49c28b04796979f6ff7b74c5, type: 3}
 --- !u!114 &8107855282545786083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,18 +525,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &2294795731502655698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8072521018718476684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcca394ca48548640bc30c5d7dd34577, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &6211446524978881606
 Animator:
   serializedVersion: 7
@@ -573,3 +584,42 @@ CapsuleCollider2D:
   m_Offset: {x: 0.04095462, y: -0.066655636}
   m_Size: {x: 0.5319404, y: 1.2320876}
   m_Direction: 0
+--- !u!114 &6663647585971147134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072521018718476684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0044d7927d28445448f9f725dfe50b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 8107855282545786083}
+  gfx: {fileID: 7178392906862967062}
+--- !u!114 &3890417148057156894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072521018718476684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42339c9dacfa55d4386f4fc746113123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8108792525606552194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072521018718476684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065168de7587e944a830e3b574c8dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: db68a83eddebafe4f966f9a69e668b6e, type: 2}

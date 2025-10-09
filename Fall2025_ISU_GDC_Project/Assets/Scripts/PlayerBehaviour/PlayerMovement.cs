@@ -27,19 +27,27 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        movement = context.ReadValue<Vector2>();
-    }
-
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        jumpedThisFrame = context.action.triggered;
-        jumpBeingHeld = context.action.IsPressed();
-    }
-
     private void Update()
     {
+        PlayerInput pi = null;
+
+        //we have a parent, use its PlayerInput component
+        if (transform.parent != null)
+        {
+            GameObject parent = transform.parent.gameObject;
+            pi = parent.GetComponent<PlayerInput>();
+        }
+        else //we dont have a parent, enable our own PlayerInput and use that
+        {
+            GetComponent<PlayerInput>().enabled = true;
+            pi = GetComponent<PlayerInput>();
+        }
+
+        //grab input from PlayerInput component
+        movement = pi.actions["Move"].ReadValue<Vector2>();
+        jumpedThisFrame = pi.actions["Jump"].triggered;
+        jumpBeingHeld = pi.actions["Jump"].IsPressed();
+
         //ground check
         Debug.DrawRay(this.transform.position, new Vector2(0, -groundedCheckLength), Color.yellow);
         grounded = Physics2D.Raycast(this.transform.position, Vector2.down, groundedCheckLength, floorLayer);
@@ -67,6 +75,16 @@ public class PlayerMovement : MonoBehaviour
         if ( !jumpBeingHeld )
         {
             jumpHoldOnce = false;
+        }
+
+        //flip object based on movement direction
+        if ( movement.x > 0f )
+        {
+            this.transform.localEulerAngles = new Vector3(0, 0, 0);
+        }
+        if ( movement.x < 0f )
+        {
+            this.transform.localEulerAngles = new Vector3(0, 180, 0);
         }
     }
 

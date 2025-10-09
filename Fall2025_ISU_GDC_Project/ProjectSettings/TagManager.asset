@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Platform
   - Hurtbox
+  - Canvas
+  - Hazard
   layers:
   - Default
   - TransparentFX
