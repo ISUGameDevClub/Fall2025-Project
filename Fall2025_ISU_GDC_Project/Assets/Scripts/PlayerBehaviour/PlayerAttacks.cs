@@ -9,6 +9,7 @@ public class PlayerAttacks : MonoBehaviour
     [SerializeField] private AnimationClip[] lightAttacks;
     [SerializeField] private AnimationClip[] heavyAttacks;
     public GameObject projectile;
+    public GameObject projectileSpawn;
 
     private int lightComboIndexer = 0;
     private int heavyComboIndexer = 0;
@@ -76,7 +77,7 @@ public class PlayerAttacks : MonoBehaviour
     }
     public void shootProjectile()
     {
-        move bullet = Instantiate(projectile, gameObject.transform.position, Quaternion.identity).GetComponent<move>();
+        move bullet = Instantiate(projectile, projectileSpawn.transform.position, Quaternion.identity).GetComponent<move>();
         bullet.selfShooter = selfHurtbox;
         bullet.player = player;
         
