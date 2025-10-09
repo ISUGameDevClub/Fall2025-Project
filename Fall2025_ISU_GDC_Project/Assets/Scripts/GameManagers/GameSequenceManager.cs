@@ -8,6 +8,7 @@ using Unity.Cinemachine;
 using Image = UnityEngine.UI.Image;
 using System.Runtime.CompilerServices;
 using TMPro;
+using System.Linq;
 
 public class GameSequenceManager : MonoBehaviour
 {
@@ -68,6 +69,21 @@ public class GameSequenceManager : MonoBehaviour
 
     private void InitiateFighting()
     {
+        //Each player has made their character selection by now
+        //We need to add a prefab instance of the PlayerVariant that corresponds to their character choice
+        var charSelectManager = FindFirstObjectByType<CharacterSelectManager>();
+        var inputManager = FindFirstObjectByType<InputManager>(); //InputManager stores references to PlayerTemplate GameObjects (this should be changed soon)
+        foreach (GameObject playerObj in inputManager.GetPlayersCurrentlyInGame().ToList())
+        {
+            var template = playerObj.GetComponentInParent<PlayerSpawningTemplate>();
+            PlayerCharacter playerCharacter = charSelectManager.GetCharacterSelectionFromPlayerInput(playerObj.GetComponent<PlayerInput>());
+            template.EnablePlayerObjectFromPlayerCharacter(playerCharacter);
+        }
+
+        //set the target group for the camera, now that players are spawned in
+        List<GameObject> players = FindFirstObjectByType<InputConnectionManager>().realPlayers;
+        FindFirstObjectByType<CameraTarget>().SetCameraTargets(players);
+
         DisableAllMenus();
 
         //make all currently join players active

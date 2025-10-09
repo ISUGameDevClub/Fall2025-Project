@@ -17,6 +17,8 @@ public class InputConnectionManager : MonoBehaviour
     private Dictionary<int, PlayerInput> playerIDMapToPlayerInput = new Dictionary<int, PlayerInput>();
     private Dictionary<PlayerInput, Color> playerInputMapToColor = new Dictionary<PlayerInput, Color>();
 
+    public List<GameObject> realPlayers = new List<GameObject>(); //used to store the literal GameObjects for active players, not the PlayerSpawningTemplate
+
     private enum DeviceType
     {
         Keyboard,
@@ -25,6 +27,8 @@ public class InputConnectionManager : MonoBehaviour
 
     public void OnPlayerJoined(PlayerInput pi)
     {
+        pi.actions.Enable();
+
         int playerID = Random.Range(1000, 9999);
         while (playerIDMapToPlayerInput.ContainsKey(playerID))
         {
@@ -42,7 +46,7 @@ public class InputConnectionManager : MonoBehaviour
         }
 
         //make the player Inactive by default, so that they may become active when character select is over
-        pi.gameObject.GetComponent<PlayerState>().ChangePlayerState(PlayerState.PlayerStateEnum.Inactive);
+        //pi.gameObject.GetComponent<PlayerState>().ChangePlayerState(PlayerState.PlayerStateEnum.Inactive);
 
         numConnected++;
 

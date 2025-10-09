@@ -38,6 +38,11 @@ public class CharacterSelectManager : MonoBehaviour
         return currentlySelectedChars.ContainsKey(playerInput);
     }
 
+    public PlayerCharacter GetCharacterSelectionFromPlayerInput(PlayerInput playerInput)
+    {
+        return currentlySelectedChars[playerInput];
+    }
+
 
     //fills out the menu for all possible characters to pick in the game
     private void PopulateCharacterSelectData()
