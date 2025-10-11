@@ -200,6 +200,7 @@ MonoBehaviour:
   controllerIcon: {fileID: 21300000, guid: 57dc13412d2e52344bd83e95f40218ab, type: 3}
   controllerCursorPrefab: {fileID: 4150010950273975661, guid: c6a9283c275246249855a6d7fafa2d09, type: 3}
   canvasObj: {fileID: 1824925941}
+  realPlayers: []
 --- !u!4 &273667898
 Transform:
   m_ObjectHideFlags: 0
@@ -234,7 +235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!111 &293268414
 Animation:
   m_ObjectHideFlags: 0
@@ -828,7 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82682230d588974fa098966f141c31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curPlayers: []
+  curPlayerInputGameObjects: []
   curPlayerInputs: []
 --- !u!1 &520514701
 GameObject:
