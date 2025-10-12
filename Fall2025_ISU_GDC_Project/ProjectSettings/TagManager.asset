@@ -8,6 +8,8 @@ TagManager:
   - Hurtbox
   - Canvas
   - Hazard
+  - SunCannon
+  - SunSpawnLocation
   layers:
   - Default
   - TransparentFX
