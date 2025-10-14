@@ -99,6 +99,12 @@ public class GameSequenceManager : MonoBehaviour
         {
             cursor.gameObject.SetActive(false);
         }
+
+        //create player info UI
+        if (FindFirstObjectByType<PlayerUI_Manager>() != null)
+        {
+            FindFirstObjectByType<PlayerUI_Manager>().CreateAllPlayerUI();
+        }
     }
 
     private void DisableAllMenus()
