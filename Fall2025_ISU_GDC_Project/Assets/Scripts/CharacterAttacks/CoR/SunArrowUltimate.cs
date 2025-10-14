@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SunArrowUltimate : MonoBehaviour
 {
@@ -13,19 +14,22 @@ public class SunArrowUltimate : MonoBehaviour
     [SerializeField] private float shotSpeedModifier;
 
     private bool canFireSunCannons = true;
+    private PlayerInput pi;
 
     private void Update()
     {
 
-        if (Input.GetKeyDown("m") && canFireSunCannons) //temp debug fire sun cannons
-        {
-            StartCoroutine("FireSunCannons");
-            canFireSunCannons = false;
-        }
+        //if (Input.GetKeyDown("m") && canFireSunCannons) //temp debug fire sun cannons
+        //{
+        //    StartCoroutine("FireSunCannons");
+        //    canFireSunCannons = false;
+        //}
     }
 
-    public void ActivateAttack()
+    public void ActivateAttack(PlayerInput pi)
     {
+        this.pi = pi;
+
         if (canFireSunCannons)
         {
             StartCoroutine("FireSunCannons");
@@ -55,6 +59,6 @@ public class SunArrowUltimate : MonoBehaviour
     {
         GameObject fireBall = Instantiate(sunFireBallPrefab, spawnLoc.position, Quaternion.identity);
         fireBall.GetComponent<Rigidbody2D>().linearVelocity = fireBallTrajectory * speedModifier;
-        fireBall.GetComponent<SunFireball>().SetDamage(damagePerShot);
+        fireBall.GetComponent<SunFireball>().InitializeSunFireball(damagePerShot, pi);
     }
 }

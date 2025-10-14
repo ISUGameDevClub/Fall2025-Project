@@ -100,6 +100,15 @@ public class GameSequenceManager : MonoBehaviour
             cursor.gameObject.SetActive(false);
         }
 
+        //initialize ultimate tracking
+        List<PlayerInput> playerInputList = new List<PlayerInput>();
+        foreach (var playerInputObj in inputManager.GetPlayerInputsCurrentlyInGame())
+        {
+            Debug.Log(playerInputObj.GetComponent<PlayerInput>() == null);
+            playerInputList.Add(playerInputObj.GetComponent<PlayerInput>());
+        }
+        FindFirstObjectByType<UltimateTrackerManager>().InitializeDictionary(playerInputList);
+
         //create player info UI
         if (FindFirstObjectByType<PlayerUI_Manager>() != null)
         {

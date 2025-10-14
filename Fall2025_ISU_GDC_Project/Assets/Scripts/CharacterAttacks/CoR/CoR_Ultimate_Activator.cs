@@ -50,9 +50,16 @@ public class CoR_Ultimate_Activator : MonoBehaviour
 
     private void ActivateUltimateAnimation()
     {
-        //spawn a sun prefab, that will be interacted with by the animation
-        sunRef = Instantiate(sunPrefab, sunSpawnLoc);
-        GetComponent<Animator>().Play("UltimateActivate_CoR");
+        PlayerInput pi = this.gameObject.transform.parent.GetComponent<PlayerInput>();
+        UltimateTrackerManager ultimateTracker = FindFirstObjectByType<UltimateTrackerManager>();
+        if (ultimateTracker.CanPlayerUseUltimate(pi))
+        {
+            //spawn a sun prefab, that will be interacted with by the animation
+            sunRef = Instantiate(sunPrefab, sunSpawnLoc);
+            GetComponent<Animator>().Play("UltimateActivate_CoR");
+
+            ultimateTracker.ResetPlayerUltimateCharge(pi);
+        }
     }
 
     //called from an animation event
@@ -65,7 +72,7 @@ public class CoR_Ultimate_Activator : MonoBehaviour
     //called when the arrow hits the sun
     public void StartShootingFireballs()
     {
-        sunRef.GetComponent<SunArrowUltimate>().ActivateAttack();
+        sunRef.GetComponent<SunArrowUltimate>().ActivateAttack(transform.parent.gameObject.GetComponent<PlayerInput>());
     }
     
 }

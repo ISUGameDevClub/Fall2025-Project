@@ -165,6 +165,7 @@ MonoBehaviour:
   knocbackDuration: 0.5
   isActive: 0
   currentlyAttacking: 0
+  ultimateChargePerHit: 50
 --- !u!1 &8072521018718476684
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,6 +521,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5316bc24-fe7d-4ab9-9ec7-73312e3ab9f6
     m_ActionName: 'Player/Heavy Attack[/Keyboard/p]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ed0c7a4d-1c33-41e5-8806-f27da3dcaf92
+    m_ActionName: 'Player/Ultimate[/Keyboard/l]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

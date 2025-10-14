@@ -567,6 +567,7 @@ MonoBehaviour:
   fill: {fileID: 4245955074880583887}
   healthSlider: {fileID: 2397608799332051725}
   livesCountText: {fileID: 6043875749272664179}
+  ultimatePercentageText: {fileID: 8981469400247684119}
 --- !u!1 &8326794799375095061
 GameObject:
   m_ObjectHideFlags: 0

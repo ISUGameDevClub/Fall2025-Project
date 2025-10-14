@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,6 +10,7 @@ public class PlayerInfo : MonoBehaviour
     [SerializeField] private Image fill;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private TextMeshProUGUI livesCountText;
+    [SerializeField] private TextMeshProUGUI ultimatePercentageText;
     private PlayerInput playerInput;
 
     public void AssignPlayerData(PlayerInput playerInput, PlayerCharacter playerCharacter)
@@ -54,7 +56,9 @@ public class PlayerInfo : MonoBehaviour
                 //update total lives
                 livesCountText.text = "Lives: " + playerHealth.GetTotalStocks();
 
-                //update ultimate charge (coming soon)
+                //update ultimate charge
+                float ultPercent = Math.Clamp(FindFirstObjectByType<UltimateTrackerManager>().GetUltimatePercentageForPlayer(playerInput), 0, 100);
+                ultimatePercentageText.text = Math.Truncate(ultPercent) + "%";
             }
         }
     }
