@@ -165,7 +165,7 @@ MonoBehaviour:
   knocbackDuration: 0.5
   isActive: 0
   currentlyAttacking: 0
-  ultimateChargePerHit: 50
+  ultimateChargePerHit: 1
 --- !u!1 &8072521018718476684
 GameObject:
   m_ObjectHideFlags: 0
