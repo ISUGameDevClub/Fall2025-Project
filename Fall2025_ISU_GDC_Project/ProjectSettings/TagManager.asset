@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Platform
   - Hurtbox
+  - Canvas
+  - Hazard
+  - SunCannon
+  - SunSpawnLocation
   layers:
   - Default
   - TransparentFX
