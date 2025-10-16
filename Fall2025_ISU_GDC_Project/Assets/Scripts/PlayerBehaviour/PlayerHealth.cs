@@ -20,6 +20,11 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private GameObject damageParticles;
 
+    private void Awake()
+    {
+        startingHP = HP;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,7 +35,6 @@ public class PlayerHealth : MonoBehaviour
         {
             playerDeath.AddListener(FindFirstObjectByType<GameSequenceManager>().doVictoryStuff);
         }
-        startingHP = HP;
     }
 
     // Update is called once per frame
@@ -98,5 +102,20 @@ public class PlayerHealth : MonoBehaviour
     public void ResetPlayerHealth()
     {
         HP = startingHP;
+    }
+
+    public int GetPlayerHealth()
+    {
+        return HP;
+    }
+
+    public int GetStartingHP()
+    {
+        return startingHP;
+    }
+
+    public int GetTotalStocks()
+    {
+        return totalStocks;
     }
 }
