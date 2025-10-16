@@ -5,21 +5,21 @@ using UnityEngine.InputSystem;
 public class PlayerState : MonoBehaviour
 {
     [SerializeField] private PlayerMovement playerMovement;
+
+    [SerializeField] private PlayerAttacks playerAttacks;
+    
     [SerializeField] private SpriteRenderer gfx;
 
     public enum PlayerStateEnum
     {
         Active, //player is visible, responds to input
         Dormant, //player is visible, does NOT respond to input
-        Inactive //player is NOT visible, does NOT respond to input
+        Inactive, //player is NOT visible, does NOT respond to input
+        Stun //player is stunned and can't move/attack
     }
 
     private void Update()
     {
-/*        if (Input.GetKeyDown("m")) //test call DELETE THIS
-        {
-            ChangePlayerState(PlayerStateEnum.Inactive);
-        }*/
     }
 
     public void ChangePlayerState(PlayerStateEnum newState)
@@ -38,6 +38,12 @@ public class PlayerState : MonoBehaviour
                 gfx.enabled = false;
                 playerMovement.enabled = false;
                 break;
+            case PlayerStateEnum.Stun:
+                gfx.enabled = false;
+                playerMovement.enabled = false;
+                playerAttacks.enabled = false;
+                break;
+
         }
     }
 }

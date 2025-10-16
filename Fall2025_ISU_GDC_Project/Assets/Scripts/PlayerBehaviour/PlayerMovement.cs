@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private float timer_coyoteTime;
     private float timer_jumpLock;
     private float timer_jumpHeld;
+    private float timer_hitStun = 0.5f;
     private bool grounded;
     private bool jumpedThisFrame;
     private bool queueJump;
@@ -30,6 +32,20 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         PlayerInput pi = null;
+
+    //This is the general concept of hitstun, but the "timer_hitStun" isn't ever instantiated, which will lead to some problems.
+    //I'm going to set a default value of .5f but see my other, somewhat scattered, notes. If not done by someone else, I will finish on 10/22
+        if (rb.GetComponent<PlayerState.PlayerStateEnum>() == PlayerState.PlayerStateEnum.Stun)
+        {
+            if (timer_hitStun <= 0f)
+            {
+                rb.GetComponent<PlayerState>().ChangePlayerState(PlayerState.PlayerStateEnum.Active);
+            }
+            else
+            {
+                timer_hitStun -= Time.deltaTime;
+            }
+        }
 
         //we have a parent, use its PlayerInput component
         if (transform.parent != null)
@@ -94,12 +110,12 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocityX = movement.x * horizontalSpeed;
 
         //apply jump value
-        if( queueJump )
+        if (queueJump)
         {
             Vector2 v = rb.linearVelocity;
             v.y = jumpForce;
             rb.linearVelocity = v;
-            
+
             queueJump = false;
             timer_jumpHeld = jumpHeldTime;
             jumpHoldOnce = true;
@@ -128,5 +144,14 @@ public class PlayerMovement : MonoBehaviour
         //    v.y = rb.linearVelocity.y * 1.1f;
         //    rb.linearVelocity = v;
         //}
+    }
+    
+    public void updateHitStunTimer(float time)
+    {
+        //ok gang, this might be bad practice and doesn't work also, so take this with a grain of salt
+        //but my thought for hitstun is that we update the timer with this function in the hitboxProperties
+        //i.e. this gets called there, then we decriment the timer above in the update loop
+        //As mentioned, I don't fully know what I'm doing, so I didn't finish this just yet due to some confusion
+        //if this isn't finished by 10/22 I will do it
     }
 }

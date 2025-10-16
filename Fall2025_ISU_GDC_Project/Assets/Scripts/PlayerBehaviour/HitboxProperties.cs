@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.TextCore.Text;
 using System.Security.Cryptography;
+using Unity.VisualScripting;
 
 public class HitboxProperties : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class HitboxProperties : MonoBehaviour
 
     [SerializeField] private float knockbackForce = 5f;
     //knockback
+
+    [SerializeField] private float hitstunDuration = .5f;
 
     [SerializeField] private float knocbackDuration = 0.5f;
 
@@ -44,6 +47,7 @@ public class HitboxProperties : MonoBehaviour
 
     void Update()
     {
+
         if (isActive)
         {
             foreach (GameObject enemy in inRange)
@@ -59,6 +63,10 @@ public class HitboxProperties : MonoBehaviour
                         {
                             hurtEnemies.Add(enemy);
                             enemyHP.TakeDamage(damage);
+
+                            //start hitstun when they take damage
+                            beginHitStun(enemy);
+                            
                             //apply force backwards to enemy
                             bool onLeft;
                             if (this.gameObject.transform.parent.position.x < playerKnockbackController.gameObject.transform.position.x)
@@ -96,5 +104,20 @@ public class HitboxProperties : MonoBehaviour
     public bool GetCurrentlyAttacking()
     {
         return currentlyAttacking;
+    }
+
+    private void beginHitStun(GameObject enemy)
+    {
+        /*  set the playerstate to stun so they can't do anything
+        I was also working on a function in playerMovements to pass the hitstun timer there
+        but I didn't finish it since I got busy and don't fully know what I'm doing 
+        From what I can tell, we also don't have a player controller so I was decrimenting the timer
+        in the playermovement class. I was planning on passing the hitstun time through a public function
+        from the playermovement, but that might be bad practice.
+
+        if nobody does this in a week, I will finish it on the 22nd
+        */
+        enemy.GetComponentInParent<PlayerState>().ChangePlayerState(PlayerState.PlayerStateEnum.Stun);
+        
     }
 }
