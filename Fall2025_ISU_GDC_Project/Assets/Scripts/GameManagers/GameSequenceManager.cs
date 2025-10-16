@@ -228,6 +228,7 @@ public class GameSequenceManager : MonoBehaviour
 
     private void Update()
     {
+        //effects for countdown at round start
         if (changeSize)
         {
             countdownText.fontSize += (countdownFinalSize - countdownStartSize) * Time.deltaTime;
