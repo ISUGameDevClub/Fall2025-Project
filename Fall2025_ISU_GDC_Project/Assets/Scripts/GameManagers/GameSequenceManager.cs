@@ -124,6 +124,8 @@ public class GameSequenceManager : MonoBehaviour
 
         //Initiate countdown
         StartCoroutine(runCountdown());
+
+    }
     
 
     private void DisableAllMenus()
