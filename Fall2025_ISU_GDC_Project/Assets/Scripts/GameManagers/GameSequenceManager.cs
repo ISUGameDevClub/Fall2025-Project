@@ -78,7 +78,7 @@ public class GameSequenceManager : MonoBehaviour
         //We need to add a prefab instance of the PlayerVariant that corresponds to their character choice
         var charSelectManager = FindFirstObjectByType<CharacterSelectManager>();
         var inputManager = FindFirstObjectByType<InputManager>(); //InputManager stores references to PlayerTemplate GameObjects (this should be changed soon)
-        foreach (GameObject playerObj in inputManager.GetPlayersCurrentlyInGame().ToList())
+        foreach (GameObject playerObj in inputManager.GetPlayerInputsCurrentlyInGame().ToList())
         {
             var template = playerObj.GetComponentInParent<PlayerSpawningTemplate>();
             PlayerCharacter playerCharacter = charSelectManager.GetCharacterSelectionFromPlayerInput(playerObj.GetComponent<PlayerInput>());
@@ -86,7 +86,7 @@ public class GameSequenceManager : MonoBehaviour
         }
 
         //set the target group for the camera, now that players are spawned in
-        List<GameObject> players = FindFirstObjectByType<InputConnectionManager>().realPlayers;
+        List<GameObject> players = FindFirstObjectByType<InputConnectionManager>().GetCurrentPlayerObjectsInGame();
         FindFirstObjectByType<CameraTarget>().SetCameraTargets(players);
 
         DisableAllMenus();
@@ -107,13 +107,24 @@ public class GameSequenceManager : MonoBehaviour
             cursor.gameObject.SetActive(false);
         }
 
+        //initialize ultimate tracking
+        List<PlayerInput> playerInputList = new List<PlayerInput>();
+        foreach (var playerInputObj in inputManager.GetPlayerInputsCurrentlyInGame())
+        {
+            Debug.Log(playerInputObj.GetComponent<PlayerInput>() == null);
+            playerInputList.Add(playerInputObj.GetComponent<PlayerInput>());
+        }
+        FindFirstObjectByType<UltimateTrackerManager>().InitializeDictionary(playerInputList);
+
+        //create player info UI
+        if (FindFirstObjectByType<PlayerUI_Manager>() != null)
+        {
+            FindFirstObjectByType<PlayerUI_Manager>().CreateAllPlayerUI();
+        }
 
         //Initiate countdown
         StartCoroutine(runCountdown());
-
-
-        
-    }
+    
 
     private void DisableAllMenus()
     {
@@ -130,7 +141,7 @@ public class GameSequenceManager : MonoBehaviour
     {
         victoryCanvas.GetComponent<Canvas>().enabled = true;
         //Need to find winning player(s)
-        List<GameObject> currPlayers = inputManager.GetPlayersCurrentlyInGame();
+        List<GameObject> currPlayers = FindFirstObjectByType<InputConnectionManager>().GetCurrentPlayerObjectsInGame();
 
         //hardcoded right now as default, will be overwritten by ScriptableObject Data later on
         string winText = "Eat Justice";
