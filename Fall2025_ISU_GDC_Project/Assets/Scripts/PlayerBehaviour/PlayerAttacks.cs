@@ -64,6 +64,7 @@ public class PlayerAttacks : MonoBehaviour
         }
         if (!hitboxRef.GetCurrentlyAttacking())
         {
+            SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_01", 1.0f, false);
             comboTimer = Time.time + comboWindowDuration;
             playerAnimator.Play(lightAttacks[lightComboIndexer].name);
             lightComboIndexer += 1;
@@ -78,6 +79,7 @@ public class PlayerAttacks : MonoBehaviour
         }
         if (!hitboxRef.GetCurrentlyAttacking())
         {
+            SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", 1.0f, false);
             comboTimer = Time.time + comboWindowDuration;
             playerAnimator.Play(heavyAttacks[heavyComboIndexer].name);
             heavyComboIndexer += 1;
