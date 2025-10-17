@@ -84,9 +84,6 @@ public sealed class SoundManager : MonoBehaviour {
 	/// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="volume"/> is less than or equal to 0.</exception>
 	[MethodImpl( MethodImplOptions.AggressiveInlining )]
 	public static void PlaySound( string? soundPath, float? volume = 0.0f, bool? loop = false ) {
-		if ( Instance == null ) {
-			throw new ArgumentNullException( "Do not call into the SoundManager before instantiation" );
-		}
 		if ( soundPath == null || soundPath.Length <= 0 ) {
 			throw new ArgumentException( "soundPath is null or empty" );
 		}
@@ -106,9 +103,6 @@ public sealed class SoundManager : MonoBehaviour {
 	/// <param name="loop">Whether to loop the <see cref="AudioSource"/>.</param>
 	/// <exception cref="ArgumentNullException">Thrown if <paramref name="soundStream"/> or <see cref="Instance"/> are null.</exception>
 	public static void PlaySound( AudioResource? soundStream, float? volume = 0.0f, bool? loop = false ) {
-		if ( Instance == null ) {
-			throw new ArgumentNullException( "Do not call into the SoundManager before instantiation" );
-		}
 		if ( soundStream == null ) {
 			throw new ArgumentNullException( nameof( soundStream ) );
 		}
