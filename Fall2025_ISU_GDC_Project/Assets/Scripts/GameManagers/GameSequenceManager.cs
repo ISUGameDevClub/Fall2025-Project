@@ -251,7 +251,7 @@ public class GameSequenceManager : MonoBehaviour
         {
             if (count == 10)
             {
-                countdownTransform.localPosition = new Vector3(UnityEngine.Random.Range(-10, 10), UnityEngine.Random.Range(-10, 10), 0);
+                countdownTransform.localPosition = new Vector3(UnityEngine.Random.Range(countdownTransform.position.x - 10, countdownTransform.position.x + 10), UnityEngine.Random.Range(countdownTransform.position.y - 10, countdownTransform.position.y + 10), 0);
                 count = 0;
             }
             else

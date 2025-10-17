@@ -1146,6 +1146,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a238d3c2fb1d7478dd542408570758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1527804071 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7452524223863458573, guid: 8ce067237e6de92439159b144f528ab8, type: 3}
+  m_PrefabInstance: {fileID: 4229522864764434914}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1527804072 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5417900139189333360, guid: 8ce067237e6de92439159b144f528ab8, type: 3}
+  m_PrefabInstance: {fileID: 4229522864764434914}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1658342011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1620,8 +1636,14 @@ MonoBehaviour:
   cmc: {fileID: 1658342015}
   inputManager: {fileID: 422433330}
   victoryText: {fileID: 299544617}
+  countdownText: {fileID: 1527804072}
+  countdownTransform: {fileID: 1527804071}
   inputConnectionMenu: {fileID: 1187818003}
   charSelectMenu: {fileID: 942511658}
+  countdownStartNum: 3
+  countdownStartSize: 100
+  countdownFinalSize: 500
+  endOfCountdownText: GO!
 --- !u!4 &1918195067
 Transform:
   m_ObjectHideFlags: 0
