@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Concurrent;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 /*
@@ -41,6 +42,19 @@ public class ComponentPool<T> where T : Component {
 
 	/*
 	===============
+	Clear
+	===============
+	*/
+	/// <summary>
+	/// Clears the <see cref="Pool"/>.
+	/// </summary>
+	[MethodImpl( MethodImplOptions.AggressiveInlining )]
+	public void Clear() {
+		Pool.Clear();
+	}
+
+	/*
+	===============
 	Rent
 	===============
 	*/
@@ -48,6 +62,7 @@ public class ComponentPool<T> where T : Component {
 	/// Retrieves an object of type <typeparamref name="T"/> from the pool, allocating a new object if needed.
 	/// </summary>
 	/// <returns>The object retrieved from the pool, or freshly created from the <see cref="Owner"/></returns>
+	[MethodImpl( MethodImplOptions.AggressiveInlining )]
 	public T Rent() {
 		if ( Pool.TryTake( out T result ) ) {
 			return result;
@@ -66,6 +81,7 @@ public class ComponentPool<T> where T : Component {
 	/// </summary>
 	/// <param name="value">The value to return to the pool.</param>
 	/// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+	[MethodImpl( MethodImplOptions.AggressiveInlining )]
 	public void Return( T value ) {
 		if ( value == null ) {
 			throw new ArgumentNullException( nameof( value ) );
