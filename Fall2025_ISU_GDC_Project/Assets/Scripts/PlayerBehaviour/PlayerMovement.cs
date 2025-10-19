@@ -32,23 +32,6 @@ public class PlayerMovement : MonoBehaviour
        
     private void Update()
     {
-        testPetrify();
-        if (petrified)
-        {
-            petrifyTimer -= Time.deltaTime;
-            //Debug.Log(petrifyTimer);
-            if (petrifyTimer >= 0.0f)
-                petrify();
-            else
-            {
-            unpetrify();
-                petrifyTimer = petrifyTime;
-                petrified = false;
-            }
-
-        }
-
-
             PlayerInput pi = null;
 
         //we have a parent, use its PlayerInput component
@@ -102,9 +85,25 @@ public class PlayerMovement : MonoBehaviour
         {
             this.transform.localEulerAngles = new Vector3(0, 0, 0);
         }
-        if ( movement.x < 0f )
+        if (movement.x < 0f)
         {
             this.transform.localEulerAngles = new Vector3(0, 180, 0);
+        }
+        
+        //testPetrify();
+        if (petrified)
+        {
+            petrifyTimer -= Time.deltaTime;
+            //Debug.Log(petrifyTimer);
+            if (petrifyTimer >= 0.0f)
+                petrify();
+            else
+            {
+            unpetrify();
+                petrifyTimer = petrifyTime;
+                petrified = false;
+            }
+
         }
     }
 
@@ -150,16 +149,19 @@ public class PlayerMovement : MonoBehaviour
         //    rb.linearVelocity = v;
         //}
     }
-    private void testPetrify()
-    {
-        if (Input.GetKey(KeyCode.T))
-        {
-            petrified = true;
-        }
-    }
+    // private void testPetrify()
+    // {
+    //     if (Input.GetKey(KeyCode.T))
+    //     {
+    //         petrified = true;
+    //     }
+    // }
     private void petrify()
     {
-        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+        if (grounded)
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+        else
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
     }
     private void unpetrify()
     {
