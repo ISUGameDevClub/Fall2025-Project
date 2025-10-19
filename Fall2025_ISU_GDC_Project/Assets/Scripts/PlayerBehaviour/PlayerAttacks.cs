@@ -8,6 +8,7 @@ public class PlayerAttacks : MonoBehaviour
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private AnimationClip[] lightAttacks;
     [SerializeField] private AnimationClip[] heavyAttacks;
+    private string ladyJusticeSpecial = "Lady Justice Special";
     public GameObject projectile;
     public GameObject projectileSpawn;
 
@@ -15,6 +16,8 @@ public class PlayerAttacks : MonoBehaviour
     private int heavyComboIndexer = 0;
     private float comboTimer = 0;
     private float comboWindowDuration = 1;
+ 
+
 
     private HitboxProperties hitboxRef;
 
@@ -38,8 +41,11 @@ public class PlayerAttacks : MonoBehaviour
         {
             shootProjectile();
         }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            playerAnimator.Play(ladyJusticeSpecial, 0, 0.0f);
+        }
 
-    
 
 
         PlayerInput pi = null;
@@ -64,7 +70,6 @@ public class PlayerAttacks : MonoBehaviour
             OnHeavyAttack();
         }
     }
-
     public void OnLightAttack()
     {
         if (lightComboIndexer > lightAttacks.Count() - 1)
@@ -92,6 +97,7 @@ public class PlayerAttacks : MonoBehaviour
             heavyComboIndexer += 1;
         }
     }
+
     public void shootProjectile()
     {
         move bullet = Instantiate(projectile, projectileSpawn.transform.position, Quaternion.identity).GetComponent<move>();
@@ -102,9 +108,5 @@ public class PlayerAttacks : MonoBehaviour
             bullet.direction = 1;
         bullet.selfShooter = selfHurtbox;
         bullet.player = player;
-        
     }
-
-
 }
-

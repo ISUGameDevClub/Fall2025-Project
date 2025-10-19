@@ -21,15 +21,35 @@ public class PlayerMovement : MonoBehaviour
     private bool queueJump;
     private bool jumpBeingHeld;
     private bool jumpHoldOnce;
+    public bool petrified = false;
+    public static float petrifyTime = 5.0f;
+    private float petrifyTimer = petrifyTime;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
-
+       
     private void Update()
     {
-        PlayerInput pi = null;
+        testPetrify();
+        if (petrified)
+        {
+            petrifyTimer -= Time.deltaTime;
+            //Debug.Log(petrifyTimer);
+            if (petrifyTimer >= 0.0f)
+                petrify();
+            else
+            {
+            unpetrify();
+                petrifyTimer = petrifyTime;
+                petrified = false;
+            }
+
+        }
+
+
+            PlayerInput pi = null;
 
         //we have a parent, use its PlayerInput component
         if (transform.parent != null)
@@ -94,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocityX = movement.x * horizontalSpeed;
 
         //apply jump value
-        if( queueJump )
+        if (queueJump)
         {
             Vector2 v = rb.linearVelocity;
             v.y = jumpForce;
@@ -106,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //if jump held, continue to go higher until key is released
-        if (jumpBeingHeld && jumpHoldOnce )
+        if (jumpBeingHeld && jumpHoldOnce)
         {
             if (timer_jumpHeld > 0f)
             {
@@ -121,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+
         ////bring player down faster on downward movement
         //if (rb.linearVelocity.y < 0.3f)
         //{
@@ -128,5 +149,21 @@ public class PlayerMovement : MonoBehaviour
         //    v.y = rb.linearVelocity.y * 1.1f;
         //    rb.linearVelocity = v;
         //}
+    }
+    private void testPetrify()
+    {
+        if (Input.GetKey(KeyCode.T))
+        {
+            petrified = true;
+        }
+    }
+    private void petrify()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+    }
+    private void unpetrify()
+    {
+        rb.constraints = RigidbodyConstraints2D.None;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }
