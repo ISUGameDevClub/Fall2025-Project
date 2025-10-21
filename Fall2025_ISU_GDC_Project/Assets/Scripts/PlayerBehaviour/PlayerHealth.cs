@@ -20,6 +20,9 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private GameObject damageParticles;
 
+    [SerializeField] private float cracksIntensity = .55f;
+    [SerializeField] private float lowHealthCracksIntensity = .35f;
+
     private void Awake()
     {
         startingHP = HP;
@@ -82,6 +85,15 @@ public class PlayerHealth : MonoBehaviour
         HP -= dmg;
         //play particle effect
         SpawnDamageParticles();
+        SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
+        if ((float)HP/(float)startingHP <= .25f)
+        {
+             spriteRend.material.SetFloat("_CracksAmount", lowHealthCracksIntensity);
+        }
+        else if ((float)HP/(float)startingHP <= .5f)
+        {
+            spriteRend.material.SetFloat("_CracksAmount", cracksIntensity);
+        }
 
     }
 
