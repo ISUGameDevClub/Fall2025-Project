@@ -80,6 +80,11 @@ public class InputConnectionManager : MonoBehaviour
         return playerInputMapToColor[pi];
     }
 
+    public List<GameObject> GetCurrentPlayerObjectsInGame()
+    {
+        return realPlayers;
+    }
+
     private void AddDeviceIdentifierToGroup(DeviceType deviceType, PlayerInput pi)
     {
         var deviceIdentifier = Instantiate(deviceIdPrefab, deviceIdGroup.transform);
