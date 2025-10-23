@@ -4,9 +4,13 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int HP = 100;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private HitShade _HitShade;
+
     void Start()
     {
 
+        _HitShade = GetComponent<HitShade>();
     }
 
     // Update is called once per frame
@@ -22,5 +26,6 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         HP -= dmg;
+        _HitShade.CallDamageFlash();
     }
 }
