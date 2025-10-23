@@ -273,6 +273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 100
+  damageParticles: {fileID: 0}
+  deathParticles: {fileID: 3262527251107720508, guid: 32b3ee10928eca04e9ba8a30154e3202, type: 3}
 --- !u!114 &8107855282545786083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +296,8 @@ MonoBehaviour:
   floorLayer:
     serializedVersion: 2
     m_Bits: 64
+  blockingBubble: {fileID: 0}
+  damageReductionPercent: 0.5
 --- !u!114 &430878357311010213
 MonoBehaviour:
   m_ObjectHideFlags: 0

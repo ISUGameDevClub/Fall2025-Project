@@ -14,12 +14,16 @@ public class PlayerAttacks : MonoBehaviour
     private float comboWindowDuration = 1;
 
     private HitboxProperties hitboxRef;
+    private PlayerMovement playerMovement;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         hitboxRef = GetComponentInChildren<HitboxProperties>();
+        playerMovement = GetComponentInParent<PlayerMovement>();
+
     }
 
     // Update is called once per frame
@@ -37,6 +41,7 @@ public class PlayerAttacks : MonoBehaviour
     {
         if (context.performed)
         {
+
             if (lightComboIndexer > lightAttacks.Count() - 1)
             {
                 lightComboIndexer = 0;
@@ -47,7 +52,6 @@ public class PlayerAttacks : MonoBehaviour
                 playerAnimator.Play(lightAttacks[lightComboIndexer].name);
                 lightComboIndexer += 1;
             }
-            
         }
     }
 
@@ -67,6 +71,4 @@ public class PlayerAttacks : MonoBehaviour
             }
         }
     }
-    
-
 }
