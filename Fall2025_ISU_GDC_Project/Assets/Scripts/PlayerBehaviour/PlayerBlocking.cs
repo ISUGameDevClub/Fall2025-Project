@@ -71,7 +71,6 @@ public class PlayerBlocking : MonoBehaviour
                 //deactivate block
                 blocking = false;
                 shield.enabled = false;
-                //ps.ChangePlayerState(PlayerState.PlayerStateEnum.Active);
             }
         }
     }
