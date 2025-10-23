@@ -14,9 +14,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     private float timer_coyoteTime;
-    public float timer_jumpLock;
+    public float timer_jumpLock { get; private set; }
     private float timer_jumpHeld;
-    public bool grounded;
+    public bool grounded { get; private set; }
     private bool jumpedThisFrame;
     private bool queueJump;
     private bool jumpBeingHeld;

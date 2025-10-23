@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Playables;
@@ -6,11 +7,14 @@ public class PlayerBlocking : MonoBehaviour
 {
 
     [SerializeField] private SpriteRenderer shield;
+    [SerializeField] private float dropLagLength = .1f;
     public float blockCoefficient = 1;
     private Rigidbody2D rb;
     private bool blockedThisFrame = false;
     private bool blockBeingHeld = false;
-    public bool blocking = false;
+    public bool blocking { get; private set; }
+    private float dropLag = 0;
+    private bool hasBlocked = false;
 
     private void Awake()
     {
@@ -21,7 +25,6 @@ public class PlayerBlocking : MonoBehaviour
     void Start()
     {
         shield.enabled = false;
-        //shield.sortingOrder = 0;
     }
 
     // Update is called once per frame
@@ -46,23 +49,30 @@ public class PlayerBlocking : MonoBehaviour
         blockedThisFrame = pi.actions["Block"].triggered;
         blockBeingHeld = pi.actions["Block"].IsPressed();
 
-        if(blockedThisFrame && pm.grounded && pm.timer_jumpLock < 0f)
+        dropLag -= Time.deltaTime;
+        if (dropLag <= 0)
         {
-            //activate block
-            blocking = true;
-            //shield.sortingOrder = 6;
-            shield.enabled = true;
-            ps.ChangePlayerState(PlayerState.PlayerStateEnum.Dormant);
-            rb.linearVelocityX = 0;
+            if(blocking == false && hasBlocked)
+            {
+                ps.ChangePlayerState(PlayerState.PlayerStateEnum.Active);
+            }
+            if (blockedThisFrame && pm.grounded && pm.timer_jumpLock < 0f)
+            {
+                //activate block
+                blocking = true;
+                shield.enabled = true;
+                ps.ChangePlayerState(PlayerState.PlayerStateEnum.Dormant);
+                rb.linearVelocityX = 0;
+                hasBlocked = true;
+            }
+            if (blocking && !blockBeingHeld)
+            {
+                dropLag = dropLagLength;
+                //deactivate block
+                blocking = false;
+                shield.enabled = false;
+                //ps.ChangePlayerState(PlayerState.PlayerStateEnum.Active);
+            }
         }
-        if(blocking && !blockBeingHeld)
-        {
-            //deactivate block
-            blocking = false;
-            //shield.sortingOrder = 0;
-            shield.enabled = false;
-            ps.ChangePlayerState(PlayerState.PlayerStateEnum.Active);
-        }
-
     }
 }
