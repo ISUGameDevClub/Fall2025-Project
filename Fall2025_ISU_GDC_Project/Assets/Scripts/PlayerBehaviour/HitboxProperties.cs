@@ -28,8 +28,6 @@ public class HitboxProperties : MonoBehaviour
     [SerializeField] private float ultimateChargePerHit;
     //controls how much ultimate charge is granted upon actually hitting an enemy. This will be granted to the user of the attack,
     //not the one getting attacked
-    [SerializeField] private float petrify = 0;
-    //if petrify is 0 then it will not freeze the enemy, if it is 1 they will be petrified.
 
     private List<GameObject> hurtEnemies = new List<GameObject>();
     private List<GameObject> inRange = new List<GameObject>();
@@ -61,13 +59,11 @@ public class HitboxProperties : MonoBehaviour
                     {
                         PlayerHealth enemyHP = enemy.GetComponentInParent<PlayerHealth>();
                         Rigidbody2D enemyRB = enemy.GetComponentInParent<Rigidbody2D>(); //for the knockback
-                        PlayerMovement enemyPetrify = enemy.GetComponentInParent<PlayerMovement>();
+                        PetrifyDebuff enemyPetrify = enemy.GetComponentInParent<PetrifyDebuff>();
                         PlayerKnockbackController playerKnockbackController = enemy.GetComponentInParent<PlayerKnockbackController>();
                         if (enemyHP != null)
                         {
                             hurtEnemies.Add(enemy);
-                            if (petrify == 1)
-                                enemyPetrify.petrified = true;
                             enemyHP.TakeDamage(damage);
                             //apply force backwards to enemy
                             bool onLeft;

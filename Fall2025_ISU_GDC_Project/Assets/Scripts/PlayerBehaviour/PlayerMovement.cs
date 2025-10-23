@@ -16,23 +16,22 @@ public class PlayerMovement : MonoBehaviour
     private float timer_coyoteTime;
     private float timer_jumpLock;
     private float timer_jumpHeld;
-    private bool grounded;
+    public bool grounded;
     private bool jumpedThisFrame;
     private bool queueJump;
     private bool jumpBeingHeld;
     private bool jumpHoldOnce;
-    public bool petrified = false;
-    public static float petrifyTime = 5.0f;
-    private float petrifyTimer = petrifyTime;
+
+
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
-       
+
     private void Update()
     {
-            PlayerInput pi = null;
+        PlayerInput pi = null;
 
         //we have a parent, use its PlayerInput component
         if (transform.parent != null)
@@ -56,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         grounded = Physics2D.Raycast(this.transform.position, Vector2.down, groundedCheckLength, floorLayer);
 
         //Grounded logic, timers
-        if ( grounded )
+        if (grounded)
         {
             timer_coyoteTime = coyoteTime;
         }
@@ -75,13 +74,13 @@ public class PlayerMovement : MonoBehaviour
             jumpedThisFrame = false;
         }
 
-        if ( !jumpBeingHeld )
+        if (!jumpBeingHeld)
         {
             jumpHoldOnce = false;
         }
 
         //flip object based on movement direction
-        if ( movement.x > 0f )
+        if (movement.x > 0f)
         {
             this.transform.localEulerAngles = new Vector3(0, 0, 0);
         }
@@ -89,22 +88,9 @@ public class PlayerMovement : MonoBehaviour
         {
             this.transform.localEulerAngles = new Vector3(0, 180, 0);
         }
-        
-        //testPetrify();
-        if (petrified)
-        {
-            petrifyTimer -= Time.deltaTime;
-            //Debug.Log(petrifyTimer);
-            if (petrifyTimer >= 0.0f)
-                petrify();
-            else
-            {
-            unpetrify();
-                petrifyTimer = petrifyTime;
-                petrified = false;
-            }
 
-        }
+        //testPetrify();
+
     }
 
     private void FixedUpdate()
@@ -156,16 +142,4 @@ public class PlayerMovement : MonoBehaviour
     //         petrified = true;
     //     }
     // }
-    private void petrify()
-    {
-        if (grounded)
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
-        else
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
-    }
-    private void unpetrify()
-    {
-        rb.constraints = RigidbodyConstraints2D.None;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-    }
 }

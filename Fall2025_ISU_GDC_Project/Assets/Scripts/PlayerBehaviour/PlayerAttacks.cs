@@ -5,10 +5,11 @@ public class PlayerAttacks : MonoBehaviour
 {
     public GameObject selfHurtbox;
     public GameObject player;
+    
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private AnimationClip[] lightAttacks;
     [SerializeField] private AnimationClip[] heavyAttacks;
-    private string ladyJusticeSpecial = "Lady Justice Special";
+    
     public GameObject projectile;
     public GameObject projectileSpawn;
 
@@ -16,9 +17,7 @@ public class PlayerAttacks : MonoBehaviour
     private int heavyComboIndexer = 0;
     private float comboTimer = 0;
     private float comboWindowDuration = 1;
- 
-
-
+    public PetrifyDebuff pd;
     private HitboxProperties hitboxRef;
 
 
@@ -28,7 +27,8 @@ public class PlayerAttacks : MonoBehaviour
         hitboxRef = GetComponentInChildren<HitboxProperties>();
     }
 
-    // Update is called once per frame
+
+     // Update is called once per frame
     void Update()
     {
         if (comboTimer < Time.time)//If too much time has passed in between attacks...
@@ -37,15 +37,10 @@ public class PlayerAttacks : MonoBehaviour
             heavyComboIndexer = 0;
             //Then reset the combo.
         }
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K))// && !petrified)
         {
             shootProjectile();
         }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            playerAnimator.Play(ladyJusticeSpecial, 0, 0.0f);
-        }
-
 
 
         PlayerInput pi = null;
@@ -61,11 +56,11 @@ public class PlayerAttacks : MonoBehaviour
             pi = GetComponent<PlayerInput>();
         }
 
-        if (pi.actions["Light Attack"].triggered)
+        if (pi.actions["Light Attack"].triggered)//&&!petrified)
         {
             OnLightAttack();
         }
-        if (pi.actions["Heavy Attack"].triggered)
+        if (pi.actions["Heavy Attack"].triggered)//&&!petrified)
         {
             OnHeavyAttack();
         }
@@ -97,6 +92,8 @@ public class PlayerAttacks : MonoBehaviour
             heavyComboIndexer += 1;
         }
     }
+
+
 
     public void shootProjectile()
     {

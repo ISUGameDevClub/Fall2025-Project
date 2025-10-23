@@ -33,6 +33,7 @@ public class PlayerState : MonoBehaviour
             case PlayerStateEnum.Dormant:
                 gfx.enabled = true;
                 playerMovement.enabled = false;
+                //playerAttacking.enabled = false;
                 break;
             case PlayerStateEnum.Inactive:
                 gfx.enabled = false;
