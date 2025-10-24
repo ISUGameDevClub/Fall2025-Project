@@ -46,22 +46,39 @@ public class PlayerBlocking : MonoBehaviour
         PlayerState ps = GetComponent<PlayerState>();
         PlayerMovement pm = GetComponent<PlayerMovement>();
 
+
+
+
+
+        //debug test (delete this)
+        if (Input.GetKey("b"))
+        {
+            pm.enabled = !pm.isActiveAndEnabled;
+        }
+        
+
+
+
+
+
+
+
         blockedThisFrame = pi.actions["Block"].triggered;
         blockBeingHeld = pi.actions["Block"].IsPressed();
 
         dropLag -= Time.deltaTime;
         if (dropLag <= 0)
         {
-            if(blocking == false && hasBlocked)
+            if (pi.actions["Block"].WasReleasedThisFrame() && hasBlocked)
             {
-                ps.ChangePlayerState(PlayerState.PlayerStateEnum.Active);
+                pm.enabled = true;
             }
             if (blockedThisFrame && pm.grounded && pm.timer_jumpLock < 0f)
             {
                 //activate block
                 blocking = true;
                 shield.enabled = true;
-                ps.ChangePlayerState(PlayerState.PlayerStateEnum.Dormant);
+                pm.enabled = false;
                 rb.linearVelocityX = 0;
                 hasBlocked = true;
             }
