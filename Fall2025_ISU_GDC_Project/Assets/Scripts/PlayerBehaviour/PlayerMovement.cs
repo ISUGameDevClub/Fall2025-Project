@@ -90,11 +90,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         //apply movement value
         rb.linearVelocityX = movement.x * horizontalSpeed;
 
         //apply jump value
-        if( queueJump )
+        if (queueJump)
         {
             Vector2 v = rb.linearVelocity;
             v.y = jumpForce;
@@ -106,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //if jump held, continue to go higher until key is released
-        if (jumpBeingHeld && jumpHoldOnce )
+        if (jumpBeingHeld && jumpHoldOnce)
         {
             if (timer_jumpHeld > 0f)
             {

@@ -20,6 +20,11 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private GameObject damageParticles;
 
+    [SerializeField] private GameObject deathParticles;
+    private ParticleSystem damageParticlesInstance;
+    private ParticleSystem deathParticlesInstance;
+    private PlayerMovement playerMovement;
+
     private void Awake()
     {
         startingHP = HP;
@@ -35,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
         {
             playerDeath.AddListener(FindFirstObjectByType<GameSequenceManager>().doVictoryStuff);
         }
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -61,6 +67,7 @@ public class PlayerHealth : MonoBehaviour
             active = true;
             playerDeath.Invoke();
             Destroy(gameObject);
+            PlayDeathParticles();
         }
     }
 
@@ -82,7 +89,19 @@ public class PlayerHealth : MonoBehaviour
         HP -= dmg;
         //play particle effect
         SpawnDamageParticles();
+    }
 
+    private void PlayDeathParticles()
+    {
+        if (deathParticles != null)
+        {
+            GameObject deathParticleEffect = Instantiate(deathParticles, transform.position, Quaternion.identity);
+            deathParticleEffect.GetComponent<ParticleSystem>().Play();
+
+            Destroy(deathParticleEffect, 3f);
+        }
+
+        Destroy(gameObject);
     }
 
     private void SpawnDamageParticles()
