@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerState : MonoBehaviour
 {
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private PlayerAttacks playerAttacks;
     [SerializeField] private SpriteRenderer gfx;
 
     public enum PlayerStateEnum
@@ -29,14 +30,17 @@ public class PlayerState : MonoBehaviour
             case PlayerStateEnum.Active:
                 gfx.enabled = true;
                 playerMovement.enabled = true;
+                playerAttacks.enabled = true;
                 break;
             case PlayerStateEnum.Dormant:
                 gfx.enabled = true;
                 playerMovement.enabled = false;
+                playerAttacks.enabled = false;
                 break;
             case PlayerStateEnum.Inactive:
                 gfx.enabled = false;
                 playerMovement.enabled = false;
+                playerAttacks.enabled = false;
                 break;
         }
     }

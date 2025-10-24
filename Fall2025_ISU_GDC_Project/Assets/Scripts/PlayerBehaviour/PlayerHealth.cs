@@ -21,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private GameObject damageParticles;
 
     [SerializeField] private GameObject deathParticles;
+    private float damagePercent = 1;
 
     private void Awake()
     {
@@ -36,6 +37,18 @@ public class PlayerHealth : MonoBehaviour
         if (FindFirstObjectByType<GameSequenceManager>() != null)
         {
             playerDeath.AddListener(FindFirstObjectByType<GameSequenceManager>().doVictoryStuff);
+        }
+    }
+    private void Update()
+    {
+        PlayerBlocking pb = GetComponent<PlayerBlocking>();
+        if (pb.blocking)
+        {
+            damagePercent = 1 - pb.blockCoefficient;
+        }
+        else
+        {
+            damagePercent = 1;
         }
     }
 
@@ -83,7 +96,8 @@ public class PlayerHealth : MonoBehaviour
     */
     public void TakeDamage(int dmg)
     {
-        HP -= dmg;
+        //HP -= dmg;
+        HP -= (int)(dmg * damagePercent);
         //play particle effect
         SpawnDamageParticles();
     }
