@@ -21,9 +21,6 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private GameObject damageParticles;
 
     [SerializeField] private GameObject deathParticles;
-    private ParticleSystem damageParticlesInstance;
-    private ParticleSystem deathParticlesInstance;
-    private PlayerMovement playerMovement;
 
     private void Awake()
     {
@@ -40,7 +37,6 @@ public class PlayerHealth : MonoBehaviour
         {
             playerDeath.AddListener(FindFirstObjectByType<GameSequenceManager>().doVictoryStuff);
         }
-        playerMovement = GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -51,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
             //This is in fixed update to not mess up my for each loop in the hitbox properties script.
 
             //when the player dies, they need to respawn
+            PlayDeathParticles();
             totalStocks--;
             ResetPlayerHealth();
             if (FindFirstObjectByType<RespawnManager>() != null)
@@ -67,7 +64,7 @@ public class PlayerHealth : MonoBehaviour
             active = true;
             playerDeath.Invoke();
             Destroy(gameObject);
-            PlayDeathParticles();
+            
         }
     }
 
@@ -98,10 +95,8 @@ public class PlayerHealth : MonoBehaviour
             GameObject deathParticleEffect = Instantiate(deathParticles, transform.position, Quaternion.identity);
             deathParticleEffect.GetComponent<ParticleSystem>().Play();
 
-            Destroy(deathParticleEffect, 3f);
+            Destroy(deathParticleEffect, 5f);
         }
-
-        Destroy(gameObject);
     }
 
     private void SpawnDamageParticles()
