@@ -9,6 +9,7 @@ using Image = UnityEngine.UI.Image;
 using System.Runtime.CompilerServices;
 using TMPro;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class GameSequenceManager : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class GameSequenceManager : MonoBehaviour
     [SerializeField] private InputManager inputManager;
 
     [SerializeField] private TextMeshProUGUI victoryText;
+
+    [SerializeField] private TextMeshProUGUI countdownText;
+    [SerializeField] private RectTransform countdownTransform;
+
 
     //Runs before start
     void Awake()
@@ -86,12 +91,14 @@ public class GameSequenceManager : MonoBehaviour
 
         DisableAllMenus();
 
-        //make all currently join players active
+
+        //make all players dormant
         var playerStates = FindObjectsByType<PlayerState>(FindObjectsSortMode.None);
         foreach (var playerState in playerStates)
         {
-            playerState.ChangePlayerState(PlayerState.PlayerStateEnum.Active);
+            playerState.ChangePlayerState(PlayerState.PlayerStateEnum.Dormant);
         }
+
 
         //set all playercursors to inactive
         var playerCursors = FindObjectsByType<PlayerCursor>(FindObjectsSortMode.None);
@@ -114,7 +121,12 @@ public class GameSequenceManager : MonoBehaviour
         {
             FindFirstObjectByType<PlayerUI_Manager>().CreateAllPlayerUI();
         }
+
+        //Initiate countdown
+        StartCoroutine(runCountdown());
+
     }
+    
 
     private void DisableAllMenus()
     {
@@ -191,8 +203,63 @@ public class GameSequenceManager : MonoBehaviour
         podiumStuff.SetActive(true);
     }
 
+    [SerializeField] private int countdownStartNum = 3; //The number the countdown starts at
+    [SerializeField] private int countdownStartSize = 100; //The font size each number starts at
+    [SerializeField] private int countdownFinalSize = 1000; //The font size each number ends at
+    [SerializeField] private string endOfCountdownText = "GO!"; //The word displayed when countdown reaches 0
+    private bool changeSize = false;
+    private bool shake = false;
+    private int count = 0;
+
+    private IEnumerator runCountdown()
+    {
+        while (countdownStartNum > 0)
+        {
+            countdownText.fontSize = countdownStartSize;
+            countdownText.text = countdownStartNum.ToString();
+
+            changeSize = true;
+            yield return new WaitForSeconds(1);
+            countdownStartNum--;
+        }
+        changeSize = false;
+        countdownText.text = endOfCountdownText;
+        countdownText.fontSize = countdownFinalSize;
+        shake = true;
+        yield return new WaitForSeconds(.5f);
+        countdownText.text = "";
+        shake = false;
+
+        //make all currently join players active
+        var playerStates = FindObjectsByType<PlayerState>(FindObjectsSortMode.None);
+        foreach (var playerState in playerStates)
+        {
+            playerState.ChangePlayerState(PlayerState.PlayerStateEnum.Active);
+        }
+
+    }
+
+    private void Update()
+    {
+        //effects for countdown at round start
+        if (changeSize)
+        {
+            countdownText.fontSize += (countdownFinalSize - countdownStartSize) * Time.deltaTime;
+        }
+
+        if (shake)
+        {
+            if (count == 10)
+            {
+                countdownTransform.localPosition = new Vector3(UnityEngine.Random.Range(countdownTransform.position.x - 10, countdownTransform.position.x + 10), UnityEngine.Random.Range(countdownTransform.position.y - 10, countdownTransform.position.y + 10), 0);
+                count = 0;
+            }
+            else
+            {
+                count++;
+            }
+        }
+    }
 
 
-
-    
 }
