@@ -20,6 +20,9 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private GameObject damageParticles;
 
+    public float defMultiplier = 1f;
+    private Coroutine defenceCoroutine;
+
     private void Awake()
     {
         startingHP = HP;
@@ -79,7 +82,8 @@ public class PlayerHealth : MonoBehaviour
     */
     public void TakeDamage(int dmg)
     {
-        HP -= dmg;
+        int newDamage = Mathf.CeilToInt(dmg * defMultiplier);
+        HP -= newDamage;
         //play particle effect
         SpawnDamageParticles();
 
@@ -117,5 +121,23 @@ public class PlayerHealth : MonoBehaviour
     public int GetTotalStocks()
     {
         return totalStocks;
+    }
+
+    public void activateDefBoost(float newMultiplier, float duration)
+    {
+        if (defenceCoroutine != null)
+        {
+            StopCoroutine(defenceCoroutine);
+        }
+        defenceCoroutine = StartCoroutine(defBoostCoroutine(newMultiplier, duration));
+    }
+
+    private IEnumerator defBoostCoroutine(float newMultiplier, float duration)
+    {
+        defMultiplier = newMultiplier;
+
+        yield return new WaitForSeconds(duration);
+        defMultiplier = 1f;
+
     }
 }
