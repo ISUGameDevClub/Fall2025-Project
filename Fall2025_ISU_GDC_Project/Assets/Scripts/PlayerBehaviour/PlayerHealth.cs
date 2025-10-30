@@ -3,11 +3,11 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int HP = 100;
-    private ScoreManagerStartup scoreMangerReference;
+    //private ScoreManagerStartup scoreMangerReference;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        scoreMangerReference = FindAnyObjectByType<ScoreManagerStartup>();
+        //scoreMangerReference = FindAnyObjectByType<ScoreManagerStartup>();
     }
 
     // Update is called once per frame
