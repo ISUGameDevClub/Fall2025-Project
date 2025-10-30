@@ -35,6 +35,7 @@ public class HitboxProperties : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.tag == "Hurtbox" || collision.gameObject.tag == "Hazard")
         {
             inRange.Add(collision.gameObject);

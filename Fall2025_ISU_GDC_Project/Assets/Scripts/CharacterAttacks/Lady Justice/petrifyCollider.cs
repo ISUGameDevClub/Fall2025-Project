@@ -6,14 +6,27 @@ using UnityEngine.InputSystem;
 public class PetrifyCollider : MonoBehaviour
 {
     [SerializeField] private bool isActive = false;
-    [SerializeField] private int damage = 5;
     private List<GameObject> hurtEnemies = new List<GameObject>();
+
     private List<GameObject> inRange = new List<GameObject>();
+    private List<GameObject> petrifiedEnemies = new List<GameObject>();
+
+    private List<GameObject> enemiesToUnpetrify = new List<GameObject>();
+
+    private float petrifyTimer = 5.0f;
+    public float petrifyTime = 5.0f;
+
+    
+    //petrifyTimer = petrifyTime;
+    [SerializeField] bool petrifyActive;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+              //  Debug.Log("we hit something with petrify collider");
+
         if (collision.gameObject.tag == "Hurtbox" || collision.gameObject.tag == "Hazard")
         {
+            //Debug.Log("we hit hurtbox");
             inRange.Add(collision.gameObject);
         }
     }
@@ -24,6 +37,7 @@ public class PetrifyCollider : MonoBehaviour
     }
     private void petrify(Rigidbody2D rb)
     {
+       // Debug.Log("tried to petrify");
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
     }
     private void unpetrify(Rigidbody2D rb)
@@ -41,12 +55,15 @@ public class PetrifyCollider : MonoBehaviour
                 {
                     if (enemy.tag == "Hurtbox")
                     {
+                        //Debug.Log("hurtbox");
                         PlayerHealth enemyHP = enemy.GetComponentInParent<PlayerHealth>();
                         if (enemyHP != null)
                         {
                             hurtEnemies.Add(enemy);
-                            enemyHP.TakeDamage(damage);
                             petrify(enemy.GetComponentInParent<Rigidbody2D>());
+                            petrifiedEnemies.Add(enemy);
+                            petrifyActive = true;
+                            
                         }
                     }
                 }
@@ -56,5 +73,31 @@ public class PetrifyCollider : MonoBehaviour
         {
             hurtEnemies.Clear();
         }
+
+        enemiesToUnpetrify = new List<GameObject>();
+        foreach (GameObject enemy in petrifiedEnemies)
+        {
+            Debug.Log(petrifyTimer);
+            if (petrifyTimer <= 0.0f)
+            {
+                unpetrify(enemy.GetComponentInParent<Rigidbody2D>());
+                petrifyTimer = petrifyTime;
+                petrifyActive = false;
+                enemiesToUnpetrify.Add(enemy);
+                //petrifiedEnemies.Remove(enemy);
+            }
+        }
+
+        foreach(GameObject enemy in enemiesToUnpetrify)
+        {
+            if (petrifiedEnemies.Contains(enemy))
+            {
+                petrifiedEnemies.Remove(enemy);
+            }
+        }
+
+        if (petrifyActive)
+            petrifyTimer -= Time.deltaTime;
+        
     }
 }

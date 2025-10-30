@@ -197,7 +197,6 @@ MonoBehaviour:
   isActive: 0
   currentlyAttacking: 0
   ultimateChargePerHit: 1
-  petrify: 0
 --- !u!1 &8072521018718476684
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +217,6 @@ GameObject:
   - component: {fileID: 6663647585971147134}
   - component: {fileID: 3890417148057156894}
   - component: {fileID: 8108792525606552194}
-  - component: {fileID: -8901530840067493531}
   m_Layer: 0
   m_Name: BasePlayer
   m_TagString: Untagged
@@ -668,17 +666,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: db68a83eddebafe4f966f9a69e668b6e, type: 2}
---- !u!114 &-8901530840067493531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8072521018718476684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f609007f1428345814984c6b865a4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  petrified: 0
-  rb: {fileID: 1188004892975633885}

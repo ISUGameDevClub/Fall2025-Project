@@ -463,13 +463,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2007024127636017562, guid: 0d45fa42250ca8a459659133f0357eec, type: 3}
+      propertyPath: isActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007024127636017562, guid: 0d45fa42250ca8a459659133f0357eec, type: 3}
+      propertyPath: petrifyActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2095599159804960890, guid: 0d45fa42250ca8a459659133f0357eec, type: 3}
       propertyPath: m_Name
       value: Lady Justice
       objectReference: {fileID: 0}
     - target: {fileID: 4956661425928236548, guid: 0d45fa42250ca8a459659133f0357eec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.42363
+      value: -0.54
       objectReference: {fileID: 0}
     - target: {fileID: 4956661425928236548, guid: 0d45fa42250ca8a459659133f0357eec, type: 3}
       propertyPath: m_LocalPosition.y
@@ -507,6 +515,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5489250990144823444, guid: 0d45fa42250ca8a459659133f0357eec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -522,7 +534,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3016235288617523186, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.96
       objectReference: {fileID: 0}
     - target: {fileID: 3016235288617523186, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_LocalPosition.y
