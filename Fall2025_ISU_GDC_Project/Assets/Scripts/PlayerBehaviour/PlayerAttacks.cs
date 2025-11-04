@@ -104,16 +104,17 @@ public class PlayerAttacks : MonoBehaviour
         }
         if (!hitboxRef.GetCurrentlyAttacking())
         {
-            SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", 1.0f, false);
+            //SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", 1.0f, false);
             comboTimer = Time.time + comboWindowDuration;
             playerAnimator.Play(heavyAttacks[heavyComboIndexer].name);
             heavyComboIndexer += 1;
 
+            //this is going away vvv
             //enable neutral attack animation
-            if (GetComponent<Animator>() != null)
+            /*if (GetComponent<Animator>() != null)
             {
                 GetComponent<Animator>().SetTrigger("NeutralAttack");
-            }
+            }*/
         }
     }
 

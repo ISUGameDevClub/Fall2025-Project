@@ -370,6 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   knockbackForce: 5
+  hitStun: 0.3
   knocbackDuration: 0.5
   isActive: 0
   currentlyAttacking: 0
@@ -592,8 +593,29 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3016235288617523186, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8764834534102214395}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8072521018718476684, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7260875765844764922}
   m_SourcePrefab: {fileID: 100100000, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+--- !u!1 &1331554044760551430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8072521018718476684, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+  m_PrefabInstance: {fileID: 7097103749175912842}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7260875765844764922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331554044760551430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e813ac3e67e24ee48ab34859cdaaffe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beanSpecialHitbox: {fileID: 2733488031002376433}
 --- !u!4 &5451088664366071416 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3016235288617523186, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
