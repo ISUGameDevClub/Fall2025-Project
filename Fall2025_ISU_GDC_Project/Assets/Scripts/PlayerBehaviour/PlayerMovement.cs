@@ -86,6 +86,12 @@ public class PlayerMovement : MonoBehaviour
         {
             this.transform.localEulerAngles = new Vector3(0, 180, 0);
         }
+
+        //enable walking animation
+        if (GetComponent<Animator>() != null)
+        {
+            GetComponent<Animator>().SetBool("Walking", (movement.x != 0f));
+        }
     }
 
     private void FixedUpdate()

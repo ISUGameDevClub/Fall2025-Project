@@ -62,6 +62,8 @@ public class PlayerAttacks : MonoBehaviour
 
     public void OnLightAttack()
     {
+ 
+
         if (lightComboIndexer > lightAttacks.Count() - 1)
         {
             lightComboIndexer = 0;
@@ -72,6 +74,12 @@ public class PlayerAttacks : MonoBehaviour
             comboTimer = Time.time + comboWindowDuration;
             playerAnimator.Play(lightAttacks[lightComboIndexer].name);
             lightComboIndexer += 1;
+
+            //enable neutral attack animation
+            if (GetComponent<Animator>() != null)
+            {
+                GetComponent<Animator>().SetTrigger("NeutralAttack");
+            }
         }
     }
 
@@ -87,6 +95,12 @@ public class PlayerAttacks : MonoBehaviour
             comboTimer = Time.time + comboWindowDuration;
             playerAnimator.Play(heavyAttacks[heavyComboIndexer].name);
             heavyComboIndexer += 1;
+
+            //enable neutral attack animation
+            if (GetComponent<Animator>() != null)
+            {
+                GetComponent<Animator>().SetTrigger("NeutralAttack");
+            }
         }
     }
 }
