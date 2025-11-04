@@ -22,6 +22,10 @@ public class PlayerMovement : MonoBehaviour
     private bool jumpBeingHeld;
     private bool jumpHoldOnce;
 
+    public int direction = 1;
+
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -53,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         grounded = Physics2D.Raycast(this.transform.position, Vector2.down, groundedCheckLength, floorLayer);
 
         //Grounded logic, timers
-        if ( grounded )
+        if (grounded)
         {
             timer_coyoteTime = coyoteTime;
         }
@@ -72,19 +76,21 @@ public class PlayerMovement : MonoBehaviour
             jumpedThisFrame = false;
         }
 
-        if ( !jumpBeingHeld )
+        if (!jumpBeingHeld)
         {
             jumpHoldOnce = false;
         }
 
         //flip object based on movement direction
-        if ( movement.x > 0f )
+        if (movement.x > 0f)
         {
             this.transform.localEulerAngles = new Vector3(0, 0, 0);
+            direction = 1;
         }
-        if ( movement.x < 0f )
+        if (movement.x < 0f)
         {
             this.transform.localEulerAngles = new Vector3(0, 180, 0);
+            direction = -1;
         }
 
         //enable walking animation
@@ -128,6 +134,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+
         ////bring player down faster on downward movement
         //if (rb.linearVelocity.y < 0.3f)
         //{
@@ -136,4 +143,11 @@ public class PlayerMovement : MonoBehaviour
         //    rb.linearVelocity = v;
         //}
     }
+    // private void testPetrify()
+    // {
+    //     if (Input.GetKey(KeyCode.T))
+    //     {
+    //         petrified = true;
+    //     }
+    // }
 }

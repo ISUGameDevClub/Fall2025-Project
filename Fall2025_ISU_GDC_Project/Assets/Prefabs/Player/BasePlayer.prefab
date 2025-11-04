@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2194477509254051605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7408456389267026112}
+  m_Layer: 0
+  m_Name: ProjectileSpawnTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7408456389267026112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2194477509254051605}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.874, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3016235288617523186}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3115756371520534095
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +305,7 @@ GameObject:
   - component: {fileID: 3890417148057156894}
   - component: {fileID: 8108792525606552194}
   - component: {fileID: 3824133734016493945}
+  - component: {fileID: 8192398353664858679}
   m_Layer: 0
   m_Name: BasePlayer
   m_TagString: Untagged
@@ -297,6 +329,7 @@ Transform:
   - {fileID: 3304631888881657068}
   - {fileID: 1125839830873635937}
   - {fileID: 2750013178981258362}
+  - {fileID: 7408456389267026112}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7178392906862967062
@@ -387,6 +420,8 @@ MonoBehaviour:
         m_CallState: 1
   damageParticles: {fileID: 2218294301218356312, guid: 51e75b3e49c28b04796979f6ff7b74c5, type: 3}
   deathParticles: {fileID: 3262527251107720508, guid: 32b3ee10928eca04e9ba8a30154e3202, type: 3}
+  cracksIntensity: 0.55
+  lowHealthCracksIntensity: 0.35
 --- !u!114 &8107855282545786083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +443,7 @@ MonoBehaviour:
   floorLayer:
     serializedVersion: 2
     m_Bits: 64
+  grounded: 0
 --- !u!114 &430878357311010213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,6 +456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2faee692e63a1be468e19a712e0a4332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selfHurtbox: {fileID: 0}
+  player: {fileID: 0}
   playerAnimator: {fileID: 6211446524978881606}
   lightAttacks:
   - {fileID: 7400000, guid: 36bc4ba337a452b43ad6cc4c807f959d, type: 2}
@@ -427,6 +465,9 @@ MonoBehaviour:
   heavyAttacks:
   - {fileID: 7400000, guid: b61ed75a714eb6343a6ad4260d0c5a3f, type: 2}
   - {fileID: 7400000, guid: d6d98966884ca374a89a0a20436ed7cf, type: 2}
+  projectile: {fileID: 0}
+  projectileSpawn: {fileID: 2194477509254051605}
+  pd: {fileID: 0}
 --- !u!50 &1188004892975633885
 Rigidbody2D:
   serializedVersion: 5
@@ -697,6 +738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 8107855282545786083}
   playerAttacks: {fileID: 430878357311010213}
+  playerStun: {fileID: 8192398353664858679}
   gfx: {fileID: 7178392906862967062}
 --- !u!114 &3890417148057156894
 MonoBehaviour:
@@ -724,6 +766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: db68a83eddebafe4f966f9a69e668b6e, type: 2}
 --- !u!114 &3824133734016493945
+--- !u!114 &8192398353664858679
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -738,3 +781,7 @@ MonoBehaviour:
   shield: {fileID: 8790864844092162579}
   dropLagLength: 0.2
   blockCoefficient: 0.5
+  m_Script: {fileID: 11500000, guid: d35037a70138d634f93ed8d9c0917cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 6663647585971147134}

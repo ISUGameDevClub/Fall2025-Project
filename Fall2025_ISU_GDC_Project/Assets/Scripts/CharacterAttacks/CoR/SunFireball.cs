@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class SunFireball : MonoBehaviour
 {
     private int damage;
+
+    private float hitStun = .3f;
     private PlayerInput pi; //the reference of the PlayerInput that fired THIS ultimate (for making sure they dont do damage to themselves)
 
     public void InitializeSunFireball(int damage, PlayerInput pi)
@@ -27,7 +29,7 @@ public class SunFireball : MonoBehaviour
 
             if (!isColossusWhoFiredUltimate)
             {
-                collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(damage);
+                collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(damage,hitStun);
                 Destroy(gameObject);
             }
         }

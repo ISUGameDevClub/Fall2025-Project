@@ -1,21 +1,29 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 public class PlayerAttacks : MonoBehaviour
 {
-
+    public GameObject selfHurtbox;
+    public GameObject player;
+    
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private AnimationClip[] lightAttacks;
     [SerializeField] private AnimationClip[] heavyAttacks;
+    
+    public GameObject projectile;
+    public GameObject projectileSpawn;
 
     private int lightComboIndexer = 0;
     private int heavyComboIndexer = 0;
     private float comboTimer = 0;
     private float comboWindowDuration = 1;
-
+    public PetrifyDebuff pd;
     private HitboxProperties hitboxRef;
     private PlayerMovement playerMovement;
 
+
+    public UnityEvent specialMove;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,7 +34,8 @@ public class PlayerAttacks : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
+     // Update is called once per frame
     void Update()
     {
         if (comboTimer < Time.time)//If too much time has passed in between attacks...
@@ -34,6 +43,10 @@ public class PlayerAttacks : MonoBehaviour
             lightComboIndexer = 0;
             heavyComboIndexer = 0;
             //Then reset the combo.
+        }
+        if (Input.GetKeyDown(KeyCode.K))// && !petrified)
+        {
+            shootProjectile();
         }
 
 
@@ -50,16 +63,15 @@ public class PlayerAttacks : MonoBehaviour
             pi = GetComponent<PlayerInput>();
         }
 
-        if (pi.actions["Light Attack"].triggered)
+        if (pi.actions["Light Attack"].triggered)//&&!petrified)
         {
             OnLightAttack();
         }
-        if (pi.actions["Heavy Attack"].triggered)
+        if (pi.actions["Heavy Attack"].triggered)//&&!petrified)
         {
             OnHeavyAttack();
         }
     }
-
     public void OnLightAttack()
     {
  
@@ -85,6 +97,7 @@ public class PlayerAttacks : MonoBehaviour
 
     public void OnHeavyAttack()
     {
+        specialMove.Invoke();
         if (heavyComboIndexer > heavyAttacks.Count() - 1)
         {
             heavyComboIndexer = 0;
@@ -102,5 +115,19 @@ public class PlayerAttacks : MonoBehaviour
                 GetComponent<Animator>().SetTrigger("NeutralAttack");
             }
         }
+    }
+
+
+
+    public void shootProjectile()
+    {
+        move bullet = Instantiate(projectile, projectileSpawn.transform.position, Quaternion.identity).GetComponent<move>();
+
+        if (player.transform.rotation.eulerAngles.y == -180f || player.transform.rotation.eulerAngles.y == 180f)
+            bullet.direction = 0;
+        else
+            bullet.direction = 1;
+        bullet.selfShooter = selfHurtbox;
+        bullet.player = player;
     }
 }
