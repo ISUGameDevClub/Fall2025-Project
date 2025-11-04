@@ -15,6 +15,8 @@ public class HitboxProperties : MonoBehaviour
     [SerializeField] private float knockbackForce = 5f;
     //knockback
 
+    [SerializeField] private float hitStun = .3f; 
+
     [SerializeField] private float knocbackDuration = 0.5f;
 
     [SerializeField] private bool isActive = false;
@@ -63,7 +65,7 @@ public class HitboxProperties : MonoBehaviour
                         if (enemyHP != null)
                         {
                             hurtEnemies.Add(enemy);
-                            enemyHP.TakeDamage(damage);
+                            enemyHP.TakeDamage(damage,hitStun);
                             //apply force backwards to enemy
                             bool onLeft;
                             if (this.gameObject.transform.parent.position.x < playerKnockbackController.gameObject.transform.position.x)

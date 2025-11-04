@@ -23,6 +23,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float cracksIntensity = .55f;
     [SerializeField] private float lowHealthCracksIntensity = .35f;
 
+    private PlayerState stateMachine;
+
     private void Awake()
     {
         startingHP = HP;
@@ -33,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
     {
         //Get players RB 
         playerRB = GetComponent<Rigidbody2D>();
+        stateMachine = GetComponent<PlayerState>();
         //Add listeners (We must do this here (and not in heirarchy) as player objects are Prefabs)
         if (FindFirstObjectByType<GameSequenceManager>() != null)
         {
@@ -80,21 +83,23 @@ public class PlayerHealth : MonoBehaviour
     /* Deal damage to player
     /  @param dmg - dmg to take
     */
-    public void TakeDamage(int dmg)
+    public void TakeDamage(int dmg, float hitstun)
     {
+        stateMachine.ChangePlayerState(PlayerState.PlayerStateEnum.hitstun);
+        GetComponent<PlayerStun>().setHitstunDuration(50f);
         HP -= dmg;
         //play particle effect
         SpawnDamageParticles();
         SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
-        if ((float)HP/(float)startingHP <= .25f)
+        if ((float)HP / (float)startingHP <= .25f)
         {
-             spriteRend.material.SetFloat("_CracksAmount", lowHealthCracksIntensity);
+            spriteRend.material.SetFloat("_CracksAmount", lowHealthCracksIntensity);
         }
-        else if ((float)HP/(float)startingHP <= .5f)
+        else if ((float)HP / (float)startingHP <= .5f)
         {
             spriteRend.material.SetFloat("_CracksAmount", cracksIntensity);
         }
-
+        
     }
 
     private void SpawnDamageParticles()

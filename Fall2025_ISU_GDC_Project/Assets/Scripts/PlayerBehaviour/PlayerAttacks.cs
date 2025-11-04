@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 public class PlayerAttacks : MonoBehaviour
 {
 
@@ -14,6 +15,8 @@ public class PlayerAttacks : MonoBehaviour
     private float comboWindowDuration = 1;
 
     private HitboxProperties hitboxRef;
+
+    public UnityEvent specialMove;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -73,6 +76,7 @@ public class PlayerAttacks : MonoBehaviour
 
     public void OnHeavyAttack()
     {
+        specialMove.Invoke();
         if (heavyComboIndexer > heavyAttacks.Count() - 1)
         {
             heavyComboIndexer = 0;
