@@ -16,11 +16,13 @@ public class PlayerMovement : MonoBehaviour
     private float timer_coyoteTime;
     private float timer_jumpLock;
     private float timer_jumpHeld;
-    private bool grounded;
+    public bool grounded;
     private bool jumpedThisFrame;
     private bool queueJump;
     private bool jumpBeingHeld;
     private bool jumpHoldOnce;
+
+
 
     private void Awake()
     {
@@ -53,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         grounded = Physics2D.Raycast(this.transform.position, Vector2.down, groundedCheckLength, floorLayer);
 
         //Grounded logic, timers
-        if ( grounded )
+        if (grounded)
         {
             timer_coyoteTime = coyoteTime;
         }
@@ -72,20 +74,23 @@ public class PlayerMovement : MonoBehaviour
             jumpedThisFrame = false;
         }
 
-        if ( !jumpBeingHeld )
+        if (!jumpBeingHeld)
         {
             jumpHoldOnce = false;
         }
 
         //flip object based on movement direction
-        if ( movement.x > 0f )
+        if (movement.x > 0f)
         {
             this.transform.localEulerAngles = new Vector3(0, 0, 0);
         }
-        if ( movement.x < 0f )
+        if (movement.x < 0f)
         {
             this.transform.localEulerAngles = new Vector3(0, 180, 0);
         }
+
+        //testPetrify();
+
     }
 
     private void FixedUpdate()
@@ -94,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocityX = movement.x * horizontalSpeed;
 
         //apply jump value
-        if( queueJump )
+        if (queueJump)
         {
             Vector2 v = rb.linearVelocity;
             v.y = jumpForce;
@@ -106,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //if jump held, continue to go higher until key is released
-        if (jumpBeingHeld && jumpHoldOnce )
+        if (jumpBeingHeld && jumpHoldOnce)
         {
             if (timer_jumpHeld > 0f)
             {
@@ -121,6 +126,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+
         ////bring player down faster on downward movement
         //if (rb.linearVelocity.y < 0.3f)
         //{
@@ -129,4 +135,11 @@ public class PlayerMovement : MonoBehaviour
         //    rb.linearVelocity = v;
         //}
     }
+    // private void testPetrify()
+    // {
+    //     if (Input.GetKey(KeyCode.T))
+    //     {
+    //         petrified = true;
+    //     }
+    // }
 }

@@ -37,6 +37,7 @@ public class HitboxProperties : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.tag == "Hurtbox" || collision.gameObject.tag == "Hazard")
         {
             inRange.Add(collision.gameObject);
@@ -61,6 +62,7 @@ public class HitboxProperties : MonoBehaviour
                     {
                         PlayerHealth enemyHP = enemy.GetComponentInParent<PlayerHealth>();
                         Rigidbody2D enemyRB = enemy.GetComponentInParent<Rigidbody2D>(); //for the knockback
+                        PetrifyDebuff enemyPetrify = enemy.GetComponentInParent<PetrifyDebuff>();
                         PlayerKnockbackController playerKnockbackController = enemy.GetComponentInParent<PlayerKnockbackController>();
                         if (enemyHP != null)
                         {
