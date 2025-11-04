@@ -701,7 +701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1936713101077806825, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: checkIfHeldDown
+      value: CheckIfHeldDown
       objectReference: {fileID: 0}
     - target: {fileID: 1936713101077806825, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -1011,7 +1011,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b83f01b9412c82546974494be313445c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrow: {fileID: 0}
+  shooterLocation: {fileID: 1235839605}
+  arrow: {fileID: 7691364176751270186, guid: 3e162c233e3d677459fbf802940a6863, type: 3}
 --- !u!1001 &801053566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1239,6 +1240,11 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!4 &1235839605 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7408456389267026112, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+  m_PrefabInstance: {fileID: 347555377}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1340310385
 GameObject:
   m_ObjectHideFlags: 0

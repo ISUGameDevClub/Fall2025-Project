@@ -14,8 +14,9 @@ public class CoR_Special : MonoBehaviour
     float baseKnockback = 2f;
     float fullChargeKnockbackBonus = 2f;
     bool heldDown = false;
-
     bool usingSpecial = false;
+
+    public Transform shooterLocation;
 
     public GameObject arrow;
 
@@ -39,7 +40,7 @@ public class CoR_Special : MonoBehaviour
             if (heldAmount > 0)
             {
                 Debug.Log(heldAmount);
-                //useSpecial();
+                ShootArrow();
                 heldAmount = 0;
             }
         }
@@ -53,9 +54,13 @@ public class CoR_Special : MonoBehaviour
 
     private void ShootArrow()
     {
-        Mathf.FloorToInt(5.7f);
+        Debug.Log("Fired a projectile");
         int totalDamage = baseDamage + Mathf.FloorToInt(damageChargeBonus * heldAmount);
-        //arrow thing = Instantiate(arrow, transform.position, Quaternion.identity);
+        move projectile = Instantiate(arrow, shooterLocation.position, Quaternion.identity).GetComponent<move>();
+        projectile.damage = totalDamage;
+        projectile.projectileSpeed = 5f;
+        projectile.selfShooter = gameObject;
+        projectile.direction = GetComponent<PlayerMovement>().direction;
     }
 
     public void CheckIfHeldDown(InputAction.CallbackContext context)

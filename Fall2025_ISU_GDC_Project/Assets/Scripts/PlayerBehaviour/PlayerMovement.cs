@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     private bool jumpBeingHeld;
     private bool jumpHoldOnce;
 
+    public int direction = 1;
+
 
 
     private void Awake()
@@ -83,10 +85,12 @@ public class PlayerMovement : MonoBehaviour
         if (movement.x > 0f)
         {
             this.transform.localEulerAngles = new Vector3(0, 0, 0);
+            direction = 1;
         }
         if (movement.x < 0f)
         {
             this.transform.localEulerAngles = new Vector3(0, 180, 0);
+            direction = -1;
         }
 
         //testPetrify();

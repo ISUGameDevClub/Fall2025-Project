@@ -9,7 +9,7 @@ public class move : MonoBehaviour
     public float projectileSpeed = 0f;
     public float projectileLifetime = 5f;
     private float time = 0;
-    public int direction; // 0 for left, 1 for right
+    public int direction = 1;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,17 +23,13 @@ public class move : MonoBehaviour
     {
         if (collision.tag == "Hurtbox" && collision.gameObject != selfShooter)
         {
-            collision.GetComponentInParent<PlayerHealth>().TakeDamage(damage);
+            collision.GetComponentInParent<PlayerHealth>().TakeDamage(damage,1f);
             Destroy(gameObject);
         }
     }
     void FixedUpdate()
     {
-        if (direction==0)
-            rb.linearVelocity = new Vector2(-projectileSpeed, 0f);
-        else
-            rb.linearVelocity = new Vector2(projectileSpeed, 0f);
-
+        rb.linearVelocity = new Vector2(projectileSpeed * direction, 0f); 
         time = time + Time.fixedDeltaTime;
         if (time > projectileLifetime)
         {
