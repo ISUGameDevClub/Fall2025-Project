@@ -1,21 +1,16 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class BeanSpecialActivator : MonoBehaviour
+public class BeanUltimateActivator : MonoBehaviour
 {
-    [SerializeField] private HitboxProperties beanSpecialHitbox;
-
-    private void Start()
-    {
-        // vv Can enable this if or when specialMove is set up right vv
-        //GetComponent<PlayerAttacks>().specialMove.AddListener(ActivateBeanSpecialAnim);
-    }
-
+    [SerializeField] private HitboxProperties beanUltimateHitbox;
 
     private void Update()
     {
         PlayerInput pi = null;
+
         //we have a parent, use its PlayerInput component
         if (transform.parent != null)
         {
@@ -28,22 +23,26 @@ public class BeanSpecialActivator : MonoBehaviour
             pi = GetComponent<PlayerInput>();
         }
 
-
-        if (pi.actions["Special"].triggered)
+        if (pi.actions["Ultimate"].triggered)
         {
-            ActivateBeanSpecialAnim();
+            ActivateBeanUltimate();
         }
     }
 
-
-    public void ActivateBeanSpecialAnim()
+    private void ActivateBeanUltimate()
     {
-        //enable special attack animation
-        if (GetComponent<Animator>() != null && !beanSpecialHitbox.GetCurrentlyAttacking())
+        //enable ultimate attack animation
+        if (GetComponent<Animator>() != null && !beanUltimateHitbox.GetCurrentlyAttacking())
         {
-            SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", 1.0f, false);
-            GetComponent<Animator>().SetTrigger("SpecialAttack");
-            StartCoroutine("DisableBeanMovementRoutine");
+            PlayerInput pi = this.gameObject.transform.parent.GetComponent<PlayerInput>();
+            UltimateTrackerManager ultimateTracker = FindFirstObjectByType<UltimateTrackerManager>();
+            if (ultimateTracker.CanPlayerUseUltimate(pi))
+            {
+                SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", 1.0f, false);
+                GetComponent<Animator>().SetTrigger("UltimateAttack");
+                StartCoroutine("DisableBeanMovementRoutine");
+                ultimateTracker.ResetPlayerUltimateCharge(pi);
+            }  
         }
     }
 
@@ -52,13 +51,12 @@ public class BeanSpecialActivator : MonoBehaviour
     {
         GetComponent<PlayerState>().ChangePlayerState(PlayerState.PlayerStateEnum.Dormant);
 
-        
+
         AnimatorStateInfo stateInfo = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
         //Debug.Log(stateInfo.ToString());
-        
+
         yield return new WaitForSeconds(stateInfo.length + 0.85f);
 
         GetComponent<PlayerState>().ChangePlayerState(PlayerState.PlayerStateEnum.Active);
     }
-
 }
