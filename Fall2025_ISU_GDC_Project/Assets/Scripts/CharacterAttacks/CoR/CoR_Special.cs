@@ -40,11 +40,7 @@ public class CoR_Special : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            //CoRAnimator.Play(test.name);
-            CoRAnimator.Play(bowShot.name);
-        }
+       
         if (heldDown)
         {
             heldAmount += chargeRate * Time.deltaTime;
@@ -68,7 +64,6 @@ public class CoR_Special : MonoBehaviour
 
     public void UseSpecial()
     {
-        Debug.Log("A special has been used!");
         usingSpecial = true;
         if (bowShot != null)
             CoRAnimator.Play(bowShot.name);
@@ -76,7 +71,6 @@ public class CoR_Special : MonoBehaviour
 
     public void FireArrow()
     {
-        Debug.Log("Im gonna shoot an arrow");
         int totalDamage = baseDamage + Mathf.FloorToInt(damageChargeBonus * heldAmount);
         move projectile = Instantiate(arrow, shooterLocation.position, Quaternion.identity).GetComponent<move>();
         projectile.damage = totalDamage;

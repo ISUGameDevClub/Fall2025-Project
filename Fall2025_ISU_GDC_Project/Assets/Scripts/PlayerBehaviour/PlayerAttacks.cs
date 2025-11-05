@@ -5,11 +5,12 @@ using UnityEngine.Events;
 public class PlayerAttacks : MonoBehaviour
 {
     [SerializeField] private Animator playerAnimator;
-    [SerializeField] private AnimationClip normalAttack;
     public PetrifyDebuff pd;
     private HitboxProperties hitboxRef;
     private PlayerMovement playerMovement;
     public UnityEvent specialMove;
+
+    public AnimationClip normalAttack;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -44,9 +45,7 @@ public class PlayerAttacks : MonoBehaviour
         }
         if (pi.actions["Special"].triggered)//&&!petrified)
         {
-            Debug.Log("Trying to use the special move.");
             if (!hitboxRef.GetCurrentlyAttacking())
-                Debug.Log("Im gonna use the special move");
                 UseSpecialMove();
         }
     }
@@ -59,8 +58,11 @@ public class PlayerAttacks : MonoBehaviour
             if (!hitboxRef.GetCurrentlyAttacking())
             {
                 playerAnimator.SetTrigger("NeutralAttack");
-                playerAnimator.Play(normalAttack.name);
-                SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", 1.0f, false);
+                if (normalAttack != null)
+                {
+                    playerAnimator.Play(normalAttack.name);
+                }
+                SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", .5f, false);
             }
         }
     }

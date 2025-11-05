@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     private bool jumpBeingHeld;
     private bool jumpHoldOnce;
 
+    private float walkingMinimum = .05f; //Value used to check if we should play the walking anim.
+    //This makes us go into idle if the x linear velocity is really small.
+
     public int direction = 1;
 
 
@@ -96,7 +99,13 @@ public class PlayerMovement : MonoBehaviour
         //enable walking animation
         if (GetComponent<Animator>() != null)
         {
-            GetComponent<Animator>().SetBool("Walking", (movement.x != 0f));
+            if (grounded)
+                GetComponent<Animator>().SetBool("Walking", (movement.x != 0));
+            else
+            {
+                GetComponent<Animator>().SetBool("Walking", false);
+                //put falling anim here idk
+            }
         }
     }
 
