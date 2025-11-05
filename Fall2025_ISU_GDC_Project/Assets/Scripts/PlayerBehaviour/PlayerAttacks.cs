@@ -4,25 +4,11 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 public class PlayerAttacks : MonoBehaviour
 {
-    public GameObject selfHurtbox;
-    public GameObject player;
-    
     [SerializeField] private Animator playerAnimator;
-    [SerializeField] private AnimationClip[] lightAttacks;
-    [SerializeField] private AnimationClip[] heavyAttacks;
-    
-    public GameObject projectile;
-    public GameObject projectileSpawn;
-
-    private int lightComboIndexer = 0;
-    private int heavyComboIndexer = 0;
-    private float comboTimer = 0;
-    private float comboWindowDuration = 1;
+    [SerializeField] private AnimationClip normalAttack;
     public PetrifyDebuff pd;
     private HitboxProperties hitboxRef;
     private PlayerMovement playerMovement;
-
-
     public UnityEvent specialMove;
 
 
@@ -38,17 +24,6 @@ public class PlayerAttacks : MonoBehaviour
      // Update is called once per frame
     void Update()
     {
-        if (comboTimer < Time.time)//If too much time has passed in between attacks...
-        {
-            lightComboIndexer = 0;
-            heavyComboIndexer = 0;
-            //Then reset the combo.
-        }
-        if (Input.GetKeyDown(KeyCode.K))// && !petrified)
-        {
-            shootProjectile();
-        }
-
 
         PlayerInput pi = null;
         //we have a parent, use its PlayerInput component
@@ -63,71 +38,36 @@ public class PlayerAttacks : MonoBehaviour
             pi = GetComponent<PlayerInput>();
         }
 
-        if (pi.actions["Light Attack"].triggered)//&&!petrified)
+        if (pi.actions["Normal Attack"].triggered)//&&!petrified)
         {
-            OnLightAttack();
+            NormalAttack();
         }
-        if (pi.actions["Heavy Attack"].triggered)//&&!petrified)
+        if (pi.actions["Special"].triggered)//&&!petrified)
         {
-            OnHeavyAttack();
+            Debug.Log("Trying to use the special move.");
+            if (!hitboxRef.GetCurrentlyAttacking())
+                Debug.Log("Im gonna use the special move");
+                UseSpecialMove();
         }
     }
-    public void OnLightAttack()
+    
+    public void NormalAttack()
     {
- 
 
-        if (lightComboIndexer > lightAttacks.Count() - 1)
+        if (playerAnimator != null && hitboxRef != null)
         {
-            lightComboIndexer = 0;
-        }
-        if (!hitboxRef.GetCurrentlyAttacking())
-        {
-            SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_01", 1.0f, false);
-            comboTimer = Time.time + comboWindowDuration;
-            playerAnimator.Play(lightAttacks[lightComboIndexer].name);
-            lightComboIndexer += 1;
-
-            //enable neutral attack animation
-            if (GetComponent<Animator>() != null)
+            if (!hitboxRef.GetCurrentlyAttacking())
             {
-                GetComponent<Animator>().SetTrigger("NeutralAttack");
+                playerAnimator.SetTrigger("NeutralAttack");
+                playerAnimator.Play(normalAttack.name);
+                SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", 1.0f, false);
             }
         }
     }
 
-    public void OnHeavyAttack()
+    public void UseSpecialMove()
     {
         specialMove.Invoke();
-        if (heavyComboIndexer > heavyAttacks.Count() - 1)
-        {
-            heavyComboIndexer = 0;
-        }
-        if (!hitboxRef.GetCurrentlyAttacking())
-        {
-            SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", 1.0f, false);
-            comboTimer = Time.time + comboWindowDuration;
-            playerAnimator.Play(heavyAttacks[heavyComboIndexer].name);
-            heavyComboIndexer += 1;
-
-            //enable neutral attack animation
-            if (GetComponent<Animator>() != null)
-            {
-                GetComponent<Animator>().SetTrigger("NeutralAttack");
-            }
-        }
     }
 
-
-
-    public void shootProjectile()
-    {
-        move bullet = Instantiate(projectile, projectileSpawn.transform.position, Quaternion.identity).GetComponent<move>();
-
-        if (player.transform.rotation.eulerAngles.y == -180f || player.transform.rotation.eulerAngles.y == 180f)
-            bullet.direction = 0;
-        else
-            bullet.direction = 1;
-        bullet.selfShooter = selfHurtbox;
-        bullet.player = player;
-    }
 }

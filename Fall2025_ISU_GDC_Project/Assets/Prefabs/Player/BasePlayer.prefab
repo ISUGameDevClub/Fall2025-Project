@@ -356,7 +356,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: -876546973899608171, guid: 49ee9dba5e5eb964ca741a4c717fb991, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -458,17 +458,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2faee692e63a1be468e19a712e0a4332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfHurtbox: {fileID: 0}
-  player: {fileID: 0}
   playerAnimator: {fileID: 6211446524978881606}
-  lightAttacks:
-  - {fileID: 7400000, guid: 36bc4ba337a452b43ad6cc4c807f959d, type: 2}
-  - {fileID: 7400000, guid: adac3c583e95be94e8165ddf7ae1fdf9, type: 2}
-  heavyAttacks:
-  - {fileID: 7400000, guid: b61ed75a714eb6343a6ad4260d0c5a3f, type: 2}
-  - {fileID: 7400000, guid: d6d98966884ca374a89a0a20436ed7cf, type: 2}
-  projectile: {fileID: 0}
-  projectileSpawn: {fileID: 2194477509254051605}
+  normalAttack: {fileID: 0}
   pd: {fileID: 0}
   specialMove:
     m_PersistentCalls:
@@ -629,8 +620,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 430878357311010213}
         m_TargetAssemblyTypeName: PlayerAttacks, Assembly-CSharp
-        m_MethodName: OnLightAttack
-        m_Mode: 0
+        m_MethodName: NormalAttack
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -642,22 +633,6 @@ MonoBehaviour:
     m_ActionId: ae94648d-0fd2-4fbb-adfe-85010f686f9e
     m_ActionName: 'Player/Light Attack[/Keyboard/o]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 430878357311010213}
-        m_TargetAssemblyTypeName: PlayerAttacks, Assembly-CSharp
-        m_MethodName: OnHeavyAttack
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 5316bc24-fe7d-4ab9-9ec7-73312e3ab9f6
-    m_ActionName: 'Player/Heavy Attack[/Keyboard/p]'
-  - m_PersistentCalls:
       m_Calls: []
     m_ActionId: ed0c7a4d-1c33-41e5-8806-f27da3dcaf92
     m_ActionName: 'Player/Ultimate[/Keyboard/l]'
@@ -666,7 +641,19 @@ MonoBehaviour:
     m_ActionId: c9f448ed-48af-4bb3-b2f9-33f174b6182e
     m_ActionName: 'Player/Block[/Keyboard/k]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 430878357311010213}
+        m_TargetAssemblyTypeName: PlayerAttacks, Assembly-CSharp
+        m_MethodName: UseSpecialMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 95ad2ea1-ef3f-4be7-8765-e5c09fff6ce0
     m_ActionName: Player/Special
   m_NeverAutoSwitchControlSchemes: 0

@@ -114,4 +114,9 @@ public class HitboxProperties : MonoBehaviour
     {
         return currentlyAttacking;
     }
+
+    public void SetCurrentlyAttacking(bool value)
+    {
+        currentlyAttacking = value;
+    }
 }
