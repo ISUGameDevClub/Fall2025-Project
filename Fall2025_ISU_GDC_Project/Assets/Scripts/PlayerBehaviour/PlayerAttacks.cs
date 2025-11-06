@@ -1,37 +1,30 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 public class PlayerAttacks : MonoBehaviour
 {
-
     [SerializeField] private Animator playerAnimator;
-    [SerializeField] private AnimationClip[] lightAttacks;
-    [SerializeField] private AnimationClip[] heavyAttacks;
-
-    private int lightComboIndexer = 0;
-    private int heavyComboIndexer = 0;
-    private float comboTimer = 0;
-    private float comboWindowDuration = 1;
-
+    public PetrifyDebuff pd;
     private HitboxProperties hitboxRef;
+    private PlayerMovement playerMovement;
+    public UnityEvent specialMove;
+
+    public AnimationClip normalAttack;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         hitboxRef = GetComponentInChildren<HitboxProperties>();
+        playerMovement = GetComponentInParent<PlayerMovement>();
+
     }
 
-    // Update is called once per frame
+
+     // Update is called once per frame
     void Update()
     {
-        if (comboTimer < Time.time)//If too much time has passed in between attacks...
-        {
-            lightComboIndexer = 0;
-            heavyComboIndexer = 0;
-            //Then reset the combo.
-        }
-
 
         PlayerInput pi = null;
         //we have a parent, use its PlayerInput component
@@ -46,45 +39,37 @@ public class PlayerAttacks : MonoBehaviour
             pi = GetComponent<PlayerInput>();
         }
 
-        if (pi.actions["Light Attack"].triggered)
+        if (pi.actions["Normal Attack"].triggered)//&&!petrified)
         {
-            OnLightAttack();
+            NormalAttack();
         }
-        if (pi.actions["Heavy Attack"].triggered)
+        if (pi.actions["Special"].triggered)//&&!petrified)
         {
-            OnHeavyAttack();
-        }
-    }
-
-    public void OnLightAttack()
-    {
-        if (lightComboIndexer > lightAttacks.Count() - 1)
-        {
-            lightComboIndexer = 0;
-        }
-        if (!hitboxRef.GetCurrentlyAttacking())
-        {
-            SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_01", 1.0f, false);
-            comboTimer = Time.time + comboWindowDuration;
-            playerAnimator.Play(lightAttacks[lightComboIndexer].name);
-            lightComboIndexer += 1;
-        }
-    }
-
-    public void OnHeavyAttack()
-    {
-        if (heavyComboIndexer > heavyAttacks.Count() - 1)
-        {
-            heavyComboIndexer = 0;
-        }
-        if (!hitboxRef.GetCurrentlyAttacking())
-        {
-            SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", 1.0f, false);
-            comboTimer = Time.time + comboWindowDuration;
-            playerAnimator.Play(heavyAttacks[heavyComboIndexer].name);
-            heavyComboIndexer += 1;
+            if (!hitboxRef.GetCurrentlyAttacking())
+                UseSpecialMove();
         }
     }
     
+    public void NormalAttack()
+    {
+
+        if (playerAnimator != null && hitboxRef != null)
+        {
+            if (!hitboxRef.GetCurrentlyAttacking())
+            {
+                playerAnimator.SetTrigger("NeutralAttack");
+                if (normalAttack != null)
+                {
+                    playerAnimator.Play(normalAttack.name);
+                }
+                SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", .5f, false);
+            }
+        }
+    }
+
+    public void UseSpecialMove()
+    {
+        specialMove.Invoke();
+    }
 
 }

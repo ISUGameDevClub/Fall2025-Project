@@ -20,7 +20,14 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private GameObject damageParticles;
 
+    [SerializeField] private GameObject deathParticles;
     private float damagePercent = 1;
+    public float defMultiplier = 1f;
+    private Coroutine defenceCoroutine;
+    [SerializeField] private float cracksIntensity = .55f;
+    [SerializeField] private float lowHealthCracksIntensity = .35f;
+
+    private PlayerState stateMachine;
 
     private void Awake()
     {
@@ -32,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
     {
         //Get players RB 
         playerRB = GetComponent<Rigidbody2D>();
+        stateMachine = GetComponent<PlayerState>();
         //Add listeners (We must do this here (and not in heirarchy) as player objects are Prefabs)
         if (FindFirstObjectByType<GameSequenceManager>() != null)
         {
@@ -59,6 +67,7 @@ public class PlayerHealth : MonoBehaviour
             //This is in fixed update to not mess up my for each loop in the hitbox properties script.
 
             //when the player dies, they need to respawn
+            PlayDeathParticles();
             totalStocks--;
             ResetPlayerHealth();
             if (FindFirstObjectByType<RespawnManager>() != null)
@@ -75,6 +84,7 @@ public class PlayerHealth : MonoBehaviour
             active = true;
             playerDeath.Invoke();
             Destroy(gameObject);
+            
         }
     }
 
@@ -91,13 +101,40 @@ public class PlayerHealth : MonoBehaviour
     /* Deal damage to player
     /  @param dmg - dmg to take
     */
-    public void TakeDamage(int dmg)
+    public void TakeDamage(int dmg, float hitstun)
     {
-        //HP -= dmg;
-        HP -= (int)(dmg * damagePercent);
+
+        int newDamage = Mathf.CeilToInt(dmg * defMultiplier * damagePercent);
+        HP -= newDamage;
+
         //play particle effect
         SpawnDamageParticles();
+    }
 
+    private void PlayDeathParticles()
+    {
+        if (deathParticles != null)
+        {
+            GameObject deathParticleEffect = Instantiate(deathParticles, transform.position, Quaternion.identity);
+            deathParticleEffect.GetComponent<ParticleSystem>().Play();
+
+            Destroy(deathParticleEffect, 5f);
+        }
+        stateMachine.ChangePlayerState(PlayerState.PlayerStateEnum.hitstun);
+        GetComponent<PlayerStun>().setHitstunDuration(50f);
+        
+        //play particle effect
+        SpawnDamageParticles();
+        SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
+        if ((float)HP / (float)startingHP <= .25f)
+        {
+            spriteRend.material.SetFloat("_CracksAmount", lowHealthCracksIntensity);
+        }
+        else if ((float)HP / (float)startingHP <= .5f)
+        {
+            spriteRend.material.SetFloat("_CracksAmount", cracksIntensity);
+        }
+        
     }
 
     private void SpawnDamageParticles()
@@ -132,5 +169,23 @@ public class PlayerHealth : MonoBehaviour
     public int GetTotalStocks()
     {
         return totalStocks;
+    }
+
+    public void activateDefBoost(float newMultiplier, float duration)
+    {
+        if (defenceCoroutine != null)
+        {
+            StopCoroutine(defenceCoroutine);
+        }
+        defenceCoroutine = StartCoroutine(defBoostCoroutine(newMultiplier, duration));
+    }
+
+    private IEnumerator defBoostCoroutine(float newMultiplier, float duration)
+    {
+        defMultiplier = newMultiplier;
+
+        yield return new WaitForSeconds(duration);
+        defMultiplier = 1f;
+
     }
 }
