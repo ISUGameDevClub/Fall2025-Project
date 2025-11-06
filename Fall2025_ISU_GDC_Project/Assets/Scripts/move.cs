@@ -13,6 +13,10 @@ public class move : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        if (direction == -1)
+        {
+            this.transform.localEulerAngles = new Vector3(0, 180, 0);
+        }
     }
     private void OnCollisionEnter2D(Collision2D col)
     {

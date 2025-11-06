@@ -1212,6 +1212,10 @@ PrefabInstance:
       propertyPath: test
       value: 
       objectReference: {fileID: 7400000, guid: b61ed75a714eb6343a6ad4260d0c5a3f, type: 2}
+    - target: {fileID: 5683110331184814477, guid: d4cabef210c65644cbe7adfd8679235a, type: 3}
+      propertyPath: chargeSFXPath
+      value: Assets/Resources/Sound/SFX/Combat/Colossus of Rhoades Charging Bow.wav
+      objectReference: {fileID: 0}
     - target: {fileID: 7673483748946626411, guid: d4cabef210c65644cbe7adfd8679235a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

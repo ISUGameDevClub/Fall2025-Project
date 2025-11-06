@@ -29,6 +29,8 @@ public class CoR_Special : MonoBehaviour
 
     public AnimationClip test;
 
+    public string chargeSFXPath;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -56,6 +58,7 @@ public class CoR_Special : MonoBehaviour
         }
         if (!heldDown)
         {
+            Debug.Log("Not holding it down");
             CoRAnimator.speed = 1;
         }
 
@@ -67,6 +70,7 @@ public class CoR_Special : MonoBehaviour
         usingSpecial = true;
         if (bowShot != null)
             CoRAnimator.Play(bowShot.name);
+            SoundManager.PlaySound(chargeSFXPath, .5f, false);
     }
 
     public void FireArrow()
@@ -88,6 +92,7 @@ public class CoR_Special : MonoBehaviour
 
     public void CheckIfHeldDown(InputAction.CallbackContext context)
     {
+        Debug.Log("im holding down");
         if (usingSpecial)
             heldDown = true;
         if (context.canceled)
