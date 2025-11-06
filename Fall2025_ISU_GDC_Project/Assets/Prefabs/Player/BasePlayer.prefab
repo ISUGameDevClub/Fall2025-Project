@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44354c90871bf2b4d93f2aac01befa78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 200
   totalStocks: 3
   playerRB: {fileID: 0}
   active: 0
@@ -459,11 +459,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 6211446524978881606}
-  normalAttack: {fileID: 0}
   pd: {fileID: 0}
   specialMove:
     m_PersistentCalls:
       m_Calls: []
+  normalAttack: {fileID: 0}
 --- !u!50 &1188004892975633885
 Rigidbody2D:
   serializedVersion: 5

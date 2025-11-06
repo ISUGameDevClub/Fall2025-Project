@@ -256,7 +256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1707345768711498878
 Transform:
   m_ObjectHideFlags: 0
@@ -549,6 +549,7 @@ MonoBehaviour:
   sunPrefab: {fileID: 3852189640382248977, guid: cc216d40cc09fd84fb114b11bf512692, type: 3}
   arrowPrefab: {fileID: 8511819038732785082, guid: 34b0e49cf66fcf944a6feeeb226045ab, type: 3}
   arrowSpeed: 5
+  ultAnimClip: {fileID: 7400000, guid: a4573dea90da13a45b661286aa029582, type: 2}
 --- !u!114 &5683110331184814477
 MonoBehaviour:
   m_ObjectHideFlags: 0
