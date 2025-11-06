@@ -18,17 +18,13 @@ public class PlayerState : MonoBehaviour
         Active, //player is visible, responds to input
         Dormant, //player is visible, does NOT respond to input
         Inactive, //player is NOT visible, does NOT respond to input
-        hitstun   //Player is hit and cannot input anything.
+        hitstun,  //Player is hit and cannot input anything.
+        Attacking //Stops the player from moving while they attack.
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            Debug.Log(currentState);
-            //playerMovement.enabled = false;
-            ChangePlayerState(PlayerStateEnum.hitstun);
-        }
+        
 /*        if (Input.GetKeyDown("m")) //test call DELETE THIS
         {
             ChangePlayerState(PlayerStateEnum.Inactive);
@@ -59,11 +55,19 @@ public class PlayerState : MonoBehaviour
                 playerStun.enabled = false;
                 break;
             case PlayerStateEnum.hitstun:
-                Debug.Log("the state is hitstun");
                 gfx.enabled = true;
                 playerMovement.enabled = false;
                 playerStun.enabled = true;
                 break;
+            case PlayerStateEnum.Attacking:
+                gfx.enabled = true;
+                playerMovement.enabled = false;
+                break;
         }
+    }
+
+    public PlayerStateEnum GetCurrentState()
+    {
+        return currentState;
     }
 }

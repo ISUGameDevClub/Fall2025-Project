@@ -12,12 +12,17 @@ public class PlayerStun : MonoBehaviour
 
     void OnEnable()
     {
-        //Set attack active to false;
+        HitboxProperties hitboxRef = GetComponentInChildren<HitboxProperties>();
+        if (hitboxRef != null)
+            hitboxRef.SetCurrentlyAttacking(false);
     }
     void Update()
     {
         if (Time.time > stunTimer)
+        {
+            GetComponent<Animator>().speed = 1;
             stateMachine.ChangePlayerState(PlayerState.PlayerStateEnum.Active);
+        }
     }
 
     public void setHitstunDuration(float hitstun)
@@ -25,5 +30,10 @@ public class PlayerStun : MonoBehaviour
         stunDuration = hitstun;
         stunTimer = Time.time + stunDuration;
         gotHit.Invoke();//Dont know if most moves will need this but the CoR special will
+    }
+
+    public void pauseHitStunAnim()
+    {
+        GetComponent<Animator>().speed = 0;
     }
 }
