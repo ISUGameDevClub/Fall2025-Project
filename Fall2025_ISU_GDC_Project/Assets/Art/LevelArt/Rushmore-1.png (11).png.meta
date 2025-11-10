@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: e02fabd85f1b6c5458562c4aa6bdaee4
+guid: 20583bdf215085a42924660fa42a5eeb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8517437225112286964
-    second: Health_Bar_0
-  - first:
-      213: -8878127814793938685
-    second: Health_Bar_1
+      213: 3463732851201022021
+    second: Rushmore-1.png (11)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Health_Bar_0
+      name: Rushmore-1.png (11)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 183
-        width: 22
-        height: 20
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +128,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c094e7898fbfbc980800000000000000
-      internalID: -8517437225112286964
+      spriteID: 54810b03da6a11030800000000000000
+      internalID: 3463732851201022021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Health_Bar_1
+      name: Rushmore-1.png (11)_1
       rect:
         serializedVersion: 2
-        x: 4
-        y: 44
-        width: 315
-        height: 113
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 30931b07acd8ac480800000000000000
-      internalID: -8878127814793938685
+      spriteID: 5ae2cf0fb2f5d934e921424a6ff26c4b
+      internalID: 1383220698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rushmore-1.png (11)_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34bd8267708168e4f936755222ec5484
+      internalID: 1991043921
       vertices: []
       indices: 
       edges: []
@@ -163,7 +182,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 27fec345dee6f5a44932b418493677d5
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +192,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Health_Bar_0: -8517437225112286964
-      Health_Bar_1: -8878127814793938685
+      Rushmore-1.png (11)_0: 3463732851201022021
+      Rushmore-1.png (11)_1: 1383220698
+      Rushmore-1.png (11)_2: 1991043921
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

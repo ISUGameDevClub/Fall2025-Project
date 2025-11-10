@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: e02fabd85f1b6c5458562c4aa6bdaee4
+guid: f414f54caee1b984f9fb0fd57932698e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8517437225112286964
-    second: Health_Bar_0
-  - first:
-      213: -8878127814793938685
-    second: Health_Bar_1
+      213: -6245137575558215201
+    second: Background concept #3- Ancient Ruins (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -116,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Health_Bar_0
+      name: Background concept #3- Ancient Ruins (1)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 183
-        width: 22
-        height: 20
+        y: 0
+        width: 960
+        height: 540
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c094e7898fbfbc980800000000000000
-      internalID: -8517437225112286964
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Health_Bar_1
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 44
-        width: 315
-        height: 113
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 30931b07acd8ac480800000000000000
-      internalID: -8878127814793938685
+      spriteID: fd988639670d459a0800000000000000
+      internalID: -6245137575558215201
       vertices: []
       indices: 
       edges: []
@@ -163,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Health_Bar_0: -8517437225112286964
-      Health_Bar_1: -8878127814793938685
+      Background concept #3- Ancient Ruins (1)_0: -6245137575558215201
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
