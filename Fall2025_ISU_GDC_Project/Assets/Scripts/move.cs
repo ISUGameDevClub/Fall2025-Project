@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class move : MonoBehaviour
 {
@@ -10,9 +11,18 @@ public class move : MonoBehaviour
     public float projectileLifetime = 5f;
     private float time = 0;
     public int direction = 1;
+    public float ultChargePerHit;
+    public PlayerInput playerWhoShotThisArrow;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        //set direction of arrow GFX
+        if (selfShooter.transform.rotation.eulerAngles.y != 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -24,6 +34,9 @@ public class move : MonoBehaviour
         if (collision.tag == "Hurtbox" && collision.gameObject != selfShooter)
         {
             collision.GetComponentInParent<PlayerHealth>().TakeDamage(damage,1f);
+            //grant ultimate charge to attacker PlayerInput
+            FindFirstObjectByType<UltimateTrackerManager>().AddUltimateCharge(playerWhoShotThisArrow, ultChargePerHit);
+
             Destroy(gameObject);
         }
     }

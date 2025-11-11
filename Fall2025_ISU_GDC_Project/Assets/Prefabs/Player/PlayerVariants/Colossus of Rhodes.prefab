@@ -256,7 +256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1707345768711498878
 Transform:
   m_ObjectHideFlags: 0
@@ -279,7 +279,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8641791784025356772}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -318,7 +318,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ef4b09fef40331f45af783f157abe73f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.34375, y: 2.34375}
@@ -473,7 +473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7178392906862967062, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7178392906862967062, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -565,7 +565,6 @@ MonoBehaviour:
   bowShot: {fileID: 7400000, guid: 5430c39f627acf645baeade166e2330c, type: 2}
   shooterLocation: {fileID: 2699482493064716377}
   arrow: {fileID: 7691364176751270186, guid: e67c359880bf2894b9b6ae59c76f9617, type: 3}
-  test: {fileID: 0}
 --- !u!4 &7673483748946626411 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3016235288617523186, guid: 52884c41f89f49f49904d568f59087ec, type: 3}

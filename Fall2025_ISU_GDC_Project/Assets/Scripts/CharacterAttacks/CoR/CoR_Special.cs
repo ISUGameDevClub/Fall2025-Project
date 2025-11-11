@@ -75,6 +75,16 @@ public class CoR_Special : MonoBehaviour
         projectile.projectileSpeed = 5 + Mathf.FloorToInt(6 * heldAmount);
         projectile.selfShooter = gameObject;
         projectile.direction = GetComponent<PlayerMovement>().direction;
+
+        //assign the PlayerInput of who shot to this arrow
+        //grant ultimate charge to attacker PlayerInput (this script's top-most parent, if it exists)
+        PlayerInput attackerPi = null;
+        if (this.gameObject.transform.parent != null)
+        {
+            attackerPi = this.gameObject.transform.parent.gameObject.GetComponent<PlayerInput>();
+            projectile.playerWhoShotThisArrow = attackerPi;
+        }
+
         heldAmount = 0;
     }
 
