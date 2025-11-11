@@ -26,8 +26,6 @@ public class CoR_Special : MonoBehaviour
 
     private Animator CoRAnimator;
 
-    public AnimationClip test;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,6 +42,7 @@ public class CoR_Special : MonoBehaviour
         {
             heldAmount += chargeRate * Time.deltaTime;
             heldAmount = Mathf.Clamp(heldAmount, 0, maxHeldDuration);
+            Debug.Log("Holding Down");
         }
         else
         {
