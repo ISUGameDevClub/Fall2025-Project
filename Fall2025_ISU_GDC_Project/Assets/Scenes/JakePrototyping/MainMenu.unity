@@ -1516,11 +1516,15 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: 523d8c379b1e7f645bab965fcb9f07b2, type: 3}
     - target: {fileID: 868517410490513334, guid: 10b9e0d2736788d489076c97f9486a2c, type: 3}
       propertyPath: m_text
-      value: The\nRuins
+      value: Mystic\nRuins
       objectReference: {fileID: 0}
     - target: {fileID: 902884354400235749, guid: 10b9e0d2736788d489076c97f9486a2c, type: 3}
       propertyPath: m_Name
       value: LevelSelectButton (Ruins)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496126246954985672, guid: 10b9e0d2736788d489076c97f9486a2c, type: 3}
+      propertyPath: sceneToLoadOnPlay
+      value: LEVEL_MysticRuins
       objectReference: {fileID: 0}
     - target: {fileID: 2942887488661915203, guid: 10b9e0d2736788d489076c97f9486a2c, type: 3}
       propertyPath: m_Pivot.x
