@@ -19,6 +19,7 @@ public class PlayerKnockbackController : MonoBehaviour
             playerMovement.enabled = false;
         }
         rb.AddForce(knockbackDir * force, ForceMode2D.Impulse); //knockback
+
         Invoke("ResetPlayerMovement", duration);
     }
 

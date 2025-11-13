@@ -14,13 +14,20 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     private float timer_coyoteTime;
-    private float timer_jumpLock;
+    public float timer_jumpLock { get; private set; }
     private float timer_jumpHeld;
-    private bool grounded;
+    public bool grounded { get; private set; }
     private bool jumpedThisFrame;
     private bool queueJump;
     private bool jumpBeingHeld;
     private bool jumpHoldOnce;
+
+    private float walkingMinimum = .05f; //Value used to check if we should play the walking anim.
+    //This makes us go into idle if the x linear velocity is really small.
+
+    public int direction = 1;
+
+
 
     private void Awake()
     {
@@ -48,12 +55,14 @@ public class PlayerMovement : MonoBehaviour
         jumpedThisFrame = pi.actions["Jump"].triggered;
         jumpBeingHeld = pi.actions["Jump"].IsPressed();
 
+        Debug.Log(movement);
+
         //ground check
         Debug.DrawRay(this.transform.position, new Vector2(0, -groundedCheckLength), Color.yellow);
         grounded = Physics2D.Raycast(this.transform.position, Vector2.down, groundedCheckLength, floorLayer);
 
         //Grounded logic, timers
-        if ( grounded )
+        if (grounded)
         {
             timer_coyoteTime = coyoteTime;
         }
@@ -72,29 +81,45 @@ public class PlayerMovement : MonoBehaviour
             jumpedThisFrame = false;
         }
 
-        if ( !jumpBeingHeld )
+        if (!jumpBeingHeld)
         {
             jumpHoldOnce = false;
         }
 
         //flip object based on movement direction
-        if ( movement.x > 0f )
+        if (movement.x > 0f)
         {
             this.transform.localEulerAngles = new Vector3(0, 0, 0);
+            direction = 1;
         }
-        if ( movement.x < 0f )
+        if (movement.x < 0f)
         {
             this.transform.localEulerAngles = new Vector3(0, 180, 0);
+            direction = -1;
+        }
+
+        //enable walking animation
+        if (GetComponent<Animator>() != null)
+        {
+            if (grounded)
+                GetComponent<Animator>().SetBool("Walking", (movement.x != 0));
+            else
+            {
+                GetComponent<Animator>().SetBool("Walking", false);
+                //put falling anim here idk
+            }
         }
     }
 
     private void FixedUpdate()
     {
+
         //apply movement value
         rb.linearVelocityX = movement.x * horizontalSpeed;
+        
 
         //apply jump value
-        if( queueJump )
+        if (queueJump)
         {
             Vector2 v = rb.linearVelocity;
             v.y = jumpForce;
@@ -106,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //if jump held, continue to go higher until key is released
-        if (jumpBeingHeld && jumpHoldOnce )
+        if (jumpBeingHeld && jumpHoldOnce)
         {
             if (timer_jumpHeld > 0f)
             {
@@ -121,6 +146,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+
         ////bring player down faster on downward movement
         //if (rb.linearVelocity.y < 0.3f)
         //{
@@ -129,4 +155,11 @@ public class PlayerMovement : MonoBehaviour
         //    rb.linearVelocity = v;
         //}
     }
+    // private void testPetrify()
+    // {
+    //     if (Input.GetKey(KeyCode.T))
+    //     {
+    //         petrified = true;
+    //     }
+    // }
 }
