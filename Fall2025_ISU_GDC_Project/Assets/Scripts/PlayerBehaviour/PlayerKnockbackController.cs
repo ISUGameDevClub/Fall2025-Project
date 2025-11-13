@@ -16,7 +16,7 @@ public class PlayerKnockbackController : MonoBehaviour
     {
         if (playerMovement != null)
         {
-            playerMovement.enabled = false;
+            //playerMovement.enabled = false;
         }
         rb.AddForce(knockbackDir * force, ForceMode2D.Impulse); //knockback
     }

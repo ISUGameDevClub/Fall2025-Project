@@ -23,11 +23,14 @@ public class move : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().flipX = true;
         }
+
+        //destroy itself after a certain lifetime
+        Destroy(gameObject, 10f);
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject!=selfShooter&&col.gameObject!=player)//&&col.gameObject!=gameObject)
-        Destroy(gameObject);
+        //if(col.gameObject!=selfShooter&&col.gameObject!=player)//&&col.gameObject!=gameObject)
+        //Destroy(gameObject);
     }
     void OnTriggerEnter2D(Collider2D collision)
     {

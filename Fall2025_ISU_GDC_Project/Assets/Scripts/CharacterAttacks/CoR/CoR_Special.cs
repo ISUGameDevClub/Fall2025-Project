@@ -29,7 +29,7 @@ public class CoR_Special : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GetComponent<PlayerStun>().gotHit.AddListener(this.AttackInterupted);
+        //GetComponent<PlayerStun>().gotHit.AddListener(this.AttackInterupted);
         GetComponent<PlayerAttacks>().specialMove.AddListener(this.UseSpecial);
         CoRAnimator = GetComponent<Animator>();
     }
@@ -37,6 +37,7 @@ public class CoR_Special : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        heldDown = transform.root.gameObject.GetComponent<PlayerInput>().actions["Special"].IsPressed();
        
         if (heldDown)
         {
