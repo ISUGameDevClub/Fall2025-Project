@@ -5,47 +5,74 @@ public class Temp : MonoBehaviour
 {
     [SerializeField] private float boxSpeed = 2.0f;
     [SerializeField] private float switchDirectionAfterTime;
+    [SerializeField] private Transform startTransform;
+    [SerializeField] private Transform endTransform;
+    [SerializeField] private Rigidbody2D rb;
     private float timer;
+    private bool goingLeft;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         timer = switchDirectionAfterTime;
+        goingLeft = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
+        
+        
+        if (this.transform.position.x <= endTransform.position.x)
+        {
+            goingLeft = false;
+        }
 
-        if (timer > 0)
+        if (this.transform.position.x >= startTransform.position.x)
         {
-            transform.Translate(Vector3.left * Time.deltaTime * boxSpeed, Space.World);
-        } else if (timer < 0 && timer >-switchDirectionAfterTime)
+            goingLeft = true;
+        }
+
+    }
+
+    private void FixedUpdate()
+    {
+        
+        if (goingLeft)
         {
-            transform.Translate(Vector3.right * Time.deltaTime * boxSpeed, Space.World);
+            rb.linearVelocityX = boxSpeed * -1;
         }
         else
         {
-            timer = switchDirectionAfterTime;
+            rb.linearVelocityX = boxSpeed * 1;
         }
-        
         
     }
 
     private void OnCollisionEnter2D(Collision2D collider)
     {
-        //if (col.gameObject.CompareTag("Player"))
-        //{
-            collider.gameObject.transform.parent = transform;
-        //}
+        Debug.Log(collider.gameObject.name);
+
+        Rigidbody2D playerRB = collider.gameObject.GetComponent<Rigidbody2D>();
+        PlayerMovement playerMovement = collider.gameObject.GetComponent<PlayerMovement>();
+
+        playerMovement.onMovingPlatform = true;
+
+        if (goingLeft)
+        {
+            
+            playerMovement.platformSpeed = boxSpeed * -1;
+        }
+        else
+        {
+            playerMovement.platformSpeed = boxSpeed * 1;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collider)
     {
-        //if (col.gameObject.CompareTag("Player"))
-        //{
-            collider.gameObject.transform.parent = null;
-        //}
+        PlayerMovement playerMovement = collider.gameObject.GetComponent<PlayerMovement>();
+
+        playerMovement.onMovingPlatform = false;
     }
 }

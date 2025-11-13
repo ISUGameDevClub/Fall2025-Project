@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     //This makes us go into idle if the x linear velocity is really small.
 
     public int direction = 1;
+    public bool onMovingPlatform = false;
+    public float platformSpeed = 0;
 
 
 
@@ -55,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         jumpedThisFrame = pi.actions["Jump"].triggered;
         jumpBeingHeld = pi.actions["Jump"].IsPressed();
 
-        Debug.Log(movement);
+       // Debug.Log(movement);
 
         //ground check
         Debug.DrawRay(this.transform.position, new Vector2(0, -groundedCheckLength), Color.yellow);
@@ -115,8 +117,17 @@ public class PlayerMovement : MonoBehaviour
     {
 
         //apply movement value
-        rb.linearVelocityX = movement.x * horizontalSpeed;
-        
+        if(!onMovingPlatform)
+        {
+            rb.linearVelocityX = movement.x * horizontalSpeed;
+        }
+        else
+        {
+            rb.linearVelocityX = movement.x * horizontalSpeed + platformSpeed ;
+        }
+
+
+
 
         //apply jump value
         if (queueJump)
