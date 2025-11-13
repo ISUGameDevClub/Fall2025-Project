@@ -1,6 +1,5 @@
 using System;
 using Unity.Mathematics;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -27,14 +26,10 @@ public class CoR_Special : MonoBehaviour
 
     private Animator CoRAnimator;
 
-    public AnimationClip test;
-
-    public string chargeSFXPath;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GetComponent<PlayerStun>().gotHit.AddListener(this.AttackInterupted);
+        //GetComponent<PlayerStun>().gotHit.AddListener(this.AttackInterupted);
         GetComponent<PlayerAttacks>().specialMove.AddListener(this.UseSpecial);
         CoRAnimator = GetComponent<Animator>();
     }
@@ -42,11 +37,13 @@ public class CoR_Special : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        heldDown = transform.root.gameObject.GetComponent<PlayerInput>().actions["Special"].IsPressed();
        
         if (heldDown)
         {
             heldAmount += chargeRate * Time.deltaTime;
             heldAmount = Mathf.Clamp(heldAmount, 0, maxHeldDuration);
+            Debug.Log("Holding Down");
         }
         else
         {
@@ -58,7 +55,6 @@ public class CoR_Special : MonoBehaviour
         }
         if (!heldDown)
         {
-            Debug.Log("Not holding it down");
             CoRAnimator.speed = 1;
         }
 
@@ -70,7 +66,6 @@ public class CoR_Special : MonoBehaviour
         usingSpecial = true;
         if (bowShot != null)
             CoRAnimator.Play(bowShot.name);
-            SoundManager.PlaySound(chargeSFXPath, .5f, false);
     }
 
     public void FireArrow()
@@ -81,6 +76,16 @@ public class CoR_Special : MonoBehaviour
         projectile.projectileSpeed = 5 + Mathf.FloorToInt(6 * heldAmount);
         projectile.selfShooter = gameObject;
         projectile.direction = GetComponent<PlayerMovement>().direction;
+
+        //assign the PlayerInput of who shot to this arrow
+        //grant ultimate charge to attacker PlayerInput (this script's top-most parent, if it exists)
+        PlayerInput attackerPi = null;
+        if (this.gameObject.transform.parent != null)
+        {
+            attackerPi = this.gameObject.transform.parent.gameObject.GetComponent<PlayerInput>();
+            projectile.playerWhoShotThisArrow = attackerPi;
+        }
+
         heldAmount = 0;
     }
 
@@ -92,7 +97,6 @@ public class CoR_Special : MonoBehaviour
 
     public void CheckIfHeldDown(InputAction.CallbackContext context)
     {
-        Debug.Log("im holding down");
         if (usingSpecial)
             heldDown = true;
         if (context.canceled)

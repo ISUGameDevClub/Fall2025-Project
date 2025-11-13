@@ -40,24 +40,24 @@ public class PlayerState : MonoBehaviour
                 gfx.enabled = true;
                 playerMovement.enabled = true;
                 playerAttacks.enabled = true;
-                playerStun.enabled = false;
+                //playerStun.enabled = false;
                 break;
             case PlayerStateEnum.Dormant:
                 gfx.enabled = true;
                 playerMovement.enabled = false;
                 playerAttacks.enabled = false;
-                playerStun.enabled = false;
+                //playerStun.enabled = false;
                 break;
             case PlayerStateEnum.Inactive:
                 gfx.enabled = false;
                 playerMovement.enabled = false;
                 playerAttacks.enabled = false;
-                playerStun.enabled = false;
+                //playerStun.enabled = false;
                 break;
             case PlayerStateEnum.hitstun:
                 gfx.enabled = true;
                 playerMovement.enabled = false;
-                playerStun.enabled = true;
+                //playerStun.enabled = true;
                 break;
             case PlayerStateEnum.Attacking:
                 gfx.enabled = true;
