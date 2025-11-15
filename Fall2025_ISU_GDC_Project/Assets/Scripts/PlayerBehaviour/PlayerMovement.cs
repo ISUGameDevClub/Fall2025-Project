@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
 
         //apply movement value
         rb.linearVelocityX = movement.x * horizontalSpeed;
-        
+
 
         //apply jump value
         if (queueJump)

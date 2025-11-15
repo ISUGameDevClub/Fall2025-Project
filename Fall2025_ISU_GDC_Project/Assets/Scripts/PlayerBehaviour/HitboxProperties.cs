@@ -34,6 +34,10 @@ public class HitboxProperties : MonoBehaviour
     private List<GameObject> hurtEnemies = new List<GameObject>();
     private List<GameObject> inRange = new List<GameObject>();
 
+    public List<GameObject> getInRange()
+    {
+        return inRange;
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
