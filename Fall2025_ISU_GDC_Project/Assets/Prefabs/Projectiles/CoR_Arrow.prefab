@@ -177,7 +177,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selfShooter: {fileID: 0}
   player: {fileID: 0}
-  damage: 10
-  projectileSpeed: 5
+  damage: 30
+  projectileSpeed: 9
   projectileLifetime: 5
   direction: 0
+  ultChargePerHit: 6
+  playerWhoShotThisArrow: {fileID: 0}

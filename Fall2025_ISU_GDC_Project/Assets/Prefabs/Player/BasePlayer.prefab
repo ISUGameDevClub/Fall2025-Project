@@ -305,9 +305,8 @@ GameObject:
   - component: {fileID: 6663647585971147134}
   - component: {fileID: 3890417148057156894}
   - component: {fileID: 8108792525606552194}
-  - component: {fileID: 3824133734016493945}
   - component: {fileID: 8192398353664858679}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BasePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,7 +698,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -733,7 +732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 8107855282545786083}
-  playerStun: {fileID: 3824133734016493945}
+  playerStun: {fileID: 0}
   playerAttacks: {fileID: 430878357311010213}
   gfx: {fileID: 7178392906862967062}
 --- !u!114 &3890417148057156894
@@ -761,22 +760,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: db68a83eddebafe4f966f9a69e668b6e, type: 2}
---- !u!114 &3824133734016493945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8072521018718476684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d35037a70138d634f93ed8d9c0917cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateMachine: {fileID: 6663647585971147134}
-  gotHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &8192398353664858679
 MonoBehaviour:
   m_ObjectHideFlags: 0

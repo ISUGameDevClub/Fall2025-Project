@@ -1,0 +1,1690 @@
+fileFormatVersion: 2
+guid: 8b6aa7e27bf54f643a3af18dcf01b647
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2934127947514980442
+    second: Rock Breaking Loading Animation_0
+  - first:
+      213: -9159168893253023492
+    second: Rock Breaking Loading Animation_1
+  - first:
+      213: 4474910705454329652
+    second: Rock Breaking Loading Animation_2
+  - first:
+      213: -2340158704318844496
+    second: Rock Breaking Loading Animation_3
+  - first:
+      213: 2142782637008576524
+    second: Rock Breaking Loading Animation_4
+  - first:
+      213: -1880591340976787384
+    second: Rock Breaking Loading Animation_5
+  - first:
+      213: 4831333847427733284
+    second: Rock Breaking Loading Animation_6
+  - first:
+      213: 2426984832585693747
+    second: Rock Breaking Loading Animation_7
+  - first:
+      213: -2950502774704027772
+    second: Rock Breaking Loading Animation_8
+  - first:
+      213: -2807469170522767091
+    second: Rock Breaking Loading Animation_9
+  - first:
+      213: -1188010274872495195
+    second: Rock Breaking Loading Animation_10
+  - first:
+      213: -406490934320394652
+    second: Rock Breaking Loading Animation_11
+  - first:
+      213: -428007618073947440
+    second: Rock Breaking Loading Animation_12
+  - first:
+      213: 8231873531837078317
+    second: Rock Breaking Loading Animation_13
+  - first:
+      213: -5902706439153736873
+    second: Rock Breaking Loading Animation_14
+  - first:
+      213: 1411702073485726807
+    second: Rock Breaking Loading Animation_15
+  - first:
+      213: 4316458299415338654
+    second: Rock Breaking Loading Animation_16
+  - first:
+      213: 3285485160680209116
+    second: Rock Breaking Loading Animation_17
+  - first:
+      213: 5348400535953216672
+    second: Rock Breaking Loading Animation_18
+  - first:
+      213: 237758709624928981
+    second: Rock Breaking Loading Animation_19
+  - first:
+      213: -6240429333939088479
+    second: Rock Breaking Loading Animation_20
+  - first:
+      213: -4828493543577566199
+    second: Rock Breaking Loading Animation_21
+  - first:
+      213: 2760931355237190846
+    second: Rock Breaking Loading Animation_22
+  - first:
+      213: -5149717707470859813
+    second: Rock Breaking Loading Animation_23
+  - first:
+      213: 8317571618716238701
+    second: Rock Breaking Loading Animation_24
+  - first:
+      213: 8379787659950034439
+    second: Rock Breaking Loading Animation_25
+  - first:
+      213: -7079708609358722101
+    second: Rock Breaking Loading Animation_26
+  - first:
+      213: -6641289117793399866
+    second: Rock Breaking Loading Animation_27
+  - first:
+      213: 2787257591421160160
+    second: Rock Breaking Loading Animation_28
+  - first:
+      213: 7255808126496765222
+    second: Rock Breaking Loading Animation_29
+  - first:
+      213: 6516872954559087402
+    second: Rock Breaking Loading Animation_30
+  - first:
+      213: -3179437453386499980
+    second: Rock Breaking Loading Animation_31
+  - first:
+      213: 1512636639000148992
+    second: Rock Breaking Loading Animation_32
+  - first:
+      213: 3440903135449211955
+    second: Rock Breaking Loading Animation_33
+  - first:
+      213: -5153933139139830634
+    second: Rock Breaking Loading Animation_34
+  - first:
+      213: 4031222168013305160
+    second: Rock Breaking Loading Animation_35
+  - first:
+      213: 4396874466605366254
+    second: Rock Breaking Loading Animation_36
+  - first:
+      213: 2056131925137128686
+    second: Rock Breaking Loading Animation_37
+  - first:
+      213: -2059009428101715489
+    second: Rock Breaking Loading Animation_38
+  - first:
+      213: -9076532761546884845
+    second: Rock Breaking Loading Animation_39
+  - first:
+      213: -7011755571147162133
+    second: Rock Breaking Loading Animation_40
+  - first:
+      213: 2423196662323687373
+    second: Rock Breaking Loading Animation_41
+  - first:
+      213: 2999142593115021955
+    second: Rock Breaking Loading Animation_42
+  - first:
+      213: 8261146494049561897
+    second: Rock Breaking Loading Animation_43
+  - first:
+      213: 3124404915629718920
+    second: Rock Breaking Loading Animation_44
+  - first:
+      213: 842080078913720194
+    second: Rock Breaking Loading Animation_45
+  - first:
+      213: 1445979858130652296
+    second: Rock Breaking Loading Animation_46
+  - first:
+      213: 8676882043179196494
+    second: Rock Breaking Loading Animation_47
+  - first:
+      213: -1976658726059672421
+    second: Rock Breaking Loading Animation_48
+  - first:
+      213: -593019432404008606
+    second: Rock Breaking Loading Animation_49
+  - first:
+      213: 5947822205153640323
+    second: Rock Breaking Loading Animation_50
+  - first:
+      213: -7082675826463477741
+    second: Rock Breaking Loading Animation_51
+  - first:
+      213: -2368045951434140493
+    second: Rock Breaking Loading Animation_52
+  - first:
+      213: 9075796854457099445
+    second: Rock Breaking Loading Animation_53
+  - first:
+      213: 130966082973329614
+    second: Rock Breaking Loading Animation_54
+  - first:
+      213: 7882669497328244828
+    second: Rock Breaking Loading Animation_55
+  - first:
+      213: -6154332082303787009
+    second: Rock Breaking Loading Animation_56
+  - first:
+      213: -6596202768227350724
+    second: Rock Breaking Loading Animation_57
+  - first:
+      213: 5603216358077451231
+    second: Rock Breaking Loading Animation_58
+  - first:
+      213: -1277776274380981554
+    second: Rock Breaking Loading Animation_59
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_0
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 4060
+        width: 70
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a582d2592dd18b820800000000000000
+      internalID: 2934127947514980442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_1
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 3810
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf888df3b6814e080800000000000000
+      internalID: -9159168893253023492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_2
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 4060
+        width: 70
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43fa238d3931a1e30800000000000000
+      internalID: 4474910705454329652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_3
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 3810
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b1790f9e06168fd0800000000000000
+      internalID: -2340158704318844496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_4
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 4058
+        width: 84
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0065c59471bcbd10800000000000000
+      internalID: 2142782637008576524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_5
+      rect:
+        serializedVersion: 2
+        x: 2131
+        y: 3810
+        width: 601
+        height: 470
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8403761a32cc6e5e0800000000000000
+      internalID: -1880591340976787384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_6
+      rect:
+        serializedVersion: 2
+        x: 3041
+        y: 4060
+        width: 70
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 427504769885c0340800000000000000
+      internalID: 4831333847427733284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_7
+      rect:
+        serializedVersion: 2
+        x: 3091
+        y: 3810
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33af785b8d16ea120800000000000000
+      internalID: 2426984832585693747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_8
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 3520
+        width: 70
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48746fcdb55bd07d0800000000000000
+      internalID: -2950502774704027772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_9
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 3270
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d01412df9add909d0800000000000000
+      internalID: -2807469170522767091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_10
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 3518
+        width: 84
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a3f5b803f6538fe0800000000000000
+      internalID: -1188010274872495195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_11
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 3270
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46e8a6f16aadb5af0800000000000000
+      internalID: -406490934320394652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_12
+      rect:
+        serializedVersion: 2
+        x: 2106
+        y: 3516
+        width: 114
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d29a8bc6596f0af0800000000000000
+      internalID: -428007618073947440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_13
+      rect:
+        serializedVersion: 2
+        x: 2131
+        y: 3270
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2bd615ec5d7d3270800000000000000
+      internalID: 8231873531837078317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_14
+      rect:
+        serializedVersion: 2
+        x: 3028
+        y: 3516
+        width: 163
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 753a4d874cf551ea0800000000000000
+      internalID: -5902706439153736873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_15
+      rect:
+        serializedVersion: 2
+        x: 3091
+        y: 3270
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7549cca6e8f579310800000000000000
+      internalID: 1411702073485726807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_16
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 2976
+        width: 163
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9e107824f327eb30800000000000000
+      internalID: 4316458299415338654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_17
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 2730
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda392da853689d20800000000000000
+      internalID: 3285485160680209116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_18
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 2975
+        width: 196
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a4100e43f5593a40800000000000000
+      internalID: 5348400535953216672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_19
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 2730
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5daf2756940bc4300800000000000000
+      internalID: 237758709624928981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_20
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 2975
+        width: 196
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a312a0859a8569a0800000000000000
+      internalID: -6240429333939088479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_21
+      rect:
+        serializedVersion: 2
+        x: 2131
+        y: 2730
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 904cace54bebdfcb0800000000000000
+      internalID: -4828493543577566199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_22
+      rect:
+        serializedVersion: 2
+        x: 3028
+        y: 2975
+        width: 211
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebc8626807cc05620800000000000000
+      internalID: 2760931355237190846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_23
+      rect:
+        serializedVersion: 2
+        x: 3091
+        y: 2730
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd119a887078888b0800000000000000
+      internalID: -5149717707470859813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_24
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 2435
+        width: 211
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d63c37f9153fd6370800000000000000
+      internalID: 8317571618716238701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_25
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 2190
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70e068c8a7cfa4470800000000000000
+      internalID: 8379787659950034439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_26
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 2435
+        width: 196
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcb06e99782dfbd90800000000000000
+      internalID: -7079708609358722101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_27
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 2190
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cbc1430cb665d3a0800000000000000
+      internalID: -6641289117793399866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_28
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 2436
+        width: 163
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ea4b2a03045ea620800000000000000
+      internalID: 2787257591421160160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_29
+      rect:
+        serializedVersion: 2
+        x: 2131
+        y: 2190
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6257b325c0fc1b460800000000000000
+      internalID: 7255808126496765222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_30
+      rect:
+        serializedVersion: 2
+        x: 3066
+        y: 2436
+        width: 114
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2348de9c65907a50800000000000000
+      internalID: 6516872954559087402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_31
+      rect:
+        serializedVersion: 2
+        x: 3091
+        y: 2190
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47833554b7e50e3d0800000000000000
+      internalID: -3179437453386499980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_32
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 1898
+        width: 84
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c38d54207fdf410800000000000000
+      internalID: 1512636639000148992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_33
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 1650
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3346af6cb2b80cf20800000000000000
+      internalID: 3440903135449211955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_34
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 1896
+        width: 114
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69cd47ddd1d8978b0800000000000000
+      internalID: -5153933139139830634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_35
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 1650
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 845fc171437c1f730800000000000000
+      internalID: 4031222168013305160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_36
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 1896
+        width: 163
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeb7fff1806d40d30800000000000000
+      internalID: 4396874466605366254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_37
+      rect:
+        serializedVersion: 2
+        x: 2131
+        y: 1650
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eec73219719d88c10800000000000000
+      internalID: 2056131925137128686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_38
+      rect:
+        serializedVersion: 2
+        x: 3028
+        y: 1895
+        width: 196
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd921d095ddec63e0800000000000000
+      internalID: -2059009428101715489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_39
+      rect:
+        serializedVersion: 2
+        x: 3091
+        y: 1650
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3197dcbfa8da90280800000000000000
+      internalID: -9076532761546884845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_40
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 1355
+        width: 211
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bed38e9357d31be90800000000000000
+      internalID: -7011755571147162133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_41
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 1110
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcf27b6968ce0a120800000000000000
+      internalID: 2423196662323687373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_42
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 1355
+        width: 215
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3826d5d5c481f9920800000000000000
+      internalID: 2999142593115021955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_43
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 1110
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92da94787fc75a270800000000000000
+      internalID: 8261146494049561897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_44
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 1355
+        width: 215
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88df79a87bd1c5b20800000000000000
+      internalID: 3124404915629718920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_45
+      rect:
+        serializedVersion: 2
+        x: 2131
+        y: 1110
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28fc518ce5bafab00800000000000000
+      internalID: 842080078913720194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_46
+      rect:
+        serializedVersion: 2
+        x: 3028
+        y: 1110
+        width: 627
+        height: 470
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88c4f341507211410800000000000000
+      internalID: 1445979858130652296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_47
+      rect:
+        serializedVersion: 2
+        x: 3064
+        y: 1356
+        width: 196
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4069a50f3a7a6870800000000000000
+      internalID: 8676882043179196494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_48
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 570
+        width: 627
+        height: 470
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9c79078c5f7194e0800000000000000
+      internalID: -1976658726059672421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_49
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 816
+        width: 196
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 261c7aad7fb25c7f0800000000000000
+      internalID: -593019432404008606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_50
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 815
+        width: 211
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38ffc5d58c8ea8250800000000000000
+      internalID: 5947822205153640323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_51
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 570
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 310f5688cd745bd90800000000000000
+      internalID: -7082675826463477741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_52
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 815
+        width: 196
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b457fce0c2032fd0800000000000000
+      internalID: -2368045951434140493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_53
+      rect:
+        serializedVersion: 2
+        x: 2131
+        y: 570
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b4e58b4725b3fd70800000000000000
+      internalID: 9075796854457099445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_54
+      rect:
+        serializedVersion: 2
+        x: 3028
+        y: 816
+        width: 163
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec8ef3565f841d100800000000000000
+      internalID: 130966082973329614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_55
+      rect:
+        serializedVersion: 2
+        x: 3091
+        y: 570
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c589e06c42ed46d60800000000000000
+      internalID: 7882669497328244828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_56
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 276
+        width: 114
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fff1e74049b679aa0800000000000000
+      internalID: -6154332082303787009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_57
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 30
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c374c5dc7849574a0800000000000000
+      internalID: -6596202768227350724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_58
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 278
+        width: 84
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdb4dde279f92cd40800000000000000
+      internalID: 5603216358077451231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Breaking Loading Animation_59
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 30
+        width: 564
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eca79179f3d644ee0800000000000000
+      internalID: -1277776274380981554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Rock Breaking Loading Animation_0: 2934127947514980442
+      Rock Breaking Loading Animation_1: -9159168893253023492
+      Rock Breaking Loading Animation_10: -1188010274872495195
+      Rock Breaking Loading Animation_11: -406490934320394652
+      Rock Breaking Loading Animation_12: -428007618073947440
+      Rock Breaking Loading Animation_13: 8231873531837078317
+      Rock Breaking Loading Animation_14: -5902706439153736873
+      Rock Breaking Loading Animation_15: 1411702073485726807
+      Rock Breaking Loading Animation_16: 4316458299415338654
+      Rock Breaking Loading Animation_17: 3285485160680209116
+      Rock Breaking Loading Animation_18: 5348400535953216672
+      Rock Breaking Loading Animation_19: 237758709624928981
+      Rock Breaking Loading Animation_2: 4474910705454329652
+      Rock Breaking Loading Animation_20: -6240429333939088479
+      Rock Breaking Loading Animation_21: -4828493543577566199
+      Rock Breaking Loading Animation_22: 2760931355237190846
+      Rock Breaking Loading Animation_23: -5149717707470859813
+      Rock Breaking Loading Animation_24: 8317571618716238701
+      Rock Breaking Loading Animation_25: 8379787659950034439
+      Rock Breaking Loading Animation_26: -7079708609358722101
+      Rock Breaking Loading Animation_27: -6641289117793399866
+      Rock Breaking Loading Animation_28: 2787257591421160160
+      Rock Breaking Loading Animation_29: 7255808126496765222
+      Rock Breaking Loading Animation_3: -2340158704318844496
+      Rock Breaking Loading Animation_30: 6516872954559087402
+      Rock Breaking Loading Animation_31: -3179437453386499980
+      Rock Breaking Loading Animation_32: 1512636639000148992
+      Rock Breaking Loading Animation_33: 3440903135449211955
+      Rock Breaking Loading Animation_34: -5153933139139830634
+      Rock Breaking Loading Animation_35: 4031222168013305160
+      Rock Breaking Loading Animation_36: 4396874466605366254
+      Rock Breaking Loading Animation_37: 2056131925137128686
+      Rock Breaking Loading Animation_38: -2059009428101715489
+      Rock Breaking Loading Animation_39: -9076532761546884845
+      Rock Breaking Loading Animation_4: 2142782637008576524
+      Rock Breaking Loading Animation_40: -7011755571147162133
+      Rock Breaking Loading Animation_41: 2423196662323687373
+      Rock Breaking Loading Animation_42: 2999142593115021955
+      Rock Breaking Loading Animation_43: 8261146494049561897
+      Rock Breaking Loading Animation_44: 3124404915629718920
+      Rock Breaking Loading Animation_45: 842080078913720194
+      Rock Breaking Loading Animation_46: 1445979858130652296
+      Rock Breaking Loading Animation_47: 8676882043179196494
+      Rock Breaking Loading Animation_48: -1976658726059672421
+      Rock Breaking Loading Animation_49: -593019432404008606
+      Rock Breaking Loading Animation_5: -1880591340976787384
+      Rock Breaking Loading Animation_50: 5947822205153640323
+      Rock Breaking Loading Animation_51: -7082675826463477741
+      Rock Breaking Loading Animation_52: -2368045951434140493
+      Rock Breaking Loading Animation_53: 9075796854457099445
+      Rock Breaking Loading Animation_54: 130966082973329614
+      Rock Breaking Loading Animation_55: 7882669497328244828
+      Rock Breaking Loading Animation_56: -6154332082303787009
+      Rock Breaking Loading Animation_57: -6596202768227350724
+      Rock Breaking Loading Animation_58: 5603216358077451231
+      Rock Breaking Loading Animation_59: -1277776274380981554
+      Rock Breaking Loading Animation_6: 4831333847427733284
+      Rock Breaking Loading Animation_7: 2426984832585693747
+      Rock Breaking Loading Animation_8: -2950502774704027772
+      Rock Breaking Loading Animation_9: -2807469170522767091
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

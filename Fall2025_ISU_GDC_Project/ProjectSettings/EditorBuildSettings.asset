@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/JakePrototyping/MainMenu.unity
+    guid: 8bfb7e16602e9594a85824b71b1da6a7
+  - enabled: 1
+    path: Assets/Scenes/JakePrototyping/LEVEL_MysticRuins.unity
+    guid: be272d1b6fb8f8d4fb2f6efff8a701a3
+  - enabled: 1
     path: Assets/Scenes/JakePrototyping/FullGameRound.unity
     guid: e65070deaed133d46a20dffd7a3b7e6a
   m_configObjects:
