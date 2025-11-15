@@ -12,7 +12,6 @@ public class PlayerAttacks : MonoBehaviour
 
     public AnimationClip normalAttack;
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -62,6 +61,7 @@ public class PlayerAttacks : MonoBehaviour
                 {
                     playerAnimator.Play(normalAttack.name);
                 }
+
                 SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", .5f, false);
             }
         }

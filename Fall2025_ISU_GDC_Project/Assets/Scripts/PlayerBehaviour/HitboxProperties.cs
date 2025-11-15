@@ -34,7 +34,6 @@ public class HitboxProperties : MonoBehaviour
     private List<GameObject> hurtEnemies = new List<GameObject>();
     private List<GameObject> inRange = new List<GameObject>();
 
-
     void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -67,7 +66,7 @@ public class HitboxProperties : MonoBehaviour
                         if (enemyHP != null)
                         {
                             hurtEnemies.Add(enemy);
-                            enemyHP.TakeDamage(damage,hitStun);
+                            enemyHP.TakeDamage(damage, hitStun);
                             //apply force backwards to enemy
                             bool onLeft;
                             if (this.gameObject.transform.parent.position.x < playerKnockbackController.gameObject.transform.position.x)
@@ -89,18 +88,34 @@ public class HitboxProperties : MonoBehaviour
                                 attackerPi = this.gameObject.transform.parent.parent.gameObject.GetComponent<PlayerInput>();
                                 FindFirstObjectByType<UltimateTrackerManager>().AddUltimateCharge(attackerPi, ultimateChargePerHit);
                             }
+
+                            int randomNum = Random.Range(1, 4);
+                            switch (randomNum)
+                            {
+                                case 1:
+                                    SoundManager.PlaySound("Sound/SFX/Combat/(A little loud put volume down when implementing) PunchSFX_Generic_01", .5f, false);
+                                    break;
+
+                                case 2:
+                                    SoundManager.PlaySound("Sound/SFX/Combat/PunchSFX_Generic_02", .5f, false);
+                                    break;
+
+                                case 3:
+                                    SoundManager.PlaySound("Sound/SFX/Combat/PunchSFX_Generic_03", .5f, false);
+                                    break;
+                            }
                         }
-                    }
-                    else if (enemy.tag == "Hazard")
-                    {
-                        FallingTile tileHP = enemy.GetComponentInParent<FallingTile>();
-                        if (tileHP != null)
+
+                        else if (enemy.tag == "Hazard")
                         {
-                            hurtEnemies.Add(enemy);
-                            tileHP.TakeDamage(damage);
+                            FallingTile tileHP = enemy.GetComponentInParent<FallingTile>();
+                            if (tileHP != null)
+                            {
+                                hurtEnemies.Add(enemy);
+                                tileHP.TakeDamage(damage);
+                            }
                         }
                     }
-                    
                 }
             }
         }
