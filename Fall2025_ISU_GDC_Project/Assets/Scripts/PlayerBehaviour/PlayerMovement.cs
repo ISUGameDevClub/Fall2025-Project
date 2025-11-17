@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpLock;
     [SerializeField] private float jumpHeldTime;
     [SerializeField] private LayerMask floorLayer;
+    public float speedBoost = 1f;
     private Rigidbody2D rb;
     private Vector2 movement;
     private float timer_coyoteTime;
