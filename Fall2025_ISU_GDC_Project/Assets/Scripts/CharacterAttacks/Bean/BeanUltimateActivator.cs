@@ -42,7 +42,9 @@ public class BeanUltimateActivator : MonoBehaviour
                 GetComponent<Animator>().SetTrigger("UltimateAttack");
                 StartCoroutine("DisableBeanMovementRoutine");
                 ultimateTracker.ResetPlayerUltimateCharge(pi);
-            }  
+            }
+
+            SoundManager.PlaySound("Sound/SFX/Combat/Bean/Beam Laser_mixdown", .5f, false);
         }
     }
 

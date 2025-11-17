@@ -44,6 +44,8 @@ public class BeanSpecialActivator : MonoBehaviour
             SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", 1.0f, false);
             GetComponent<Animator>().SetTrigger("SpecialAttack");
             StartCoroutine("DisableBeanMovementRoutine");
+
+            SoundManager.PlaySound("Sound/SFX/Combat/Bean/BeanSlimeSFX", .5f, false);
         }
     }
 
