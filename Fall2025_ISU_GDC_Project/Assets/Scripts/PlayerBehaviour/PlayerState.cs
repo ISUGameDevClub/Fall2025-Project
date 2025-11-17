@@ -40,28 +40,34 @@ public class PlayerState : MonoBehaviour
                 gfx.enabled = true;
                 playerMovement.enabled = true;
                 playerAttacks.enabled = true;
-                //playerStun.enabled = false;
+                playerStun.enabled = false;
+
+                //unfreeze x, unfreeze y, freeze rotations
+                GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                 break;
             case PlayerStateEnum.Dormant:
                 gfx.enabled = true;
                 playerMovement.enabled = false;
                 playerAttacks.enabled = false;
-                //playerStun.enabled = false;
+                playerStun.enabled = false;
                 break;
             case PlayerStateEnum.Inactive:
                 gfx.enabled = false;
                 playerMovement.enabled = false;
                 playerAttacks.enabled = false;
-                //playerStun.enabled = false;
+                playerStun.enabled = false;
                 break;
             case PlayerStateEnum.hitstun:
                 gfx.enabled = true;
                 playerMovement.enabled = false;
-                //playerStun.enabled = true;
+                playerStun.enabled = true;
                 break;
             case PlayerStateEnum.Attacking:
                 gfx.enabled = true;
                 playerMovement.enabled = false;
+
+                //freeze x and rot, keep y unfrozen
+                GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
                 break;
         }
     }

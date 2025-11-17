@@ -52,7 +52,7 @@ public class BeanSpecialActivator : MonoBehaviour
     //we need to disable the bean's movement for the duration of the animation
     private IEnumerator DisableBeanMovementRoutine()
     {
-        GetComponent<PlayerState>().ChangePlayerState(PlayerState.PlayerStateEnum.Dormant);
+        GetComponent<PlayerState>().ChangePlayerState(PlayerState.PlayerStateEnum.Attacking);
 
         
         AnimatorStateInfo stateInfo = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);

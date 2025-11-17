@@ -785,7 +785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 8107855282545786083}
-  playerStun: {fileID: 0}
+  playerStun: {fileID: 2661163013618973409}
   playerAttacks: {fileID: 430878357311010213}
   gfx: {fileID: 7178392906862967062}
 --- !u!114 &3890417148057156894
