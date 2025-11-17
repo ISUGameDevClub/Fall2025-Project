@@ -248,6 +248,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1936713101077806825, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3016235288617523186, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -288,6 +292,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6211446524978881606, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211446524978881606, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 25372050a6e88694fa245cbe37d37019, type: 2}
     - target: {fileID: 8072521018718476684, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_Name
       value: The Sphinx
@@ -296,16 +308,82 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 11400000, guid: aacb8ff6a4874bb40b81815384f7f614, type: 2}
+    - target: {fileID: 8300350922231301319, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300350922231301319, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300350922231301319, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300350922231301319, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300350922231301319, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300350922231301319, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300350922231301319, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3016235288617523186, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7028372288468665952}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8072521018718476684, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5848363214202329803}
   m_SourcePrefab: {fileID: 100100000, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
 --- !u!4 &2004457484262355182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3016235288617523186, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+  m_PrefabInstance: {fileID: 3605854385875134236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &4700161908038296539 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8300350922231301319, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+  m_PrefabInstance: {fileID: 3605854385875134236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4759682951359889040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8072521018718476684, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+  m_PrefabInstance: {fileID: 3605854385875134236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-5848363214202329803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759682951359889040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9bf51e8d45e44f43b6ed929340daab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 7222063795356320602}
+  hitboxCollider: {fileID: 4700161908038296539}
+  idleAnimation: {fileID: 7400000, guid: d619bb29c91b98e4483d3b37df532975, type: 2}
+  specialAnimation: {fileID: 7400000, guid: 9f25e6ad6b8f14046a0db4e5cd50ea95, type: 2}
+  cooldownAnimation: {fileID: 7400000, guid: 9c05bc0016c666e43ae92da0bd298fb9, type: 2}
+  speed: 20
+  duration: 0.3
+  endLag: 0.3
+--- !u!95 &7222063795356320602 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6211446524978881606, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
   m_PrefabInstance: {fileID: 3605854385875134236}
   m_PrefabAsset: {fileID: 0}
