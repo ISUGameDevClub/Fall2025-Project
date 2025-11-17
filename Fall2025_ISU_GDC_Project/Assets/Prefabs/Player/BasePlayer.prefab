@@ -356,6 +356,7 @@ GameObject:
   - component: {fileID: 8108792525606552194}
   - component: {fileID: 8192398353664858679}
   - component: {fileID: 3486299373470920459}
+  - component: {fileID: 2661163013618973409}
   m_Layer: 7
   m_Name: BasePlayer
   m_TagString: Untagged
@@ -843,3 +844,19 @@ MonoBehaviour:
   _flashTime: 0.25
   _SPrend: {fileID: 7178392906862967062}
   hitFlashMaterial: {fileID: 2100000, guid: 56c9ed04542db6a4fac1602cba764b55, type: 2}
+--- !u!114 &2661163013618973409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072521018718476684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35037a70138d634f93ed8d9c0917cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 6663647585971147134}
+  gotHit:
+    m_PersistentCalls:
+      m_Calls: []
