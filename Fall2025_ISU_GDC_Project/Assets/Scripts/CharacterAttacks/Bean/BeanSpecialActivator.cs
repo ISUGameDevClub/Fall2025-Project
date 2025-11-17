@@ -43,13 +43,14 @@ public class BeanSpecialActivator : MonoBehaviour
         {
             SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", 1.0f, false);
             GetComponent<Animator>().SetTrigger("SpecialAttack");
-            StartCoroutine("DisableBeanMovementRoutine");
+            //StartCoroutine("DisableBeanMovementRoutine");
 
             SoundManager.PlaySound("Sound/SFX/Combat/Bean/BeanSlimeSFX", .5f, false);
         }
     }
 
     //we need to disable the bean's movement for the duration of the animation
+    // ^^ this is handled by animation event instead now
     private IEnumerator DisableBeanMovementRoutine()
     {
         GetComponent<PlayerState>().ChangePlayerState(PlayerState.PlayerStateEnum.Attacking);
