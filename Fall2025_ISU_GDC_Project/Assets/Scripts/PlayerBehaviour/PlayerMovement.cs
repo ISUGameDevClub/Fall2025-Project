@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         jumpedThisFrame = pi.actions["Jump"].triggered;
         jumpBeingHeld = pi.actions["Jump"].IsPressed();
 
-        Debug.Log(movement);
+        //Debug.Log(movement);
 
         //ground check
         Debug.DrawRay(this.transform.position, new Vector2(0, -groundedCheckLength), Color.yellow);

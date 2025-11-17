@@ -12,6 +12,8 @@ public class HitShade : MonoBehaviour
     private Material[] _materials;
     public SpriteRenderer _SPrend;
 
+    public Material hitFlashMaterial;
+
 
     private Coroutine _damageFlashCoroutine;
 
@@ -21,7 +23,7 @@ public class HitShade : MonoBehaviour
 
         OnServerInitialized();
 
-        _SPrend = GetComponentInChildren<SpriteRenderer>();
+        //_SPrend = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void OnServerInitialized()
@@ -43,13 +45,17 @@ public class HitShade : MonoBehaviour
     {
         /*SetFlashColor();*/
 
-        _SPrend.material.SetFloat("_NewFlash", 0.5f);
+        /*_SPrend.material.SetFloat("_NewFlash", 0.5f);
         float currentFlashamount = 0f;
-        float elapsedTime = 0f;
+        float elapsedTime = 0f;*/
        
-        yield return new WaitForSeconds(0.25f);
+        Material origMaterial = _SPrend.material;
+        _SPrend.material = hitFlashMaterial;
 
-        _SPrend.material.SetFloat("_NewFlash", 0f);
-        Debug.Log("Finished Coroutine");
+        yield return new WaitForSeconds(0.2f);
+
+        _SPrend.material = origMaterial;
+        //_SPrend.material.SetFloat("_NewFlash", 0f);
+        Debug.Log("HITFLASH: Finished Coroutine");
     }
 }
