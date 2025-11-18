@@ -92,7 +92,10 @@ public class CoR_Special : MonoBehaviour
     public void PauseBow()
     {
         if (heldDown)
+        {
+            Debug.Log("Should be held down");
             CoRAnimator.speed = 0;
+        }
     }
 
     public void CheckIfHeldDown(InputAction.CallbackContext context)

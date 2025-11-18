@@ -67,7 +67,7 @@ public class GameSequenceManager : MonoBehaviour
 
     private void InitiateCharacterSelect()
     {
-        Debug.Log("do char select now");
+        //Debug.Log("do char select now");
         DisableAllMenus();
         charSelectMenu.SetActive(true);
     }

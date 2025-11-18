@@ -8,14 +8,9 @@ public class PlayerAttacks : MonoBehaviour
     public PetrifyDebuff pd;
     private HitboxProperties hitboxRef;
     private PlayerMovement playerMovement;
-
-    public AnimationClip normalAttack;
-
-    public AnimationClip Ultimate;
-
     public UnityEvent specialMove;
 
-
+    public AnimationClip normalAttack;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,10 +25,6 @@ public class PlayerAttacks : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            playerAnimator.Play(Ultimate.name);
-        }
         PlayerInput pi = null;
         //we have a parent, use its PlayerInput component
         if (transform.parent != null)
@@ -70,8 +61,8 @@ public class PlayerAttacks : MonoBehaviour
                 {
                     playerAnimator.Play(normalAttack.name);
                 }
+
                 SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", .5f, false);
-                //SoundManager.PlaySound("Sound/SFX/Combat/Colossus of Rhoades Charging Bow.wav", .5f, false);
             }
         }
     }

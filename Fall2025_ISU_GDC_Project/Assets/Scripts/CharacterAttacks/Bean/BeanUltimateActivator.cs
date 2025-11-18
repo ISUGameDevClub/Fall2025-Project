@@ -40,16 +40,19 @@ public class BeanUltimateActivator : MonoBehaviour
             {
                 SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", 1.0f, false);
                 GetComponent<Animator>().SetTrigger("UltimateAttack");
-                StartCoroutine("DisableBeanMovementRoutine");
+                //StartCoroutine("DisableBeanMovementRoutine");
                 ultimateTracker.ResetPlayerUltimateCharge(pi);
-            }  
+            }
+
+            SoundManager.PlaySound("Sound/SFX/Combat/Bean/Beam Laser_mixdown", .5f, false);
         }
     }
 
     //we need to disable the bean's movement for the duration of the animation
+    // ^^ this is done by animation event now
     private IEnumerator DisableBeanMovementRoutine()
     {
-        GetComponent<PlayerState>().ChangePlayerState(PlayerState.PlayerStateEnum.Dormant);
+        GetComponent<PlayerState>().ChangePlayerState(PlayerState.PlayerStateEnum.Attacking);
 
 
         AnimatorStateInfo stateInfo = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
