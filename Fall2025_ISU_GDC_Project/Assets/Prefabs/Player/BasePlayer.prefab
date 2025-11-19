@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 8192398353664858679}
   - component: {fileID: 3486299373470920459}
   - component: {fileID: 2661163013618973409}
+  - component: {fileID: 3756997975989412492}
   m_Layer: 7
   m_Name: BasePlayer
   m_TagString: Untagged
@@ -765,6 +766,7 @@ MonoBehaviour:
   playerStun: {fileID: 2661163013618973409}
   playerAttacks: {fileID: 430878357311010213}
   gfx: {fileID: 7178392906862967062}
+  playerPassThroughPlatform: {fileID: 3756997975989412492}
 --- !u!114 &3890417148057156894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,3 +839,17 @@ MonoBehaviour:
   gotHit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3756997975989412492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072521018718476684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1282897b1475194895ca9a0d4122afc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToReEnableCollider: 0.5
+  inputThreshold: 0.8
