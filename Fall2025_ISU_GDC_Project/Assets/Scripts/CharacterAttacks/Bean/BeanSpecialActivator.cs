@@ -9,7 +9,7 @@ public class BeanSpecialActivator : MonoBehaviour
     private void Start()
     {
         // vv Can enable this if or when specialMove is set up right vv
-        //GetComponent<PlayerAttacks>().specialMove.AddListener(ActivateBeanSpecialAnim);
+        GetComponent<PlayerAttacks>().specialMove.AddListener(ActivateBeanSpecialAnim);
     }
 
 
@@ -31,7 +31,7 @@ public class BeanSpecialActivator : MonoBehaviour
 
         if (pi.actions["Special"].triggered)
         {
-            ActivateBeanSpecialAnim();
+            //ActivateBeanSpecialAnim();
         }
     }
 

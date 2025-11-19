@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CoR_Hurt
+  m_Name: BeanStun
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0.025, y: 0, z: 0}
+        value: {x: 0.025, y: -0.03, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -29,7 +29,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.05
-        value: {x: -0.025, y: 0, z: 0}
+        value: {x: -0.025, y: -0.03, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -39,29 +39,18 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: CoR_GFX
+    path: Bean_GFX
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1595615292429377156, guid: 21f9865137e855644b98a2627b8b0a9b, type: 3}
-    - time: 0.083333336
-      value: {fileID: -4590718483431547235, guid: 21f9865137e855644b98a2627b8b0a9b, type: 3}
-    attribute: m_Sprite
-    path: 
-    classID: 212
-    script: {fileID: 0}
-    flags: 2
-  - serializedVersion: 2
-    curve:
-    - time: 0
-      value: {fileID: -4590718483431547235, guid: 21f9865137e855644b98a2627b8b0a9b, type: 3}
+      value: {fileID: 1746950496396411061, guid: 02ea56113b5e6c743b9e0f5bda29ddbf, type: 3}
     - time: 0.1
-      value: {fileID: -4590718483431547235, guid: 21f9865137e855644b98a2627b8b0a9b, type: 3}
+      value: {fileID: 1746950496396411061, guid: 02ea56113b5e6c743b9e0f5bda29ddbf, type: 3}
     attribute: m_Sprite
-    path: CoR_GFX
+    path: Bean_GFX
     classID: 212
     script: {fileID: 0}
     flags: 2
@@ -73,7 +62,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1993745482
+      path: 395762076
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -82,16 +71,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 0
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 1993745482
+      path: 395762076
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -100,10 +80,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1595615292429377156, guid: 21f9865137e855644b98a2627b8b0a9b, type: 3}
-    - {fileID: -4590718483431547235, guid: 21f9865137e855644b98a2627b8b0a9b, type: 3}
-    - {fileID: -4590718483431547235, guid: 21f9865137e855644b98a2627b8b0a9b, type: 3}
-    - {fileID: -4590718483431547235, guid: 21f9865137e855644b98a2627b8b0a9b, type: 3}
+    - {fileID: 1746950496396411061, guid: 02ea56113b5e6c743b9e0f5bda29ddbf, type: 3}
+    - {fileID: 1746950496396411061, guid: 02ea56113b5e6c743b9e0f5bda29ddbf, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -151,7 +129,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: CoR_GFX
+    path: Bean_GFX
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -161,7 +139,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: -0.03
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -170,7 +148,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.05
-        value: 0
+        value: -0.03
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -181,7 +159,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: CoR_GFX
+    path: Bean_GFX
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -211,7 +189,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: CoR_GFX
+    path: Bean_GFX
     classID: 4
     script: {fileID: 0}
     flags: 0

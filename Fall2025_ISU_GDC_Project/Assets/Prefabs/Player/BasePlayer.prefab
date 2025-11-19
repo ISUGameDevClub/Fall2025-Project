@@ -671,19 +671,7 @@ MonoBehaviour:
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 430878357311010213}
-        m_TargetAssemblyTypeName: PlayerAttacks, Assembly-CSharp
-        m_MethodName: NormalAttack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: ae94648d-0fd2-4fbb-adfe-85010f686f9e
     m_ActionName: 'Player/Light Attack[/Keyboard/o]'
   - m_PersistentCalls:
@@ -695,19 +683,7 @@ MonoBehaviour:
     m_ActionId: c9f448ed-48af-4bb3-b2f9-33f174b6182e
     m_ActionName: 'Player/Block[/Keyboard/k]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 430878357311010213}
-        m_TargetAssemblyTypeName: PlayerAttacks, Assembly-CSharp
-        m_MethodName: UseSpecialMove
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 95ad2ea1-ef3f-4be7-8765-e5c09fff6ce0
     m_ActionName: Player/Special
   m_NeverAutoSwitchControlSchemes: 0

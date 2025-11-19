@@ -24,6 +24,7 @@ public class PlayerAttacks : MonoBehaviour
      // Update is called once per frame
     void Update()
     {
+        Debug.Log("attacks active");
 
         PlayerInput pi = null;
         //we have a parent, use its PlayerInput component
@@ -51,7 +52,7 @@ public class PlayerAttacks : MonoBehaviour
     
     public void NormalAttack()
     {
-
+        Debug.Log("Attack was just used");
         if (playerAnimator != null && hitboxRef != null)
         {
             if (!hitboxRef.GetCurrentlyAttacking())
