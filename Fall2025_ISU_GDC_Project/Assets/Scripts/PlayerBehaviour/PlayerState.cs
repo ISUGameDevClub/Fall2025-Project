@@ -60,6 +60,7 @@ public class PlayerState : MonoBehaviour
             case PlayerStateEnum.hitstun:
                 gfx.enabled = true;
                 playerMovement.enabled = false;
+                playerAttacks.enabled = false;
                 playerStun.enabled = true;
                 break;
             case PlayerStateEnum.Attacking:

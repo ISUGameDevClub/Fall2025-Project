@@ -112,6 +112,8 @@ public class PlayerHealth : MonoBehaviour
 
         int newDamage = Mathf.CeilToInt(dmg * defMultiplier * damagePercent);
         HP -= newDamage;
+        stateMachine.ChangePlayerState(PlayerState.PlayerStateEnum.hitstun);
+        GetComponent<PlayerStun>().setHitstunDuration(hitstun * 20);
 
         //play particle effect
         SpawnDamageParticles();

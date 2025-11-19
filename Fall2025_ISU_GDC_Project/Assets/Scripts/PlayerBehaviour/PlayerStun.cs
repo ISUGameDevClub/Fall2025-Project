@@ -12,6 +12,7 @@ public class PlayerStun : MonoBehaviour
 
     void OnEnable()
     {
+        Debug.Log("Hitstun enabled");
         HitboxProperties hitboxRef = GetComponentInChildren<HitboxProperties>();
         if (hitboxRef != null)
             hitboxRef.SetCurrentlyAttacking(false);
@@ -20,6 +21,7 @@ public class PlayerStun : MonoBehaviour
     {
         if (Time.time > stunTimer)
         {
+            Debug.Log("Im free!");
             GetComponent<Animator>().speed = 1;
             stateMachine.ChangePlayerState(PlayerState.PlayerStateEnum.Active);
         }
