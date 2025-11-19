@@ -44,6 +44,9 @@ public class PetrifyCollider : MonoBehaviour
     {
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        //get rid of petrify overlay graphic
+        rb.gameObject.transform.Find("Petrified_Overlay").gameObject.SetActive(false);
     }
     void Update()
     {
@@ -64,6 +67,8 @@ public class PetrifyCollider : MonoBehaviour
                             petrifiedEnemies.Add(enemy);
                             petrifyActive = true;
                             
+                            //add petrify overlay graphic
+                            enemy.transform.parent.Find("Petrified_Overlay").gameObject.SetActive(true);
                         }
                     }
                 }

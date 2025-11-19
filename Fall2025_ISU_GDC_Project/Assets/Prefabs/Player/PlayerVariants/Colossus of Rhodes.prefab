@@ -339,6 +339,14 @@ PrefabInstance:
       propertyPath: normalAttack
       value: 
       objectReference: {fileID: 7400000, guid: b72df8a7fd188c9419002cb369ec2a2a, type: 2}
+    - target: {fileID: 1487664741808048217, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487664741808048217, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.13
+      objectReference: {fileID: 0}
     - target: {fileID: 1936713101077806825, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 24
@@ -399,6 +407,10 @@ PrefabInstance:
       propertyPath: stunAnim
       value: 
       objectReference: {fileID: 7400000, guid: f6e2d548d2e454749b2d647428e69d7f, type: 2}
+    - target: {fileID: 2806472095199415127, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3016235288617523186, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -519,6 +531,14 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 11400000, guid: 34472bbdca38cdc4698a596a15849929, type: 2}
+    - target: {fileID: 8790864844092162579, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8790864844092162579, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_SortingOrder
+      value: 254
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
