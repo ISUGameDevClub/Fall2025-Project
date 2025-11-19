@@ -10,10 +10,18 @@ public class PlayerStun : MonoBehaviour
 
     public UnityEvent gotHit;
 
+    [SerializeField] AnimationClip stunAnim;
+    [SerializeField] AnimationClip idleAnim;
+
+    void Start()
+    {
+        this.enabled = false;
+    }
     void OnEnable()
     {
-        Debug.Log("Hitstun enabled");
         HitboxProperties hitboxRef = GetComponentInChildren<HitboxProperties>();
+        if (stunAnim != null)
+            GetComponent<Animator>().Play(stunAnim.name);
         if (hitboxRef != null)
             hitboxRef.SetCurrentlyAttacking(false);
     }
@@ -21,9 +29,16 @@ public class PlayerStun : MonoBehaviour
     {
         if (Time.time > stunTimer)
         {
-            Debug.Log("Im free!");
-            GetComponent<Animator>().speed = 1;
+            if (idleAnim != null)
+                GetComponent<Animator>().Play(idleAnim.name);
+
+            GetComponent<Animator>().SetBool("Idle", true);
             stateMachine.ChangePlayerState(PlayerState.PlayerStateEnum.Active);
+        }
+        else
+        {   
+            if (stunAnim != null)
+                GetComponent<Animator>().Play(stunAnim.name);
         }
     }
 

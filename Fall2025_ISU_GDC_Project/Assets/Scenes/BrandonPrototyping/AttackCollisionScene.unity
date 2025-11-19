@@ -420,6 +420,7 @@ MonoBehaviour:
   defMultiplier: 1
   cracksIntensity: 0.35
   lowHealthCracksIntensity: 0.35
+  _HitShade: {fileID: 0}
 --- !u!212 &307225962
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -799,6 +800,71 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0608edc94b790a14893dc93e7df1a961, type: 3}
+--- !u!1001 &962403203
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1331554044760551430, guid: 39b67bbb7e601ea49aadb819245d66f8, type: 3}
+      propertyPath: m_Name
+      value: The Bean
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085588623937737579, guid: 39b67bbb7e601ea49aadb819245d66f8, type: 3}
+      propertyPath: stunAnim
+      value: 
+      objectReference: {fileID: 7400000, guid: 3713dcc40cb83e447810dbcbfc9004a3, type: 2}
+    - target: {fileID: 5085588623937737579, guid: 39b67bbb7e601ea49aadb819245d66f8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451088664366071416, guid: 39b67bbb7e601ea49aadb819245d66f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451088664366071416, guid: 39b67bbb7e601ea49aadb819245d66f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451088664366071416, guid: 39b67bbb7e601ea49aadb819245d66f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451088664366071416, guid: 39b67bbb7e601ea49aadb819245d66f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451088664366071416, guid: 39b67bbb7e601ea49aadb819245d66f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451088664366071416, guid: 39b67bbb7e601ea49aadb819245d66f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451088664366071416, guid: 39b67bbb7e601ea49aadb819245d66f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451088664366071416, guid: 39b67bbb7e601ea49aadb819245d66f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451088664366071416, guid: 39b67bbb7e601ea49aadb819245d66f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451088664366071416, guid: 39b67bbb7e601ea49aadb819245d66f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 39b67bbb7e601ea49aadb819245d66f8, type: 3}
 --- !u!1 &1142528510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,6 +1274,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colossus of Rhodes
       objectReference: {fileID: 0}
+    - target: {fileID: 4811783163453538824, guid: d4cabef210c65644cbe7adfd8679235a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5683110331184814477, guid: d4cabef210c65644cbe7adfd8679235a, type: 3}
       propertyPath: test
       value: 
@@ -1218,11 +1288,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7673483748946626411, guid: d4cabef210c65644cbe7adfd8679235a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 7673483748946626411, guid: d4cabef210c65644cbe7adfd8679235a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.34
       objectReference: {fileID: 0}
     - target: {fileID: 7673483748946626411, guid: d4cabef210c65644cbe7adfd8679235a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1262,7 +1332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8641791784025356772, guid: d4cabef210c65644cbe7adfd8679235a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1280,3 +1350,4 @@ SceneRoots:
   - {fileID: 307225963}
   - {fileID: 402890042}
   - {fileID: 2133362022}
+  - {fileID: 962403203}
