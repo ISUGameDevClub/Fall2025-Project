@@ -445,6 +445,14 @@ PrefabInstance:
       propertyPath: normalAttack
       value: 
       objectReference: {fileID: 7400000, guid: 208a69145d8e30c498b9500e0d624fc3, type: 2}
+    - target: {fileID: 2661163013618973409, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: idleAnim
+      value: 
+      objectReference: {fileID: 7400000, guid: 0d734674ee5a9304c95447ce97ef0041, type: 2}
+    - target: {fileID: 2661163013618973409, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: stunAnim
+      value: 
+      objectReference: {fileID: 7400000, guid: 885056ba7bc39954f9cc4d5646b72d22, type: 2}
     - target: {fileID: 3016235288617523186, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

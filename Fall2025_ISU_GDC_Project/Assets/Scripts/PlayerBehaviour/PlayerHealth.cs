@@ -28,6 +28,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float lowHealthCracksIntensity = .35f;
     [SerializeField] private HitShade _HitShade;
 
+    private PlayerBlocking block;
+
     private PlayerState stateMachine;
 
     private void Awake()
@@ -41,6 +43,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        block = GetComponent<PlayerBlocking>();
         _HitShade = GetComponent<HitShade>();
 
         //Get players RB 
@@ -109,11 +112,14 @@ public class PlayerHealth : MonoBehaviour
     */
     public void TakeDamage(int dmg, float hitstun)
     {
-
+        
         int newDamage = Mathf.CeilToInt(dmg * defMultiplier * damagePercent);
         HP -= newDamage;
-        stateMachine.ChangePlayerState(PlayerState.PlayerStateEnum.hitstun);
-        GetComponent<PlayerStun>().setHitstunDuration(hitstun);
+        if (!block.blocking)
+        {
+            stateMachine.ChangePlayerState(PlayerState.PlayerStateEnum.hitstun);
+            GetComponent<PlayerStun>().setHitstunDuration(hitstun);
+        }
 
         //play particle effect
         SpawnDamageParticles();

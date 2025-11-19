@@ -45,16 +45,6 @@ public class PlayerBlocking : MonoBehaviour
 
         PlayerState ps = GetComponent<PlayerState>();
         PlayerMovement pm = GetComponent<PlayerMovement>();
-
-
-
-
-
-        //debug test (delete this)
-        if (Input.GetKey("b"))
-        {
-            pm.enabled = !pm.isActiveAndEnabled;
-        }
         
 
 
