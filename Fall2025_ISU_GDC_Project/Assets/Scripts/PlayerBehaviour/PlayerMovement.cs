@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
 
-        movement = context.ReadValue<Vector2>() * speedBoost;
+        movement = context.ReadValue<Vector2>() * speedBoost ;
     }
 
     public void OnJump(InputAction.CallbackContext context)
