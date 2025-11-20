@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Sphinx
   m_EditorClassIdentifier: 
   characterName: The Sphinx
-  characterSelectIcon: {fileID: 2811333815525645292, guid: 5179a4637b8401e4786a884cdbb45350, type: 3}
+  characterSelectIcon: {fileID: 1305313980352963599, guid: cf06c0a54fba746bfab4d2bb01300d32, type: 3}
