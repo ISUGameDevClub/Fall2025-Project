@@ -10,6 +10,7 @@ public class PlayerState : MonoBehaviour
 
     [SerializeField] private PlayerAttacks playerAttacks;
     [SerializeField] private SpriteRenderer gfx;
+    [SerializeField] private PlayerPassThroughPlatform playerPassThroughPlatform;
 
     PlayerStateEnum currentState = PlayerStateEnum.Active;
 
@@ -40,28 +41,39 @@ public class PlayerState : MonoBehaviour
                 gfx.enabled = true;
                 playerMovement.enabled = true;
                 playerAttacks.enabled = true;
-                //playerStun.enabled = false;
+                playerStun.enabled = false;
+                playerPassThroughPlatform.enabled = true;
+
+                //unfreeze x, unfreeze y, freeze rotations
+                GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                 break;
             case PlayerStateEnum.Dormant:
                 gfx.enabled = true;
                 playerMovement.enabled = false;
                 playerAttacks.enabled = false;
-                //playerStun.enabled = false;
+                playerStun.enabled = false;
+                playerPassThroughPlatform.enabled = false;
                 break;
             case PlayerStateEnum.Inactive:
                 gfx.enabled = false;
                 playerMovement.enabled = false;
                 playerAttacks.enabled = false;
-                //playerStun.enabled = false;
+                playerStun.enabled = false;
+                playerPassThroughPlatform.enabled = false;
                 break;
             case PlayerStateEnum.hitstun:
                 gfx.enabled = true;
                 playerMovement.enabled = false;
-                //playerStun.enabled = true;
+                playerAttacks.enabled = false;
+                playerStun.enabled = true;
+                playerPassThroughPlatform.enabled = false;
                 break;
             case PlayerStateEnum.Attacking:
                 gfx.enabled = true;
                 playerMovement.enabled = false;
+                playerPassThroughPlatform.enabled = false;
+                //freeze x and rot, keep y unfrozen
+                GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
                 break;
         }
     }

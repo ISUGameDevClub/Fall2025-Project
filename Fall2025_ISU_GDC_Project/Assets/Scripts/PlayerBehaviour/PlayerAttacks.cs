@@ -12,7 +12,6 @@ public class PlayerAttacks : MonoBehaviour
 
     public AnimationClip normalAttack;
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,6 +24,7 @@ public class PlayerAttacks : MonoBehaviour
      // Update is called once per frame
     void Update()
     {
+        Debug.Log("attacks active");
 
         PlayerInput pi = null;
         //we have a parent, use its PlayerInput component
@@ -52,7 +52,7 @@ public class PlayerAttacks : MonoBehaviour
     
     public void NormalAttack()
     {
-
+        Debug.Log("Attack was just used");
         if (playerAnimator != null && hitboxRef != null)
         {
             if (!hitboxRef.GetCurrentlyAttacking())
@@ -62,6 +62,7 @@ public class PlayerAttacks : MonoBehaviour
                 {
                     playerAnimator.Play(normalAttack.name);
                 }
+
                 SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", .5f, false);
             }
         }

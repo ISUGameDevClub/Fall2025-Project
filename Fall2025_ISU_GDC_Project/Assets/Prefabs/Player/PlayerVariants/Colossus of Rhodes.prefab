@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3798463797693486143
 RectTransform:
   m_ObjectHideFlags: 0
@@ -315,7 +315,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 163
   m_Sprite: {fileID: 21300000, guid: ef4b09fef40331f45af783f157abe73f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -339,6 +339,14 @@ PrefabInstance:
       propertyPath: normalAttack
       value: 
       objectReference: {fileID: 7400000, guid: b72df8a7fd188c9419002cb369ec2a2a, type: 2}
+    - target: {fileID: 1487664741808048217, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487664741808048217, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.13
+      objectReference: {fileID: 0}
     - target: {fileID: 1936713101077806825, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 24
@@ -391,6 +399,18 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2661163013618973409, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: idleAnim
+      value: 
+      objectReference: {fileID: 7400000, guid: 5417e28ec5a7bf049a2723ec0c419050, type: 2}
+    - target: {fileID: 2661163013618973409, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: stunAnim
+      value: 
+      objectReference: {fileID: 7400000, guid: f6e2d548d2e454749b2d647428e69d7f, type: 2}
+    - target: {fileID: 2806472095199415127, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3016235288617523186, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -431,6 +451,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3486299373470920459, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: _SPrend
+      value: 
+      objectReference: {fileID: 2540385362312236465}
     - target: {fileID: 4923723245739650263, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_Size.y
       value: 1.7710077
@@ -507,6 +531,14 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 11400000, guid: 34472bbdca38cdc4698a596a15849929, type: 2}
+    - target: {fileID: 8790864844092162579, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8790864844092162579, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_SortingOrder
+      value: 254
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

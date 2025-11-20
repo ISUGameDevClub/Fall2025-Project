@@ -26,6 +26,9 @@ public class PlayerHealth : MonoBehaviour
     private Coroutine defenceCoroutine;
     [SerializeField] private float cracksIntensity = .55f;
     [SerializeField] private float lowHealthCracksIntensity = .35f;
+    [SerializeField] private HitShade _HitShade;
+
+    private PlayerBlocking block;
 
     private PlayerState stateMachine;
 
@@ -35,8 +38,14 @@ public class PlayerHealth : MonoBehaviour
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    
+
     void Start()
     {
+        block = GetComponent<PlayerBlocking>();
+        _HitShade = GetComponent<HitShade>();
+
         //Get players RB 
         playerRB = GetComponent<Rigidbody2D>();
         stateMachine = GetComponent<PlayerState>();
@@ -103,12 +112,19 @@ public class PlayerHealth : MonoBehaviour
     */
     public void TakeDamage(int dmg, float hitstun)
     {
-
+        
         int newDamage = Mathf.CeilToInt(dmg * defMultiplier * damagePercent);
         HP -= newDamage;
+        if (!block.blocking)
+        {
+            stateMachine.ChangePlayerState(PlayerState.PlayerStateEnum.hitstun);
+            GetComponent<PlayerStun>().setHitstunDuration(hitstun);
+        }
 
         //play particle effect
         SpawnDamageParticles();
+
+        _HitShade.CallDamageFlash();
     }
 
     private void PlayDeathParticles()

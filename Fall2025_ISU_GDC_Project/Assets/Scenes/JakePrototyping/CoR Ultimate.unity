@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colossus of Rhodes
       objectReference: {fileID: 0}
+    - target: {fileID: 5070115600740967740, guid: d4cabef210c65644cbe7adfd8679235a, type: 3}
+      propertyPath: Ultimate
+      value: 
+      objectReference: {fileID: 7400000, guid: fcabe2071fbea78479f10bbe2f6a3285, type: 2}
     - target: {fileID: 7673483748946626411, guid: d4cabef210c65644cbe7adfd8679235a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.8011098

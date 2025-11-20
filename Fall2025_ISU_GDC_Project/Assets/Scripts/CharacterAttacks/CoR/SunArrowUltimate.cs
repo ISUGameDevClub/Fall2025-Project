@@ -60,5 +60,7 @@ public class SunArrowUltimate : MonoBehaviour
         GameObject fireBall = Instantiate(sunFireBallPrefab, spawnLoc.position, Quaternion.identity);
         fireBall.GetComponent<Rigidbody2D>().linearVelocity = fireBallTrajectory * speedModifier;
         fireBall.GetComponent<SunFireball>().InitializeSunFireball(damagePerShot, pi);
+
+        SoundManager.PlaySound("Sound/SFX/Combat/CoR/COR_FireArrow", 2f, false);
     }
 }

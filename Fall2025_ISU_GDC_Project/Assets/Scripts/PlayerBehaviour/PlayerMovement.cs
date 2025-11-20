@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpLock;
     [SerializeField] private float jumpHeldTime;
     [SerializeField] private LayerMask floorLayer;
+    public float speedBoost = 1f;
     private Rigidbody2D rb;
     private Vector2 movement;
     private float timer_coyoteTime;
@@ -55,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         jumpedThisFrame = pi.actions["Jump"].triggered;
         jumpBeingHeld = pi.actions["Jump"].IsPressed();
 
-        Debug.Log(movement);
+        //Debug.Log(movement);
 
         //ground check
         Debug.DrawRay(this.transform.position, new Vector2(0, -groundedCheckLength), Color.yellow);
