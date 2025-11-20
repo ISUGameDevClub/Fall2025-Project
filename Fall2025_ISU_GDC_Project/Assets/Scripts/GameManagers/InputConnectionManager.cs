@@ -4,6 +4,12 @@ using UnityEngine.InputSystem;
 
 public class InputConnectionManager : MonoBehaviour
 {
+    private enum DeviceType
+    {
+        Keyboard,
+        Controller
+    }
+    
     [SerializeField] private GameObject deviceIdGroup;
     [SerializeField] private GameObject deviceIdPrefab;
 
@@ -12,18 +18,31 @@ public class InputConnectionManager : MonoBehaviour
 
     [SerializeField] private GameObject controllerCursorPrefab;
     [SerializeField] private GameObject canvasObj;
+
+    [SerializeField] private GameObject inputConnectionMenu;
+
     private int numConnected = 0;
 
-    private Dictionary<int, PlayerInput> playerIDMapToPlayerInput = new Dictionary<int, PlayerInput>();
-    private Dictionary<PlayerInput, Color> playerInputMapToColor = new Dictionary<PlayerInput, Color>();
+    private readonly Dictionary<int, PlayerInput> playerIDMapToPlayerInput = new Dictionary<int, PlayerInput>();
+    private readonly Dictionary<PlayerInput, Color> playerInputMapToColor = new Dictionary<PlayerInput, Color>();
 
-    public List<GameObject> realPlayers = new List<GameObject>(); //used to store the literal GameObjects for active players, not the PlayerSpawningTemplate
+    public readonly List<GameObject> realPlayers = new List<GameObject>(); //used to store the literal GameObjects for active players, not the PlayerSpawningTemplate
 
-    private enum DeviceType
+    private void Start()
     {
-        Keyboard,
-        Controller
+        GameSequenceManager.RegisterSequenceChangeCallback(GameSequenceManager.Sequence.PlayerInputConnection, EnableMenu);
+        GameSequenceManager.RegisterSequenceChangeCallback(GameSequenceManager.Sequence.Battle, DisableMenu);
     }
+
+    private void EnableMenu()
+	{
+        inputConnectionMenu.SetActive(true);
+	}
+    
+    private void DisableMenu()
+	{
+        inputConnectionMenu.SetActive(false);
+	}
 
     public void OnPlayerJoined(PlayerInput pi)
     {
@@ -53,12 +72,12 @@ public class InputConnectionManager : MonoBehaviour
         foreach(var device in pi.devices)
         {
             //Debug.Log("device -> " + device.name);
-            if (device.name.Contains("Keyboard"))
+            if (device is Keyboard)
             {
                 //spawn an instance of device identifier with attributes of keyboard
                 AddDeviceIdentifierToGroup(DeviceType.Keyboard, pi);
             }
-            else if (device.name.Contains("XInputControllerWindows"))
+            else if (device is Gamepad)
             {
                 //spawn an instance of device identifier with attributes of controller
                 AddDeviceIdentifierToGroup(DeviceType.Controller, pi);

@@ -8,6 +8,11 @@ public class PlayerUI_Manager : MonoBehaviour
     [SerializeField] private GameObject playerInfo_UI_prefab;
     [SerializeField] private GameObject playerInfo_group; //horizontal layout group
 
+    private void Start()
+	{
+        GameSequenceManager.RegisterSequenceChangeCallback(GameSequenceManager.Sequence.Battle, CreateAllPlayerUI);
+	}
+
     public void CreateAllPlayerUI()
     {
         List<GameObject> curPlayerInputObjects = FindFirstObjectByType<InputManager>().GetPlayerInputsCurrentlyInGame();

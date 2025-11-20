@@ -6,7 +6,7 @@ public class DestroyObjectAfterTime : MonoBehaviour
 
     private void Start()
     {
-        Invoke("DestroyObject", destroyAfterTime);
+        Invoke(nameof(DestroyObject), destroyAfterTime);
     }
 
     private void DestroyObject()

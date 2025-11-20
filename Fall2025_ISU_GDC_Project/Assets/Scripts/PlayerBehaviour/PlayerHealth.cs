@@ -33,12 +33,8 @@ public class PlayerHealth : MonoBehaviour
     {
         //Get players RB 
         playerRB = GetComponent<Rigidbody2D>();
-        //Add listeners (We must do this here (and not in heirarchy) as player objects are Prefabs)
-        if (FindFirstObjectByType<GameSequenceManager>() != null)
-        {
-            playerDeath.AddListener(FindFirstObjectByType<GameSequenceManager>().doVictoryStuff);
-        }
     }
+
     private void Update()
     {
         PlayerBlocking pb = GetComponent<PlayerBlocking>();

@@ -15,16 +15,14 @@ public class PlayerState : MonoBehaviour
         Inactive //player is NOT visible, does NOT respond to input
     }
 
-    private void Update()
+    private void Start()
     {
-/*        if (Input.GetKeyDown("m")) //test call DELETE THIS
-        {
-            ChangePlayerState(PlayerStateEnum.Inactive);
-        }*/
-    }
+        GameSequenceManager.RegisterSequenceChangeCallback( GameSequenceManager.Sequence.Battle, () => ChangePlayerState( PlayerStateEnum.Dormant ) );
+	}
 
     public void ChangePlayerState(PlayerStateEnum newState)
     {
+        Debug.LogFormat( $"Setting player state to {newState}" );
         switch (newState)
         {
             case PlayerStateEnum.Active:
