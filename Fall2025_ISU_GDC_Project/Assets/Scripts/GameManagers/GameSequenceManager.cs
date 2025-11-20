@@ -144,9 +144,24 @@ public class GameSequenceManager : MonoBehaviour
         victoryCanvas.GetComponent<Canvas>().enabled = true;
         //Need to find winning player(s)
         List<GameObject> currPlayers = FindFirstObjectByType<InputConnectionManager>().GetCurrentPlayerObjectsInGame();
+        GameObject winner = null;
+        foreach (var player in currPlayers) { 
+            PlayerHealth ph = player.GetComponent<PlayerHealth>();
+            if (ph.GetTotalStocks() > 0) { 
+                winner = player;
+            }
+        }
+
+        List<PlayerCharacter> playerCharacterList = FindFirstObjectByType<CharacterSelectManager>().getPlayerCharacterList();
+        PlayerCharacter winningCharacter = null;
+        foreach (var character in playerCharacterList) {
+            if (winner.name == character.characterName) { 
+                winningCharacter = character;
+            }
+        }
 
         //hardcoded right now as default, will be overwritten by ScriptableObject Data later on
-        string winText = "Eat Justice";
+        string winText = winningCharacter.victoryText;
         StartCoroutine(DisplayTextStaggered(winText));
 
         //Set podium sprite to winner; Currently only will work for 1v1

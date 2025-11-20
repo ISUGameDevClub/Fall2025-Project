@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: The Sphinx
   characterSelectIcon: {fileID: 2811333815525645292, guid: 5179a4637b8401e4786a884cdbb45350, type: 3}
+  victoryText: Get Sphynxed!
