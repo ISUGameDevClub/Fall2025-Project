@@ -18,6 +18,11 @@ public class LadyJusticeSpecialActivator : MonoBehaviour
     private void PlayPetrifyAnimation()
     {
         if (petrifyClip != null)
+        {
             GetComponent<Animator>().Play(petrifyClip.name);
+            SoundManager.PlaySound("Sound/SFX/Combat/LJ/Lady Justice Special Move", 3f, false);
+        }
+            
+
     }
 }

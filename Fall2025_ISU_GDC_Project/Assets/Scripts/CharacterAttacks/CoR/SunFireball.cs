@@ -32,6 +32,8 @@ public class SunFireball : MonoBehaviour
                 collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(damage,hitStun);
                 Destroy(gameObject);
             }
+
+            //SoundManager.PlaySound("Sound/SFX/Combat/CoR/COR_FireArrow", 2f, false);
         }
 
     }

@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Recorder.OutputPath;
 
 public class PlayerPassThroughPlatform : MonoBehaviour
 {

@@ -39,7 +39,7 @@ public class move : MonoBehaviour
             collision.GetComponentInParent<PlayerHealth>().TakeDamage(damage,1f);
             //grant ultimate charge to attacker PlayerInput
             FindFirstObjectByType<UltimateTrackerManager>().AddUltimateCharge(playerWhoShotThisArrow, ultChargePerHit);
-
+            SoundManager.PlaySound("Sound/SFX/Combat/(A little loud put volume down when implementing) PunchSFX_Generic_01", .25f, false);
             Destroy(gameObject);
         }
     }

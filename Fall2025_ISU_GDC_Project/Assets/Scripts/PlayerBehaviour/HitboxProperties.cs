@@ -98,15 +98,15 @@ public class HitboxProperties : MonoBehaviour
                             switch (randomNum)
                             {
                                 case 1:
-                                    SoundManager.PlaySound("Sound/SFX/Combat/(A little loud put volume down when implementing) PunchSFX_Generic_01", .5f, false);
+                                    SoundManager.PlaySound("Sound/SFX/Combat/(A little loud put volume down when implementing) PunchSFX_Generic_01", .25f, false);
                                     break;
 
                                 case 2:
-                                    SoundManager.PlaySound("Sound/SFX/Combat/PunchSFX_Generic_02", .5f, false);
+                                    SoundManager.PlaySound("Sound/SFX/Combat/PunchSFX_Generic_02", 1f, false);
                                     break;
 
                                 case 3:
-                                    SoundManager.PlaySound("Sound/SFX/Combat/PunchSFX_Generic_03", .5f, false);
+                                    SoundManager.PlaySound("Sound/SFX/Combat/PunchSFX_Generic_03", 1f, false);
                                     break;
                             }
                         }

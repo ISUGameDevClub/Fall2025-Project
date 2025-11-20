@@ -45,7 +45,7 @@ public class BeanSpecialActivator : MonoBehaviour
             GetComponent<Animator>().SetTrigger("SpecialAttack");
             //StartCoroutine("DisableBeanMovementRoutine");
 
-            SoundManager.PlaySound("Sound/SFX/Combat/Bean/BeanSlimeSFX", .5f, false);
+            SoundManager.PlaySound("Sound/SFX/Combat/Bean/BeanSlimeSFX", 1.5f, false);
         }
     }
 
