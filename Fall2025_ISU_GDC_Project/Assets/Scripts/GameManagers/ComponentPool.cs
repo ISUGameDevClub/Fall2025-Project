@@ -69,7 +69,8 @@ public class ComponentPool<T> where T : Component {
 		if ( Pool.TryTake( out T result ) ) {
 			return result;
 		}
-		return Owner.gameObject.AddComponent<T>();
+		result = Owner.gameObject.AddComponent<T>();
+		return result;
 	}
 
 	/*

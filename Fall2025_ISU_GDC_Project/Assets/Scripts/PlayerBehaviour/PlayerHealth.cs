@@ -22,6 +22,15 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private GameObject deathParticles;
     private float damagePercent = 1;
+    public float defMultiplier = 1f;
+    private Coroutine defenceCoroutine;
+    [SerializeField] private float cracksIntensity = .55f;
+    [SerializeField] private float lowHealthCracksIntensity = .35f;
+    [SerializeField] private HitShade _HitShade;
+
+    private PlayerBlocking block;
+
+    private PlayerState stateMachine;
 
     private void Awake()
     {
@@ -29,12 +38,21 @@ public class PlayerHealth : MonoBehaviour
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    
+
     void Start()
     {
+        block = GetComponent<PlayerBlocking>();
+        _HitShade = GetComponent<HitShade>();
+
         //Get players RB 
         playerRB = GetComponent<Rigidbody2D>();
+        stateMachine = GetComponent<PlayerState>();
+        
+        //Add listeners (We must do this here (and not in heirarchy) as player objects are Prefabs)
+        playerDeath.AddListener( () => GameSequenceManager.SetSequence( GameSequenceManager.Sequence.VictoryScreen ) );
     }
-
     private void Update()
     {
         PlayerBlocking pb = GetComponent<PlayerBlocking>();
@@ -90,12 +108,20 @@ public class PlayerHealth : MonoBehaviour
     /* Deal damage to player
     /  @param dmg - dmg to take
     */
-    public void TakeDamage(int dmg)
+    public void TakeDamage(int dmg, float hitstun)
     {
-        //HP -= dmg;
-        HP -= (int)(dmg * damagePercent);
+        int newDamage = Mathf.CeilToInt(dmg * defMultiplier * damagePercent);
+        HP -= newDamage;
+        if (!block.blocking)
+        {
+            stateMachine.ChangePlayerState(PlayerState.PlayerStateEnum.hitstun);
+            GetComponent<PlayerStun>().setHitstunDuration(hitstun);
+        }
+
         //play particle effect
         SpawnDamageParticles();
+
+        _HitShade.CallDamageFlash();
     }
 
     private void PlayDeathParticles()
@@ -107,6 +133,21 @@ public class PlayerHealth : MonoBehaviour
 
             Destroy(deathParticleEffect, 5f);
         }
+        stateMachine.ChangePlayerState(PlayerState.PlayerStateEnum.hitstun);
+        GetComponent<PlayerStun>().setHitstunDuration(50f);
+        
+        //play particle effect
+        SpawnDamageParticles();
+        SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
+        if ((float)HP / (float)startingHP <= .25f)
+        {
+            spriteRend.material.SetFloat("_CracksAmount", lowHealthCracksIntensity);
+        }
+        else if ((float)HP / (float)startingHP <= .5f)
+        {
+            spriteRend.material.SetFloat("_CracksAmount", cracksIntensity);
+        }
+        
     }
 
     private void SpawnDamageParticles()
@@ -141,5 +182,23 @@ public class PlayerHealth : MonoBehaviour
     public int GetTotalStocks()
     {
         return totalStocks;
+    }
+
+    public void activateDefBoost(float newMultiplier, float duration)
+    {
+        if (defenceCoroutine != null)
+        {
+            StopCoroutine(defenceCoroutine);
+        }
+        defenceCoroutine = StartCoroutine(defBoostCoroutine(newMultiplier, duration));
+    }
+
+    private IEnumerator defBoostCoroutine(float newMultiplier, float duration)
+    {
+        defMultiplier = newMultiplier;
+
+        yield return new WaitForSeconds(duration);
+        defMultiplier = 1f;
+
     }
 }

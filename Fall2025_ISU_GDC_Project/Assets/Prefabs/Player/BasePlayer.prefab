@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2194477509254051605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7408456389267026112}
+  m_Layer: 0
+  m_Name: ProjectileSpawnTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7408456389267026112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2194477509254051605}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.874, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3016235288617523186}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3115756371520534095
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,6 +100,55 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.031280093}
   m_Size: {x: 0.5, y: 0.93743974}
   m_Direction: 0
+--- !u!1 &3222394826715178389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5152056352878978101}
+  - component: {fileID: 2668429110782719386}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5152056352878978101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3222394826715178389}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3016235288617523186}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2668429110782719386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3222394826715178389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: fa7c2155cc9320e4f9046451fbdd326c, type: 2}
 --- !u!1 &5707270184625695401
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   knockbackForce: 5
+  hitStun: 0.3
   knocbackDuration: 0.5
   isActive: 0
   currentlyAttacking: 0
@@ -273,8 +354,11 @@ GameObject:
   - component: {fileID: 6663647585971147134}
   - component: {fileID: 3890417148057156894}
   - component: {fileID: 8108792525606552194}
-  - component: {fileID: 3824133734016493945}
-  m_Layer: 0
+  - component: {fileID: 8192398353664858679}
+  - component: {fileID: 3486299373470920459}
+  - component: {fileID: 2661163013618973409}
+  - component: {fileID: 3756997975989412492}
+  m_Layer: 7
   m_Name: BasePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,6 +381,8 @@ Transform:
   - {fileID: 3304631888881657068}
   - {fileID: 1125839830873635937}
   - {fileID: 2750013178981258362}
+  - {fileID: 7408456389267026112}
+  - {fileID: 5152056352878978101}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7178392906862967062
@@ -322,7 +408,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: -876546973899608171, guid: 49ee9dba5e5eb964ca741a4c717fb991, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -344,7 +430,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: -6205484832271266801, guid: 53381d3feee2dfb4f9b952aa4a9b69d2, type: 3}
-  m_Color: {r: 1, g: 0.2320754, b: 0.32684258, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -366,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44354c90871bf2b4d93f2aac01befa78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 200
   totalStocks: 3
   playerRB: {fileID: 0}
   active: 0
@@ -387,6 +473,10 @@ MonoBehaviour:
         m_CallState: 1
   damageParticles: {fileID: 2218294301218356312, guid: 51e75b3e49c28b04796979f6ff7b74c5, type: 3}
   deathParticles: {fileID: 3262527251107720508, guid: 32b3ee10928eca04e9ba8a30154e3202, type: 3}
+  defMultiplier: 1
+  cracksIntensity: 0.55
+  lowHealthCracksIntensity: 0.35
+  _HitShade: {fileID: 3486299373470920459}
 --- !u!114 &8107855282545786083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +498,8 @@ MonoBehaviour:
   floorLayer:
     serializedVersion: 2
     m_Bits: 64
+  speedBoost: 1
+  direction: 1
 --- !u!114 &430878357311010213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,12 +513,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 6211446524978881606}
-  lightAttacks:
-  - {fileID: 7400000, guid: 36bc4ba337a452b43ad6cc4c807f959d, type: 2}
-  - {fileID: 7400000, guid: adac3c583e95be94e8165ddf7ae1fdf9, type: 2}
-  heavyAttacks:
-  - {fileID: 7400000, guid: b61ed75a714eb6343a6ad4260d0c5a3f, type: 2}
-  - {fileID: 7400000, guid: d6d98966884ca374a89a0a20436ed7cf, type: 2}
+  pd: {fileID: 0}
+  specialMove:
+    m_PersistentCalls:
+      m_Calls: []
+  normalAttack: {fileID: 0}
 --- !u!50 &1188004892975633885
 Rigidbody2D:
   serializedVersion: 5
@@ -583,8 +674,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 430878357311010213}
         m_TargetAssemblyTypeName: PlayerAttacks, Assembly-CSharp
-        m_MethodName: OnLightAttack
-        m_Mode: 0
+        m_MethodName: NormalAttack
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -596,11 +687,19 @@ MonoBehaviour:
     m_ActionId: ae94648d-0fd2-4fbb-adfe-85010f686f9e
     m_ActionName: 'Player/Light Attack[/Keyboard/o]'
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ed0c7a4d-1c33-41e5-8806-f27da3dcaf92
+    m_ActionName: 'Player/Ultimate[/Keyboard/l]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c9f448ed-48af-4bb3-b2f9-33f174b6182e
+    m_ActionName: 'Player/Block[/Keyboard/k]'
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 430878357311010213}
         m_TargetAssemblyTypeName: PlayerAttacks, Assembly-CSharp
-        m_MethodName: OnHeavyAttack
-        m_Mode: 0
+        m_MethodName: UseSpecialMove
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -609,16 +708,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 5316bc24-fe7d-4ab9-9ec7-73312e3ab9f6
-    m_ActionName: 'Player/Heavy Attack[/Keyboard/p]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ed0c7a4d-1c33-41e5-8806-f27da3dcaf92
-    m_ActionName: 'Player/Ultimate[/Keyboard/l]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c9f448ed-48af-4bb3-b2f9-33f174b6182e
-    m_ActionName: 'Player/Block[/Keyboard/k]'
+    m_ActionId: 95ad2ea1-ef3f-4be7-8765-e5c09fff6ce0
+    m_ActionName: Player/Special
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -662,7 +753,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -696,8 +787,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 8107855282545786083}
+  playerStun: {fileID: 2661163013618973409}
   playerAttacks: {fileID: 430878357311010213}
   gfx: {fileID: 7178392906862967062}
+  playerPassThroughPlatform: {fileID: 3756997975989412492}
 --- !u!114 &3890417148057156894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -723,7 +816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: db68a83eddebafe4f966f9a69e668b6e, type: 2}
---- !u!114 &3824133734016493945
+--- !u!114 &8192398353664858679
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -738,3 +831,49 @@ MonoBehaviour:
   shield: {fileID: 8790864844092162579}
   dropLagLength: 0.2
   blockCoefficient: 0.5
+--- !u!114 &3486299373470920459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072521018718476684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c208f2c74a343ad458aa695b48e99db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flashcolor: {r: 1, g: 1, b: 1, a: 1}
+  _flashTime: 0.25
+  _SPrend: {fileID: 7178392906862967062}
+  hitFlashMaterial: {fileID: 2100000, guid: 56c9ed04542db6a4fac1602cba764b55, type: 2}
+--- !u!114 &2661163013618973409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072521018718476684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35037a70138d634f93ed8d9c0917cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 6663647585971147134}
+  gotHit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &3756997975989412492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072521018718476684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1282897b1475194895ca9a0d4122afc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToReEnableCollider: 0.5
+  inputThreshold: 0.8

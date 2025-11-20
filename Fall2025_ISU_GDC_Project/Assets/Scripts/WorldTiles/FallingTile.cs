@@ -8,6 +8,8 @@ public class FallingTile : MonoBehaviour
 
     [SerializeField] bool isFalling;
 
+    [SerializeField] float hitStun = .75f;
+
 
     //temp color stuff
     [SerializeField] Color32 redColor = new Color32(255, 0, 0, 255);
@@ -53,7 +55,7 @@ public class FallingTile : MonoBehaviour
     {
         if (collision.gameObject.tag == "Hurtbox" && isFalling)
         {
-            collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(10);
+            collision.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(10,hitStun);
             Destroy(gameObject);
         }
         

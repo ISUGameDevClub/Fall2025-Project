@@ -8,6 +8,7 @@ public class CoR_Ultimate_Activator : MonoBehaviour
     [SerializeField] private GameObject sunPrefab;
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private float arrowSpeed;
+    [SerializeField] private AnimationClip ultAnimClip;
     
     private Transform sunSpawnLoc;
     private GameObject sunRef; //a stored reference to the sun that this player spawns (for arrow to pathfind to)
@@ -56,7 +57,7 @@ public class CoR_Ultimate_Activator : MonoBehaviour
         {
             //spawn a sun prefab, that will be interacted with by the animation
             sunRef = Instantiate(sunPrefab, sunSpawnLoc);
-            GetComponent<Animator>().Play("UltimateActivate_CoR");
+            GetComponent<Animator>().Play(ultAnimClip.name);
 
             ultimateTracker.ResetPlayerUltimateCharge(pi);
         }

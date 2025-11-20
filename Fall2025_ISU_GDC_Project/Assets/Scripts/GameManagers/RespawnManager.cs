@@ -12,5 +12,6 @@ public class RespawnManager : MonoBehaviour
         var playerObj = playerHealth.gameObject;
 
         playerObj.transform.position = playerRespawnPoint.position;
+        playerHealth.GetComponent<PlayerState>().ChangePlayerState(PlayerState.PlayerStateEnum.Active);
     }
 }
