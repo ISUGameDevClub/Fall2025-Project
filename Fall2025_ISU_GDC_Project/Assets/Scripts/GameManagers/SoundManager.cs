@@ -1,14 +1,19 @@
-// COPYRIGHT - 2025 Noah Van Til, MIT License
-
 using UnityEngine;
 using System.Collections.Concurrent;
 using System;
 using UnityEngine.Audio;
 using System.Collections;
 using System.Runtime.CompilerServices;
-using UnityEngine.SceneManagement;
 
 #nullable enable
+
+/*
+===================================================================================
+
+SoundSourceData
+
+===================================================================================
+*/
 
 /*
 ===================================================================================
@@ -30,9 +35,6 @@ SoundManager
 /// - Passing a stack-bound readonly struct instead of multiple parameters for better maintainability
 /// 
 public sealed class SoundManager : MonoBehaviour {
-	/// <summary>
-	/// The singleton instance. This is created upon first usage (i.e. calling either <see cref="PlaySound"/> method)
-	/// </summary>
 	private static SoundManager Instance {
 		get {
 			if ( _instance == null ) {
@@ -49,18 +51,12 @@ public sealed class SoundManager : MonoBehaviour {
 	/// A cache for storing already used AudioClip objects, to reduce load overhead. Concurrent for now for scalability reasons,
 	/// it's not hurting anyone, and I probably will make this thing multithreaded at some point.
 	/// </summary>
-	/// <remarks>
-	/// This is cleared whenever the scene changes.
-	/// </remarks>
-	private readonly ConcurrentDictionary<string, AudioResource> AudioFileCache = new ConcurrentDictionary<string, AudioResource>();
+	private ConcurrentDictionary<string, AudioResource> AudioFileCache = new ConcurrentDictionary<string, AudioResource>();
 
 	/// <summary>
-	/// The object pool for the audio sources, reduces possible allocation overhead when playing a ton of audio sources.
+	/// The object pool for the audio sources, reduces possible allocation overhead when playing a ton of audio sources
 	/// </summary>
-	/// <remarks>
-	/// This is cleared whenever the scene changes.
-	/// </remarks>
-	private readonly ComponentPool<AudioSource> SourcePool;
+	private ComponentPool<AudioSource> SourcePool;
 
 	/*
 	===============
@@ -70,20 +66,6 @@ public sealed class SoundManager : MonoBehaviour {
 	public SoundManager() {
 		// I know this ain't best practice (for Unity MonoBehaviour classes that is), but... IDGAF
 		SourcePool = new ComponentPool<AudioSource>( this );
-
-		SceneManager.activeSceneChanged += OnSceneChanged;
-	}
-	
-	/*
-	===============
-	~SoundManager
-	===============
-	*/
-	/// <summary>
-	/// Creating a non-standard destructor to ensure we unsubscribe from the scene change events
-	/// </summary>
-	~SoundManager() {
-		SceneManager.activeSceneChanged -= OnSceneChanged;
 	}
 
 	/*
@@ -92,12 +74,8 @@ public sealed class SoundManager : MonoBehaviour {
 	===============
 	*/
 	/// <summary>
-	/// Plays the audio file at <paramref name="soundPath"/>. This is a convenience function, preferably, cache the audio stream, then give it to
-	/// the other method <see cref="PlaySound(AudioResource?, float?, bool?)"/> for better performance and maintainability.
+	/// Plays the audio file at <paramref name="soundPath"/>.
 	/// </summary>
-	/// <remarks>
-	/// Calls <see cref="PlaySound(AudioResource?, float?, bool?)"/> with the stream being loaded using <see cref="LoadAudioFile(string?)"/>.
-	/// </remarks>
 	/// <param name="soundPath">The path to the sound file.</param>
 	/// <param name="volume">The volume of the sound effect.</param>
 	/// /// <param name="loop">Whether to loop the <see cref="AudioSource"/>.</param>
@@ -106,7 +84,10 @@ public sealed class SoundManager : MonoBehaviour {
 	/// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="volume"/> is less than or equal to 0.</exception>
 	[MethodImpl( MethodImplOptions.AggressiveInlining )]
 	public static void PlaySound( string? soundPath, float? volume = 0.0f, bool? loop = false ) {
-		if ( string.IsNullOrEmpty( soundPath ) ) {
+		if ( Instance == null ) {
+			throw new ArgumentNullException( "Do not call into the SoundManager before instantiation" );
+		}
+		if ( soundPath == null || soundPath.Length <= 0 ) {
 			throw new ArgumentException( "soundPath is null or empty" );
 		}
 		PlaySound( LoadAudioFile( soundPath ), volume, loop );
@@ -125,6 +106,9 @@ public sealed class SoundManager : MonoBehaviour {
 	/// <param name="loop">Whether to loop the <see cref="AudioSource"/>.</param>
 	/// <exception cref="ArgumentNullException">Thrown if <paramref name="soundStream"/> or <see cref="Instance"/> are null.</exception>
 	public static void PlaySound( AudioResource? soundStream, float? volume = 0.0f, bool? loop = false ) {
+		if ( Instance == null ) {
+			throw new ArgumentNullException( "Do not call into the SoundManager before instantiation" );
+		}
 		if ( soundStream == null ) {
 			throw new ArgumentNullException( nameof( soundStream ) );
 		}
@@ -157,7 +141,7 @@ public sealed class SoundManager : MonoBehaviour {
 	/// <param name="soundPath">The path to the audio file.</param>
 	/// <returns>The loaded audio stream.</returns>
 	private static AudioResource LoadAudioFile( string? soundPath ) {
-		if ( string.IsNullOrEmpty( soundPath ) ) {
+		if ( soundPath == null || soundPath.Length <= 0 ) {
 			throw new ArgumentException( "soundPath is null or empty" );
 		}
 		if ( !Instance.AudioFileCache.TryGetValue( soundPath, out AudioResource stream ) ) {
@@ -185,26 +169,5 @@ public sealed class SoundManager : MonoBehaviour {
 	private static IEnumerator WaitForAudioSourceFinished( AudioSource source ) {
 		yield return new WaitUntil( () => !source.isPlaying );
 		Debug.LogFormat( $"SoundManager.WaitForAudioSourceFinished: returning AudioSource to ComponentPool '{source.name}'..." );
-
-		// I have zero clue if Coroutines are actually multithreaded, but the ComponentPool uses a ConcurrentBag, so we should be safe.
-		Instance.SourcePool.Return( source );
-	}
-
-	/*
-	===============
-	OnSceneChanged
-	===============
-	*/
-	/// <summary>
-	/// Clears the audio source pool and the stream cache.
-	/// </summary>
-	/// <param name="currentScene"></param>
-	/// <param name="nextScene"></param>
-	private void OnSceneChanged( Scene currentScene, Scene nextScene ) {
-		Debug.LogFormat( "SoundManager.OnSceneChanged: clearing sound stream cache..." );
-
-		// clear the file cache
-		AudioFileCache.Clear();
-		SourcePool.Clear();
 	}
 };

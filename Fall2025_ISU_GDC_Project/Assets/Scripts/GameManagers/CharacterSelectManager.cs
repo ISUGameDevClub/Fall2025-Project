@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,27 +8,15 @@ public class CharacterSelectManager : MonoBehaviour
     [SerializeField] private List<PlayerCharacter> playerCharacterList;
     [SerializeField] private GameObject charSelectGroup;
     [SerializeField] private GameObject charSelectButtonPrefab;
-    [SerializeField] private GameObject charSelectMenu;
+    
 
     //main dict for storing which players select which characters | PlayerInput -> PlayerCharacter
-    private readonly Dictionary<PlayerInput, PlayerCharacter> currentlySelectedChars = new Dictionary<PlayerInput, PlayerCharacter>();
+    private Dictionary<PlayerInput, PlayerCharacter> currentlySelectedChars = new Dictionary<PlayerInput, PlayerCharacter>();
 
     private void Start()
     {
         PopulateCharacterSelectData();
-        GameSequenceManager.RegisterSequenceChangeCallback(GameSequenceManager.Sequence.CharacterSelect, EnableMenu);
-        GameSequenceManager.RegisterSequenceChangeCallback(GameSequenceManager.Sequence.Battle, OnBattleStart);
     }
-
-    private void OnBattleStart()
-    {
-        charSelectMenu.SetActive(false);
-    }
-    
-    private void EnableMenu()
-	{
-        charSelectMenu.SetActive(true);
-	}
 
     public void RecordCharacterSelect(PlayerInput playerInput, PlayerCharacter character)
     {
@@ -60,7 +49,7 @@ public class CharacterSelectManager : MonoBehaviour
     {
         foreach (PlayerCharacter character in playerCharacterList)
         {
-            GameObject selectButton = Instantiate(charSelectButtonPrefab, charSelectGroup.transform);
+            var selectButton = Instantiate(charSelectButtonPrefab, charSelectGroup.transform);
             selectButton.GetComponent<CharacterSelectButton>().UpdateButtonWithPlayerCharacterData(character);
         }
     }

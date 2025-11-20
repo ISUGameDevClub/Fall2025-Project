@@ -16,9 +16,8 @@ public class PlayerSpawningTemplate : MonoBehaviour
     public void SpawnPlayerObjectFromPlayerCharacter(PlayerCharacter playerCharacter)
     {
         GameObject playerObjToSpawn = null;
-        for (int i = 0; i < validPlayerObjectsToSpawn.Count; i++)
+        foreach (GameObject obj in validPlayerObjectsToSpawn)
         {
-            GameObject obj = validPlayerObjectsToSpawn[i];
             if (obj.GetComponent<PlayerVariantData>().GetPlayerCharacter() == playerCharacter)
             {
                 playerObjToSpawn = obj;
@@ -33,7 +32,7 @@ public class PlayerSpawningTemplate : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             GameObject childObj = transform.GetChild(i).gameObject;
-
+            
             //disable the default player obj
             if (childObj.GetComponent<PlayerVariantData>().GetPlayerCharacter() == defaultCharacter)
             {
@@ -49,6 +48,6 @@ public class PlayerSpawningTemplate : MonoBehaviour
             }
         }
 
-
+       
     }
 }

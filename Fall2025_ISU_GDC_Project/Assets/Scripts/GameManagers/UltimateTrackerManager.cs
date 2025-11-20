@@ -8,13 +8,13 @@ public class UltimateTrackerManager : MonoBehaviour
     //a value between 0.0<->100.0+ will be stored. Overflow past 100.0 will happen, if player has not used their ultimate for some time
     Dictionary<PlayerInput, float> playerInputToUltimatePercentage_dict = new Dictionary<PlayerInput, float>();
 
-    public void InitializeDictionary(PlayerInput[] inputList)
+    public void InitializeDictionary(List<PlayerInput> inputList)
     {
         playerInputToUltimatePercentage_dict.Clear();
-        for ( int i = 0; i < inputList.Length; i++ )
-		{
-            playerInputToUltimatePercentage_dict.Add( inputList[i], 0.0f );
-		}
+        foreach (PlayerInput input in inputList)
+        {
+            playerInputToUltimatePercentage_dict.Add(input, 0);
+        }
     }
 
     public void AddUltimateCharge(PlayerInput pi, float amt)

@@ -26,7 +26,7 @@ public class PlayerInfo : MonoBehaviour
         else
         {
             Debug.LogError("Cant find InputConnectionManager to assign color");
-        }
+        } 
     }
 
     private void Update()
@@ -39,7 +39,6 @@ public class PlayerInfo : MonoBehaviour
             if (playerInput.gameObject.transform.GetChild(i).gameObject.activeSelf)
             {
                 playerObj = playerInput.gameObject.transform.GetChild(i).gameObject;
-                break;
             }
         }
 
