@@ -1,72 +1,76 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 public class PlayerAttacks : MonoBehaviour
 {
-
     [SerializeField] private Animator playerAnimator;
-    [SerializeField] private AnimationClip[] lightAttacks;
-    [SerializeField] private AnimationClip[] heavyAttacks;
-
-    private int lightComboIndexer = 0;
-    private int heavyComboIndexer = 0;
-    private float comboTimer = 0;
-    private float comboWindowDuration = 1;
-
+    public PetrifyDebuff pd;
     private HitboxProperties hitboxRef;
+    private PlayerMovement playerMovement;
+    public UnityEvent specialMove;
 
+    public AnimationClip normalAttack;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         hitboxRef = GetComponentInChildren<HitboxProperties>();
+        playerMovement = GetComponentInParent<PlayerMovement>();
+
     }
 
-    // Update is called once per frame
+
+     // Update is called once per frame
     void Update()
     {
-        if (comboTimer < Time.time)//If too much time has passed in between attacks...
-        {
-            lightComboIndexer = 0;
-            heavyComboIndexer = 0;
-            //Then reset the combo.
-        }
-    }
+        Debug.Log("attacks active");
 
-    public void OnLightAttack(InputAction.CallbackContext context)
-    {
-        if (context.performed)
+        PlayerInput pi = null;
+        //we have a parent, use its PlayerInput component
+        if (transform.parent != null)
         {
-            if (lightComboIndexer > lightAttacks.Count() - 1)
-            {
-                lightComboIndexer = 0;
-            }
-            if (!hitboxRef.GetCurrentlyAttacking())
-            {
-                comboTimer = Time.time + comboWindowDuration;
-                playerAnimator.Play(lightAttacks[lightComboIndexer].name);
-                lightComboIndexer += 1;
-            }
-            
+            GameObject parent = transform.parent.gameObject;
+            pi = parent.GetComponent<PlayerInput>();
         }
-    }
-
-    public void OnHeavyAttack(InputAction.CallbackContext context)
-    {
-        if (context.performed)
+        else //we dont have a parent, enable our own PlayerInput and use that
         {
-            if (heavyComboIndexer > heavyAttacks.Count() - 1)
-            {
-                heavyComboIndexer = 0;
-            }
+            GetComponent<PlayerInput>().enabled = true;
+            pi = GetComponent<PlayerInput>();
+        }
+
+        if (pi.actions["Normal Attack"].triggered)//&&!petrified)
+        {
+            NormalAttack();
+        }
+        if (pi.actions["Special"].triggered)//&&!petrified)
+        {
             if (!hitboxRef.GetCurrentlyAttacking())
-            {
-                comboTimer = Time.time + comboWindowDuration;
-                playerAnimator.Play(heavyAttacks[heavyComboIndexer].name);
-                heavyComboIndexer += 1;
-            }
+                UseSpecialMove();
         }
     }
     
+    public void NormalAttack()
+    {
+        Debug.Log("Attack was just used");
+        if (playerAnimator != null && hitboxRef != null)
+        {
+            if (!hitboxRef.GetCurrentlyAttacking())
+            {
+                playerAnimator.SetTrigger("NeutralAttack");
+                if (normalAttack != null)
+                {
+                    playerAnimator.Play(normalAttack.name);
+                }
+
+                SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", .5f, false);
+            }
+        }
+    }
+
+    public void UseSpecialMove()
+    {
+        specialMove.Invoke();
+    }
 
 }
