@@ -340,6 +340,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7400000, guid: f2e570a3ef76098488586dfc2e7227f6, type: 2}
     - target: {fileID: 1165566455455140612, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: HP
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165566455455140612, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: spriteRend
       value: 
       objectReference: {fileID: 3640078607336613750}
@@ -492,6 +496,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8072521018718476684, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       insertIndex: -1
       addedObject: {fileID: -5848363214202329803}
+    - targetCorrespondingSourceObject: {fileID: 8072521018718476684, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 350744986299360256}
   m_SourcePrefab: {fileID: 100100000, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
 --- !u!4 &2004457484262355182 stripped
 Transform:
@@ -528,6 +535,20 @@ MonoBehaviour:
   speed: 20
   duration: 0.3
   endLag: 0.3
+--- !u!114 &350744986299360256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759682951359889040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc9a794391709b4aaa7b5606be6c62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ultimateAnim: {fileID: 7400000, guid: 59990acfd732d674484a04a316f49a10, type: 2}
+  sphinxStatue: {fileID: 2110227897700354422, guid: c43f94cd61d6ae2438ac19e08480e1d0, type: 3}
 --- !u!95 &7222063795356320602 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6211446524978881606, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
