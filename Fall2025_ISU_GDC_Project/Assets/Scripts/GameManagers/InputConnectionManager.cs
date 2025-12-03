@@ -58,7 +58,7 @@ public class InputConnectionManager : MonoBehaviour
                 //spawn an instance of device identifier with attributes of keyboard
                 AddDeviceIdentifierToGroup(DeviceType.Keyboard, pi);
             }
-            else if (device.name.Contains("XInputControllerWindows"))
+            else if (device is UnityEngine.InputSystem.Gamepad)
             {
                 //spawn an instance of device identifier with attributes of controller
                 AddDeviceIdentifierToGroup(DeviceType.Controller, pi);
