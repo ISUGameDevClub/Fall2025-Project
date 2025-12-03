@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: LadyJustice
   m_EditorClassIdentifier: 
   characterName: Lady Justice
-  characterSelectIcon: {fileID: 2259347825450764496, guid: 4c1dfdaa66e61594ab033fe205d80573, type: 3}
-  victoryText: Eat Justice!
+  characterSelectIcon: {fileID: -6951837815191297164, guid: c9659599e271e1c12818f6170ea32b90, type: 3}

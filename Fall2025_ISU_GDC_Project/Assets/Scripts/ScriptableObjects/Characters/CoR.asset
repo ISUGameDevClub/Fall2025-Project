@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d2414aa9ad36b45bc4fba94fc477a9, type: 3}
   m_Name: CoR
   m_EditorClassIdentifier: 
-  characterName: The Colossus of Rhodes
-  characterSelectIcon: {fileID: -2466434491507086402, guid: a66014e1f8ce43a468e34663f148bf51, type: 3}
-  victoryText: Yo Mama is the 7th Wonder of the World
+  characterName: Colossus of Rhodes
+  characterSelectIcon: {fileID: 501226399394652860, guid: 94eb6bb4908d20396a9b5d0cfd8e3e76, type: 3}

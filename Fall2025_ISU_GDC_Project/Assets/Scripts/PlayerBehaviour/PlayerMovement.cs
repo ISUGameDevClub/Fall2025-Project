@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //grab input from PlayerInput component
-        movement = pi.actions["Move"].ReadValue<Vector2>();
+        movement = pi.actions["Move"].ReadValue<Vector2>() * speedBoost;
         jumpedThisFrame = pi.actions["Jump"].triggered;
         jumpBeingHeld = pi.actions["Jump"].IsPressed();
 
