@@ -375,6 +375,7 @@ MonoBehaviour:
   isActive: 0
   currentlyAttacking: 0
   ultimateChargePerHit: 0
+  damageBoost: 1
 --- !u!1 &6508463568405385112
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +562,7 @@ MonoBehaviour:
   isActive: 0
   currentlyAttacking: 0
   ultimateChargePerHit: 10
+  damageBoost: 1
 --- !u!1 &8543898957581582491
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +797,26 @@ PrefabInstance:
       propertyPath: _SPrend
       value: 
       objectReference: {fileID: 1767458737638097278}
+    - target: {fileID: 3674800922811074766, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384344296093707687, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384344296093707687, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384344296093707687, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384344296093707687, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 5074884641794417177, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: ultimateChargePerHit
       value: 5
@@ -807,6 +829,10 @@ PrefabInstance:
       propertyPath: gfx
       value: 
       objectReference: {fileID: 1767458737638097278}
+    - target: {fileID: 6952914810384458911, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7178392906862967062, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -839,6 +865,10 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 11400000, guid: f7ddd19129ef6c24da5c41b1c9e65967, type: 2}
+    - target: {fileID: 8207587890383495854, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8790864844092162579, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_Enabled
       value: 0
