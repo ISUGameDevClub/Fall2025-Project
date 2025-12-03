@@ -92,10 +92,33 @@ public class PlayerHealth : MonoBehaviour
         if (totalStocks <= 0 && !active)
         {
             active = true;
-            playerDeath.Invoke();
+
+            if(WasLastPlayerToDie())
+            {
+                //only invoke victory event when we were the final player killed
+                playerDeath.Invoke();
+            }
+            
             Destroy(gameObject);
             
         }
+    }
+
+    private bool WasLastPlayerToDie()
+    {
+        //Need to find winning player(s)
+        List<GameObject> currPlayers = FindFirstObjectByType<InputConnectionManager>().GetCurrentPlayerObjectsInGame();
+        int winnerCount = 0;
+        foreach (var player in currPlayers)
+        {
+            PlayerHealth ph = player.GetComponent<PlayerHealth>();
+            if (ph.GetTotalStocks() > 0)
+            {
+                winnerCount++;
+            }
+        }
+
+        return winnerCount == 1;
     }
 
     //WORRY ABOUT THIS LATER (DISABLE PLAYER MOVE)----

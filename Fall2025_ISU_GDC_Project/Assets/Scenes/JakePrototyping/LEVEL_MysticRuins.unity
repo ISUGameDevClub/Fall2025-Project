@@ -953,7 +953,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -33
-  m_Sprite: {fileID: -6245137575558215201, guid: f414f54caee1b984f9fb0fd57932698e, type: 3}
+  m_Sprite: {fileID: -5919652888896343473, guid: 27dcb63d53051a94385b45f992deccda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -973,8 +973,8 @@ Transform:
   m_GameObject: {fileID: 901100677}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.016, y: 1.93, z: 0}
-  m_LocalScale: {x: 3.0336819, y: 3, z: 1}
+  m_LocalPosition: {x: -0.016, y: 0.48, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3368,6 +3368,7 @@ MonoBehaviour:
   victoryText: {fileID: 299544617}
   countdownText: {fileID: 1527804072}
   countdownTransform: {fileID: 1527804071}
+  playerInfoGroup: {fileID: 4229522864764434915}
   inputConnectionMenu: {fileID: 1187818003}
   charSelectMenu: {fileID: 942511658}
   countdownStartNum: 3
@@ -3547,7 +3548,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -35
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -72715,6 +72716,10 @@ PrefabInstance:
     - target: {fileID: 6787862476695123572, guid: 8ce067237e6de92439159b144f528ab8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6921993306728702576, guid: 8ce067237e6de92439159b144f528ab8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 8.625916
       objectReference: {fileID: 0}
     - target: {fileID: 7291900993406789129, guid: 8ce067237e6de92439159b144f528ab8, type: 3}
       propertyPath: m_AnchorMax.x

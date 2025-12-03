@@ -31,6 +31,7 @@ public class GameSequenceManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI countdownText;
     [SerializeField] private RectTransform countdownTransform;
 
+    [SerializeField] private GameObject playerInfoGroup;
 
     //Runs before start
     void Awake()
@@ -169,23 +170,27 @@ public class GameSequenceManager : MonoBehaviour
         string winText = winningCharacter.victoryText;
         StartCoroutine(DisplayTextStaggered(winText));
 
+        playerInfoGroup.SetActive(false);
+
         //Set podium sprite to winner; Currently only will work for 1v1
         SpriteRenderer winPlayerSR = null;
-        for (int i = 0; i < currPlayers.Count; i++)
-        {
-            if (currPlayers[i].GetComponent<PlayerHealth>().GetStocks() != 0)
-            {
-                winPlayerSR = currPlayers[i].GetComponent<SpriteRenderer>();
-            }
-            
-        }
+        /*        for (int i = 0; i < currPlayers.Count; i++)
+                {
+                    if (currPlayers[i].GetComponent<PlayerHealth>().GetStocks() != 0)
+                    {
+                        winPlayerSR = currPlayers[i].GetComponent<SpriteRenderer>();
+                    }
+
+                }*/
+        
+
         //Should ensure someone always displays
         if (winPlayerSR == null)
         {
             winPlayerSR = currPlayers[0].GetComponent<SpriteRenderer>();
         }
-        spriteImage.sprite = winPlayerSR.sprite;
-        spriteImage.color = winPlayerSR.color;
+        spriteImage.sprite = winningCharacter.victorySprite;
+        //spriteImage.color = winPlayerSR.color;
         //These values work best for camera zoom in. 
         StartCoroutine(VictoryAnims(.01f, cmc, .05f, 1f));
     }
@@ -198,7 +203,7 @@ public class GameSequenceManager : MonoBehaviour
         {
             textShown += textToShow[i];
             victoryText.text = textShown;
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(.05f);
         }
     }
 
@@ -216,7 +221,7 @@ public class GameSequenceManager : MonoBehaviour
         //     yield return new WaitForSeconds(waitTime);
         // }
         //reset camera OS
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4.5f);
         victoryText.gameObject.transform.parent.gameObject.SetActive(false);
         winAnimation.Play();
         yield return new WaitForSeconds(1.5f);

@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: The Bean
   characterSelectIcon: {fileID: -5190325598409692852, guid: 07079c7253ba53578b7393a9b3000972, type: 3}
+  victoryText: "\u201CYou came at The Bean\u2026 and got steamed.\u201D"
+  victorySprite: {fileID: 3368832113450586460, guid: 7d3fe962400637642b15b7273a01d9ed, type: 3}

@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Colossus of Rhodes
   characterSelectIcon: {fileID: 501226399394652860, guid: 94eb6bb4908d20396a9b5d0cfd8e3e76, type: 3}
+  victoryText: "\u201CI was built to guard empires\u2026 defeating you was incidental.\u201D"
+  victorySprite: {fileID: -7734231204472829563, guid: b3e4e5ce7d4168e40b3ab9181b21e5ec, type: 3}

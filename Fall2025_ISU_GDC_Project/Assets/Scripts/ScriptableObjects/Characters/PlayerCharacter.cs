@@ -7,4 +7,5 @@ public class PlayerCharacter : ScriptableObject
     public string characterName;
     public Sprite characterSelectIcon;
     public string victoryText;
+    public Sprite victorySprite;
 }

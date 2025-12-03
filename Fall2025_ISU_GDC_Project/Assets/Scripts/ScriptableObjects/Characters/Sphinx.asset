@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: The Sphinx
   characterSelectIcon: {fileID: 1305313980352963599, guid: cf06c0a54fba746bfab4d2bb01300d32, type: 3}
+  victoryText: '"My Claws finish what my questions start..."'
+  victorySprite: {fileID: 3434136649703256733, guid: a1fa405d5980a4a4a9326b0a6c37ecfe, type: 3}
