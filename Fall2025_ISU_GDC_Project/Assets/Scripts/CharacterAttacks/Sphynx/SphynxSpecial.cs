@@ -34,7 +34,7 @@ public class SphynxSpecial : MonoBehaviour
             HitboxProperties hp = GetComponentInChildren<HitboxProperties>();
             if (hp.getInRange().Count > 0)
             {
-                StartCoroutine(cancelSpecial());
+                //StartCoroutine(cancelSpecial());
             }
         }
     }

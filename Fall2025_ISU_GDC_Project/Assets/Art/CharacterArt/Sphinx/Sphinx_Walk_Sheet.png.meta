@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: 65ba793f029a65242b3b3664d03f84f3
+guid: a1fa405d5980a4a4a9326b0a6c37ecfe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 591775669622867102
-    second: Sphinx Neutral_0
+      213: -350080970994710549
+    second: Sphinx_Walk_Sheet_0
   - first:
-      213: 7532246610157982899
-    second: Sphinx Neutral_1
+      213: 4189532692736443108
+    second: Sphinx_Walk_Sheet_1
   - first:
-      213: 3706578656228966195
-    second: Sphinx Neutral_2
+      213: 4435380611629451642
+    second: Sphinx_Walk_Sheet_2
   - first:
-      213: -8713430610327722964
-    second: Sphinx Neutral_3
+      213: -8364973224320136435
+    second: Sphinx_Walk_Sheet_3
+  - first:
+      213: 3434136649703256733
+    second: Sphinx_Walk_Sheet_4
+  - first:
+      213: 1292604815162929841
+    second: Sphinx_Walk_Sheet_5
+  - first:
+      213: 7328850334822652901
+    second: Sphinx_Walk_Sheet_6
+  - first:
+      213: 8155787463070809335
+    second: Sphinx_Walk_Sheet_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,13 +134,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sphinx Neutral_0
+      name: Sphinx_Walk_Sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
+        x: 14
+        y: 127
+        width: 82
+        height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +149,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e94079e06d8663800800000000000000
-      internalID: 591775669622867102
+      spriteID: be78c313633442bf0800000000000000
+      internalID: -350080970994710549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sphinx Neutral_1
+      name: Sphinx_Walk_Sheet_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
+        x: 142
+        y: 127
+        width: 74
+        height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3b45b17626ae78860800000000000000
-      internalID: 7532246610157982899
+      spriteID: 4e2017579c5342a30800000000000000
+      internalID: 4189532692736443108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sphinx Neutral_2
+      name: Sphinx_Walk_Sheet_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
+        x: 267
+        y: 127
+        width: 77
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 33f729846a9607330800000000000000
-      internalID: 3706578656228966195
+      spriteID: a7904d7aa23ad8d30800000000000000
+      internalID: 4435380611629451642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sphinx Neutral_3
+      name: Sphinx_Walk_Sheet_3
       rect:
         serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
+        x: 398
+        y: 127
+        width: 82
+        height: 119
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +215,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c24a660960da31780800000000000000
-      internalID: -8713430610327722964
+      spriteID: d0b8eb80c25a9eb80800000000000000
+      internalID: -8364973224320136435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sphinx_Walk_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 0
+        width: 78
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9276bb861188af20800000000000000
+      internalID: 3434136649703256733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sphinx_Walk_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 0
+        width: 74
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b2feba1b3140f110800000000000000
+      internalID: 1292604815162929841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sphinx_Walk_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 0
+        width: 77
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eb5b13bc8e45b560800000000000000
+      internalID: 7328850334822652901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sphinx_Walk_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 0
+        width: 82
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fc7be78c7d2f2170800000000000000
+      internalID: 8155787463070809335
       vertices: []
       indices: 
       edges: []
@@ -213,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 112b213d18889a84c8c97ec0607fa49f
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -223,10 +323,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sphinx Neutral_0: 591775669622867102
-      Sphinx Neutral_1: 7532246610157982899
-      Sphinx Neutral_2: 3706578656228966195
-      Sphinx Neutral_3: -8713430610327722964
+      Sphinx_Walk_Sheet_0: -350080970994710549
+      Sphinx_Walk_Sheet_1: 4189532692736443108
+      Sphinx_Walk_Sheet_2: 4435380611629451642
+      Sphinx_Walk_Sheet_3: -8364973224320136435
+      Sphinx_Walk_Sheet_4: 3434136649703256733
+      Sphinx_Walk_Sheet_5: 1292604815162929841
+      Sphinx_Walk_Sheet_6: 7328850334822652901
+      Sphinx_Walk_Sheet_7: 8155787463070809335
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
