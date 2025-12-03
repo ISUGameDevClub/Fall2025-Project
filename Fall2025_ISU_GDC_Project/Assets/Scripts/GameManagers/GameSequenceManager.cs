@@ -33,6 +33,10 @@ public class GameSequenceManager : MonoBehaviour
 
     [SerializeField] private GameObject playerInfoGroup;
 
+    [SerializeField] private AudioSource levelAudioSource;
+    [SerializeField] private AudioClip charSelectSong;
+    [SerializeField] private AudioClip levelFightSong;
+
     //Runs before start
     void Awake()
     {
@@ -52,6 +56,9 @@ public class GameSequenceManager : MonoBehaviour
     {
         sequenceActions.Add(InitiateCharacterSelect);
         sequenceActions.Add(InitiateFighting);
+
+        levelAudioSource.clip = charSelectSong;
+        levelAudioSource.Play();
     }
 
     public void CallAndForwardSequenceAction()
@@ -75,6 +82,9 @@ public class GameSequenceManager : MonoBehaviour
 
     private void InitiateFighting()
     {
+        levelAudioSource.clip = levelFightSong;
+        levelAudioSource.Play();
+
         //Each player has made their character selection by now
         //We need to add a prefab instance of the PlayerVariant that corresponds to their character choice
         var charSelectManager = FindFirstObjectByType<CharacterSelectManager>();

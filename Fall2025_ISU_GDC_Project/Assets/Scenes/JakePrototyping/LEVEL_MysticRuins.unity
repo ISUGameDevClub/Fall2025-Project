@@ -3369,6 +3369,9 @@ MonoBehaviour:
   countdownText: {fileID: 1527804072}
   countdownTransform: {fileID: 1527804071}
   playerInfoGroup: {fileID: 4229522864764434915}
+  levelAudioSource: {fileID: 1697173802}
+  charSelectSong: {fileID: 8300000, guid: 25379180aebb70c47a22e50529644297, type: 3}
+  levelFightSong: {fileID: 8300000, guid: 1741bf5f4bfe2a8459b873dfa932dd90, type: 3}
   inputConnectionMenu: {fileID: 1187818003}
   charSelectMenu: {fileID: 942511658}
   countdownStartNum: 3
