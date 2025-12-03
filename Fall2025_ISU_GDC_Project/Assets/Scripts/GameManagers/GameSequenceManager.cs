@@ -85,6 +85,11 @@ public class GameSequenceManager : MonoBehaviour
             template.EnablePlayerObjectFromPlayerCharacter(playerCharacter);
         }
 
+        //set all players spawn points (the points at which they start in the game)
+        List<GameObject> currPlayers = FindFirstObjectByType<InputConnectionManager>().GetCurrentPlayerObjectsInGame();
+        FindFirstObjectByType<PlayerSpawnPointManager>().SetPlayerSpawnPoints(currPlayers);
+
+
         //set the target group for the camera, now that players are spawned in
         List<GameObject> players = FindFirstObjectByType<InputConnectionManager>().GetCurrentPlayerObjectsInGame();
         FindFirstObjectByType<CameraTarget>().SetCameraTargets(players);
