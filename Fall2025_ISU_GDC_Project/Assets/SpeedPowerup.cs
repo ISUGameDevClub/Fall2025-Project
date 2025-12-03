@@ -24,7 +24,7 @@ public class SpeedPowerup : MonoBehaviour
         if (collision.tag == "Hurtbox")
         {
             GetComponent<SpriteRenderer>().enabled = false;
-            GetComponent<BoxCollider2D>().enabled = false; 
+            GetComponent<Collider2D>().enabled = false; 
             playerCollision = collision;
             collision.GetComponentInParent<PlayerMovement>().speedBoost += speedIncrease;
             Debug.Log("Hit player");
@@ -35,7 +35,10 @@ public class SpeedPowerup : MonoBehaviour
     public void EndSpeedBoost()
     {
         Debug.Log("Ending boost");
-        playerCollision.GetComponentInParent<PlayerMovement>().speedBoost -= speedIncrease;
+        PlayerMovement moveRef = playerCollision.GetComponentInParent<PlayerMovement>();
+        if (moveRef.speedBoost != 1)
+            playerCollision.GetComponentInParent<PlayerMovement>().speedBoost -= speedIncrease;
+
         Destroy(gameObject);
     }
 }

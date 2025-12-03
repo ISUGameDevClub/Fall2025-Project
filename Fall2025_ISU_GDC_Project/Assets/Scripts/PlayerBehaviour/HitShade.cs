@@ -56,6 +56,7 @@ public class HitShade : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         _SPrend.material = origMaterial;
+        GetComponent<PlayerHealth>().ApplyCracks();
         //_SPrend.material.SetFloat("_NewFlash", 0f);
         Debug.Log("HITFLASH: Finished Coroutine");
     }

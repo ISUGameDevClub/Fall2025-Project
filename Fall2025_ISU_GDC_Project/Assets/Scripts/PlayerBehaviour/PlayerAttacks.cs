@@ -24,7 +24,6 @@ public class PlayerAttacks : MonoBehaviour
      // Update is called once per frame
     void Update()
     {
-        Debug.Log("attacks active");
 
         PlayerInput pi = null;
         //we have a parent, use its PlayerInput component

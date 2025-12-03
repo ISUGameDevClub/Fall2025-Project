@@ -29,6 +29,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float lowHealthCracksIntensity = .35f;
     [SerializeField] private HitShade _HitShade;
 
+    [SerializeField] Material crackShader;
+    [SerializeField] SpriteRenderer spriteRend;
+
     private PlayerBlocking block;
 
     private PlayerState stateMachine;
@@ -204,5 +207,19 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(duration);
         defMultiplier = 1f;
 
+    }
+
+    public void ApplyCracks()
+    {
+        
+        spriteRend.material = crackShader;
+         if ((float)HP / (float)startingHP <= .25f)
+        {
+            spriteRend.material.SetFloat("_CracksAmount", lowHealthCracksIntensity);
+        }
+        else if ((float)HP / (float)startingHP <= .5f)
+        {
+            spriteRend.material.SetFloat("_CracksAmount", cracksIntensity);
+        }
     }
 }

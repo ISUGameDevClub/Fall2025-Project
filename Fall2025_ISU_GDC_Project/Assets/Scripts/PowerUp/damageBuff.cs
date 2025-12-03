@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -6,15 +7,17 @@ using UnityEngine;
 public class damageBuff : MonoBehaviour
 {
     
-    public int damageBoostAmt=1;
-    public float duration=5;
-
+    public int damageBoostAmt=2;
+    public float duration=10;
     private HitboxProperties whoWeHit = null;
-    
-    public Collider2D collider;
+    public SpriteRenderer spriteRend;
+    public Collider2D objCollider;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        objCollider = GetComponent<Collider2D>();
+        spriteRend = GetComponent<SpriteRenderer>();
         
     }
 
@@ -23,48 +26,35 @@ public class damageBuff : MonoBehaviour
     {
 
 
-        if (collider.gameObject.tag == "player")
-        {
-            //if (duration > 0)
-            //{
-                
-            //    duration -= Time.deltaTime;
-            //    print(damage);
-            //}
-        }
     }
     //invoke
     public void OnTriggerEnter2D(Collider2D collision)
     {
 
-
-        //start danage debuff
-        Debug.Log(collision.gameObject.name);
-        GameObject hitboxObj = collision.gameObject.transform.parent.GetChild(0).gameObject;
-       
-        whoWeHit = hitboxObj.GetComponent<HitboxProperties>();
-        startDamageBuff(collision);
-
-        //invoke endDamageBuff after 5 seconds
-        Invoke("endDamageDebuff", duration); //should I use duration variable
+        if (collision.tag == "Hurtbox")
+        {
+            
+            whoWeHit = collision.GetComponentInParent<PlayerHealth>().gameObject.GetComponentInChildren<HitboxProperties>();
+            StartCoroutine(applyDamageBuff());
+        }
         
     }
 
-    private void startDamageBuff(Collider2D collision)
-    {
-
-       
-        GameObject hitboxObj = collision.gameObject.transform.parent.GetChild(0).gameObject;
-        hitboxObj.GetComponent<HitboxProperties>().damageBoost = damageBoostAmt;
-
-        //damage *= buff;
-        //Destroy(gameObject);
-        this.gameObject.SetActive(false);
-    }
+    
     private void endDamageBuff()
     {
-        whoWeHit.damageBoost = 0;
+        whoWeHit.damageBoost = 1;
         Destroy(this.gameObject);
+    }
+
+    IEnumerator applyDamageBuff()
+    {
+        whoWeHit.damageBoost = 2;
+        spriteRend.enabled = false;
+        objCollider.enabled = false;
+        yield return new WaitForSeconds(duration);
+        whoWeHit.damageBoost = 1;
+        Destroy(gameObject);
     }
 
 }

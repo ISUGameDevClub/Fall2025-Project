@@ -5,14 +5,19 @@ public class LadyJusticeSpecialActivator : MonoBehaviour
 {
     [SerializeField] AnimationClip petrifyClip;
 
+    private void Start()
+    {
+        GetComponent<PlayerAttacks>().specialMove.AddListener(PlayPetrifyAnimation);
+    }
     private void Update()
     {
-        bool activatedAttackThisFrame = transform.root.gameObject.GetComponent<PlayerInput>().actions["Special"].triggered;
+        /*bool activatedAttackThisFrame = transform.root.gameObject.GetComponent<PlayerInput>().actions["Special"].triggered;
 
         if(activatedAttackThisFrame)
         {
             PlayPetrifyAnimation();
         }
+        */
     }
 
     private void PlayPetrifyAnimation()

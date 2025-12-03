@@ -335,6 +335,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1165566455455140612, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: spriteRend
+      value: 
+      objectReference: {fileID: 3640078607336613750}
     - target: {fileID: 1936713101077806825, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_Actions
       value: 
