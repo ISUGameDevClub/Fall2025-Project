@@ -3,6 +3,7 @@ using UnityEngine;
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField] private GameObject levelSelectMenu;
+    [SerializeField] private GameObject creditsMenu;
 
     private void Start()
     {
@@ -13,5 +14,15 @@ public class MainMenuController : MonoBehaviour
     public void OpenLevelSelectMenu()
     {
         levelSelectMenu.SetActive(true);
+    }
+
+    public void OpenCreditsMenu()
+    {
+        creditsMenu.SetActive(true);
+    }
+
+    public void CloseCreditsMenu()
+    {
+        creditsMenu.SetActive(false);
     }
 }
