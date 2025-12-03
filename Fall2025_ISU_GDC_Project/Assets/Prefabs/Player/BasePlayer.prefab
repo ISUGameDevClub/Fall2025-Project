@@ -953,6 +953,7 @@ MonoBehaviour:
   lowHealthCracksIntensity: 0.35
   _HitShade: {fileID: 3486299373470920459}
   crackShader: {fileID: -876546973899608171, guid: 49ee9dba5e5eb964ca741a4c717fb991, type: 3}
+  spriteRend: {fileID: 0}
 --- !u!114 &8107855282545786083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1243,6 +1244,7 @@ MonoBehaviour:
   playerAttacks: {fileID: 430878357311010213}
   gfx: {fileID: 7178392906862967062}
   playerPassThroughPlatform: {fileID: 3756997975989412492}
+  petrifyIndicator: {fileID: 2806472095199415127}
 --- !u!114 &3890417148057156894
 MonoBehaviour:
   m_ObjectHideFlags: 0

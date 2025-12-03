@@ -11,6 +11,7 @@ public class PlayerState : MonoBehaviour
     [SerializeField] private PlayerAttacks playerAttacks;
     [SerializeField] private SpriteRenderer gfx;
     [SerializeField] private PlayerPassThroughPlatform playerPassThroughPlatform;
+    [SerializeField] private GameObject petrifyIndicator;
 
     PlayerStateEnum currentState = PlayerStateEnum.Active;
 
@@ -20,7 +21,8 @@ public class PlayerState : MonoBehaviour
         Dormant, //player is visible, does NOT respond to input
         Inactive, //player is NOT visible, does NOT respond to input
         hitstun,  //Player is hit and cannot input anything.
-        Attacking //Stops the player from moving while they attack.
+        Attacking, //Stops the player from moving while they attack.
+        Petrified, //petrify indicator is active, + state from dormant
     }
 
     private void Update()
@@ -43,6 +45,7 @@ public class PlayerState : MonoBehaviour
                 playerAttacks.enabled = true;
                 playerStun.enabled = false;
                 playerPassThroughPlatform.enabled = true;
+                petrifyIndicator.SetActive(false);
 
                 //unfreeze x, unfreeze y, freeze rotations
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -67,6 +70,14 @@ public class PlayerState : MonoBehaviour
                 playerAttacks.enabled = false;
                 playerStun.enabled = true;
                 playerPassThroughPlatform.enabled = false;
+                break;
+            case PlayerStateEnum.Petrified:
+                gfx.enabled = true;
+                playerMovement.enabled = false;
+                playerAttacks.enabled = false;
+                playerStun.enabled = false;
+                playerPassThroughPlatform.enabled = false;
+                petrifyIndicator.SetActive(true);
                 break;
             case PlayerStateEnum.Attacking:
                 gfx.enabled = true;

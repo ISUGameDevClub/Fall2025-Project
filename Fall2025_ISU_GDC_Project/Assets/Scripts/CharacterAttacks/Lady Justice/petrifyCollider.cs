@@ -20,6 +20,11 @@ public class PetrifyCollider : MonoBehaviour
     //petrifyTimer = petrifyTime;
     [SerializeField] bool petrifyActive;
 
+    private void Start()
+    {
+        petrifyTimer = petrifyTime;
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
               //  Debug.Log("we hit something with petrify collider");
@@ -38,15 +43,18 @@ public class PetrifyCollider : MonoBehaviour
     private void petrify(Rigidbody2D rb)
     {
        // Debug.Log("tried to petrify");
+        rb.gameObject.GetComponent<PlayerState>().ChangePlayerState(PlayerState.PlayerStateEnum.Petrified);
+
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
     }
     private void unpetrify(Rigidbody2D rb)
     {
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.gameObject.GetComponent<PlayerState>().ChangePlayerState(PlayerState.PlayerStateEnum.Active);
 
         //get rid of petrify overlay graphic
-        rb.gameObject.transform.Find("Petrified_Overlay").gameObject.SetActive(false);
+        //rb.gameObject.transform.Find("Petrified_Overlay").gameObject.SetActive(false);
     }
     void Update()
     {
@@ -67,8 +75,8 @@ public class PetrifyCollider : MonoBehaviour
                             petrifiedEnemies.Add(enemy);
                             petrifyActive = true;
                             
-                            //add petrify overlay graphic
-                            enemy.transform.parent.Find("Petrified_Overlay").gameObject.SetActive(true);
+                            //add petrify overlay graphic (THIS IS DONE NOW IN PlayerState)
+                            //enemy.transform.parent.Find("Petrified_Overlay").gameObject.SetActive(true);
                         }
                     }
                 }
