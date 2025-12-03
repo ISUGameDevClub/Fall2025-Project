@@ -16,11 +16,7 @@ public class LadyJusticeUltimate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            //UseUltimate();
-            //For testing purposes. can be deleted once it works with the input system.
-        }
+        
         PlayerInput pi = null;
 
         //we have a parent, use its PlayerInput component
