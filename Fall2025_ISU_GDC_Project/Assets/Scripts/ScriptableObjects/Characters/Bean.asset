@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bean
   m_EditorClassIdentifier: 
   characterName: The Bean
-  characterSelectIcon: {fileID: -3911564540874879502, guid: dad372ffb8c44784ea2ce626b5dd7be2, type: 3}
+  characterSelectIcon: {fileID: -5190325598409692852, guid: 07079c7253ba53578b7393a9b3000972, type: 3}

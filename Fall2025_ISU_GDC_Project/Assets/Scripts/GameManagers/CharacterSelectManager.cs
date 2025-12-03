@@ -43,6 +43,11 @@ public class CharacterSelectManager : MonoBehaviour
         return currentlySelectedChars[playerInput];
     }
 
+    public List<PlayerCharacter> getPlayerCharacterList()
+    {
+        return playerCharacterList;
+    }
+
 
     //fills out the menu for all possible characters to pick in the game
     private void PopulateCharacterSelectData()

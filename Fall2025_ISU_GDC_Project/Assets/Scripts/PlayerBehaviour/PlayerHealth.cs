@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
 
     private int startingHP;
 
+
     [SerializeField] private GameObject damageParticles;
 
     [SerializeField] private GameObject deathParticles;

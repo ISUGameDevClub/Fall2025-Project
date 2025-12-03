@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Default Character
   characterSelectIcon: {fileID: -535343159588241581, guid: d1c9a1c52339ac14296a8c5bceb26f6a, type: 3}
+  victoryText: I Win!
