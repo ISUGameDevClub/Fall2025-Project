@@ -65,7 +65,9 @@ public class CoR_Special : MonoBehaviour
     {
         usingSpecial = true;
         if (bowShot != null)
+        {
             CoRAnimator.Play(bowShot.name);
+        }
     }
 
     public void FireArrow()
@@ -87,6 +89,8 @@ public class CoR_Special : MonoBehaviour
         }
 
         heldAmount = 0;
+
+        SoundManager.PlaySound("Sound/SFX/Combat/COR/COR_HalfChargeArrowSFX", 2f, false);
     }
 
     public void PauseBow()
