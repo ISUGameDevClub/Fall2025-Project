@@ -37,11 +37,11 @@ public class LadyJusticeUltimate : MonoBehaviour
 
         if (pi.actions["Ultimate"].triggered)
         {
-            UseUltimate();
+            ActivateUltimate();
         }
     }
 
-    public void UseUltimate()
+    public void InflictDebuffs()
     {
         playerAnimator.Play(ultimateAnim.name);
         Instantiate(scale,new Vector2(0,-1),Quaternion.identity);
@@ -50,7 +50,30 @@ public class LadyJusticeUltimate : MonoBehaviour
         {
             if (fighter != gameObject)
                 fighter.AddComponent<LJ_Ult_Debuff>();
+            else
+                fighter.AddComponent<LJ_Ult_Buffs>();
         }
     }
+
+    private void ActivateUltimate()
+{
+    //enable ultimate attack animation
+    if (GetComponent<Animator>() != null)
+    {
+        PlayerInput pi = this.gameObject.transform.parent.GetComponent<PlayerInput>();
+        UltimateTrackerManager ultimateTracker = FindFirstObjectByType<UltimateTrackerManager>();
+        if (ultimateTracker.CanPlayerUseUltimate(pi))
+        {
+            //SoundManager.PlaySound("Sound/SFX/Combat/WhooshSFX_02", 1.0f, false);
+
+            InflictDebuffs();
+            //playerAnimator.Play(ultimateAnim.name);
+            //StartCoroutine("DisableBeanMovementRoutine");
+            ultimateTracker.ResetPlayerUltimateCharge(pi);
+        }
+
+        //SoundManager.PlaySound("Sound/SFX/Combat/Bean/Beam Laser_mixdown", .5f, false);
+    }
+}
 
 }
