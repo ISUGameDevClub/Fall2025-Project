@@ -533,6 +533,10 @@ PrefabInstance:
       propertyPath: normalAttack
       value: 
       objectReference: {fileID: 7400000, guid: 208a69145d8e30c498b9500e0d624fc3, type: 2}
+    - target: {fileID: 1165566455455140612, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: spriteRend
+      value: 
+      objectReference: {fileID: 740835991273383028}
     - target: {fileID: 1936713101077806825, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.size
       value: 0

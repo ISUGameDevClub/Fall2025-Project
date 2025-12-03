@@ -952,6 +952,7 @@ MonoBehaviour:
   cracksIntensity: 0.55
   lowHealthCracksIntensity: 0.35
   _HitShade: {fileID: 3486299373470920459}
+  crackShader: {fileID: -876546973899608171, guid: 49ee9dba5e5eb964ca741a4c717fb991, type: 3}
 --- !u!114 &8107855282545786083
 MonoBehaviour:
   m_ObjectHideFlags: 0

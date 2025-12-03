@@ -339,6 +339,10 @@ PrefabInstance:
       propertyPath: normalAttack
       value: 
       objectReference: {fileID: 7400000, guid: f2e570a3ef76098488586dfc2e7227f6, type: 2}
+    - target: {fileID: 1165566455455140612, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: spriteRend
+      value: 
+      objectReference: {fileID: 3640078607336613750}
     - target: {fileID: 1936713101077806825, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_Actions
       value: 
@@ -395,6 +399,18 @@ PrefabInstance:
       propertyPath: _SPrend
       value: 
       objectReference: {fileID: 3640078607336613750}
+    - target: {fileID: 3674800922811074766, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384344296093707687, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384344296093707687, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.208
+      objectReference: {fileID: 0}
     - target: {fileID: 6211446524978881606, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -407,6 +423,10 @@ PrefabInstance:
       propertyPath: gfx
       value: 
       objectReference: {fileID: 3640078607336613750}
+    - target: {fileID: 6952914810384458911, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7178392906862967062, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -427,6 +447,10 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 11400000, guid: aacb8ff6a4874bb40b81815384f7f614, type: 2}
+    - target: {fileID: 8207587890383495854, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8300350922231301319, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5

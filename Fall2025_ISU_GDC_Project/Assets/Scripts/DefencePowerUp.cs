@@ -7,9 +7,10 @@ public class DefencePowerUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.tag == "Hurtbox")
         {
-            PlayerHealth health = other.GetComponent<PlayerHealth>();
+            Debug.Log("Player");
+            PlayerHealth health = other.GetComponentInParent<PlayerHealth>();
             if (health != null)
             {
                 health.activateDefBoost(damageMultiplier, duration);
