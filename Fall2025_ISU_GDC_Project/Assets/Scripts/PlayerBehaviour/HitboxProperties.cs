@@ -34,6 +34,8 @@ public class HitboxProperties : MonoBehaviour
     private List<GameObject> hurtEnemies = new List<GameObject>();
     private List<GameObject> inRange = new List<GameObject>();
 
+    public float damageBoost = 1;
+
     public List<GameObject> getInRange()
     {
         return inRange;
@@ -71,7 +73,8 @@ public class HitboxProperties : MonoBehaviour
                         if (enemyHP != null)
                         {
                             hurtEnemies.Add(enemy);
-                            enemyHP.TakeDamage(damage, hitStun);
+                            int netDamage = Mathf.RoundToInt(damage * damageBoost);
+                            enemyHP.TakeDamage(netDamage, hitStun);
                             //apply force backwards to enemy
                             bool onLeft;
                             if (this.gameObject.transform.parent.position.x < playerKnockbackController.gameObject.transform.position.x)

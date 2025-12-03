@@ -743,7 +743,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
---- !u!1001 &496446998
+--- !u!1001 &714838825
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -757,7 +757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4956661425928236548, guid: 0d45fa42250ca8a459659133f0357eec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.04
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4956661425928236548, guid: 0d45fa42250ca8a459659133f0357eec, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1266,6 +1266,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colossus of Rhodes
       objectReference: {fileID: 0}
+    - target: {fileID: 3720318312537590037, guid: d4cabef210c65644cbe7adfd8679235a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4811783163453538824, guid: d4cabef210c65644cbe7adfd8679235a, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1337,9 +1341,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 1142528513}
   - {fileID: 97475909}
+  - {fileID: 714838825}
   - {fileID: 801053566}
   - {fileID: 1340310386}
   - {fileID: 307225963}
   - {fileID: 402890042}
   - {fileID: 2133362022}
-  - {fileID: 496446998}
