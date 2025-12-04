@@ -28,7 +28,8 @@ public class PlayerMovement : MonoBehaviour
 
     public int direction = 1;
 
-
+    public bool onMovingPlatform = false;
+    public float platformSpeed = 0;
 
     private void Awake()
     {
@@ -116,7 +117,14 @@ public class PlayerMovement : MonoBehaviour
     {
 
         //apply movement value
-        rb.linearVelocityX = movement.x * horizontalSpeed;
+        if (!onMovingPlatform)
+        {
+            rb.linearVelocityX = movement.x * horizontalSpeed;
+        }
+        else
+        {
+            rb.linearVelocityX = movement.x * horizontalSpeed + platformSpeed;
+        }
 
 
         //apply jump value

@@ -38,7 +38,7 @@ public class HitShade : MonoBehaviour
 
     public void CallDamageFlash()
     {
-        StopAllCoroutines();
+        //StopAllCoroutines();
         _damageFlashCoroutine = StartCoroutine("DamageFlasher");
     }
 

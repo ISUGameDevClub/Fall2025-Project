@@ -16,6 +16,8 @@ public class PetrifyCollider : MonoBehaviour
     private float petrifyTimer = 5.0f;
     public float petrifyTime = 5.0f;
 
+    public float ultChargeOnPetrify = 5f;
+
     
     //petrifyTimer = petrifyTime;
     [SerializeField] bool petrifyActive;
@@ -42,7 +44,15 @@ public class PetrifyCollider : MonoBehaviour
     }
     private void petrify(Rigidbody2D rb)
     {
-       // Debug.Log("tried to petrify");
+        //grant ultimate charge to attacker PlayerInput (this script's top-most parent, if it exists)
+        PlayerInput attackerPi = null;
+        if (this.gameObject.transform.parent.parent != null)
+        {
+            attackerPi = this.gameObject.transform.parent.parent.gameObject.GetComponent<PlayerInput>();
+            FindFirstObjectByType<UltimateTrackerManager>().AddUltimateCharge(attackerPi, ultChargeOnPetrify);
+        }
+
+        // Debug.Log("tried to petrify");
         rb.gameObject.GetComponent<PlayerState>().ChangePlayerState(PlayerState.PlayerStateEnum.Petrified);
 
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;

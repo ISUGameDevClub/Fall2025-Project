@@ -51,6 +51,8 @@ public class SphinxUltimate : MonoBehaviour
 
     private void ActivateUltimate()
     {
+        SoundManager.PlaySound("Sound/SFX/Combat/Sphinx/Sphinx Sandstorm SFX", 1f, false);
+
         //enable ultimate attack animation
         if (GetComponent<Animator>() != null)
         {

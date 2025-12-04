@@ -102,7 +102,8 @@ public class PlayerHealth : MonoBehaviour
                 playerDeath.Invoke();
             }
             
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            this.gameObject.SetActive(false);
             
         }
     }
@@ -114,13 +115,15 @@ public class PlayerHealth : MonoBehaviour
         int winnerCount = 0;
         foreach (var player in currPlayers)
         {
-            PlayerHealth ph = player.GetComponent<PlayerHealth>();
-            if (ph.GetTotalStocks() > 0)
+            if (player != null)
             {
-                winnerCount++;
+                    PlayerHealth ph = player.GetComponent<PlayerHealth>();
+                    if (ph.GetTotalStocks() > 0)
+                    {
+                        winnerCount++;
+                    }
             }
         }
-
         return winnerCount == 1;
     }
 

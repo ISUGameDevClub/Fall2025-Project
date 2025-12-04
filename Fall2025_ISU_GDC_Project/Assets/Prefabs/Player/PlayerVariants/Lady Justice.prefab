@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
-  petrifyTime: 1.25
+  petrifyTime: 1.6
   petrifyActive: 0
 --- !u!1001 &7859427096037095926
 PrefabInstance:

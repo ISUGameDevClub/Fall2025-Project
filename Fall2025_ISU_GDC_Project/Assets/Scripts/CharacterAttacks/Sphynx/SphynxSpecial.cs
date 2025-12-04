@@ -41,7 +41,7 @@ public class SphynxSpecial : MonoBehaviour
 
     public void UseSpecial()
     {
-        
+        SoundManager.PlaySound("Sound/SFX/Combat/Sphinx/Sphinx Sandy Dash Attack", 1f, false);
         animator.Play(specialAnimation.name);
         StartCoroutine("specialAttack");
     }

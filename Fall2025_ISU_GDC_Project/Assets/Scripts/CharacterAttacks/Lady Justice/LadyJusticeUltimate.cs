@@ -53,8 +53,11 @@ public class LadyJusticeUltimate : MonoBehaviour
 
     private void ActivateUltimate()
 {
-    //enable ultimate attack animation
-    if (GetComponent<Animator>() != null)
+
+        SoundManager.PlaySound("Sound/SFX/Combat/LJ/Lady Justice Tip The Scales", 1f, false);
+
+        //enable ultimate attack animation
+        if (GetComponent<Animator>() != null)
     {
         PlayerInput pi = this.gameObject.transform.parent.GetComponent<PlayerInput>();
         UltimateTrackerManager ultimateTracker = FindFirstObjectByType<UltimateTrackerManager>();
