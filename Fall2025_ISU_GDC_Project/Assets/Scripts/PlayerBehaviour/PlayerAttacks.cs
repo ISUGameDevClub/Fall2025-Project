@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class PlayerAttacks : MonoBehaviour
 {
     [SerializeField] private Animator playerAnimator;
-    public PetrifyDebuff pd;
+    //public PetrifyDebuff pd;
     private HitboxProperties hitboxRef;
     private PlayerMovement playerMovement;
     public UnityEvent specialMove;

@@ -43,7 +43,8 @@ public class CoR_Ultimate_Activator : MonoBehaviour
             pi = GetComponent<PlayerInput>();
         }
 
-        if (pi.actions["Ultimate"].triggered)
+        //if (pi.actions["Ultimate"].triggered)
+        if(Input.GetKeyDown(KeyCode.L))
         {
             ActivateUltimateAnimation();
         }
