@@ -57,7 +57,7 @@ public class SunArrowUltimate : MonoBehaviour
 
     private void SpawnFireBall(Transform spawnLoc, Vector2 fireBallTrajectory, float speedModifier)
     {
-        GameObject fireBall = Instantiate(sunFireBallPrefab, spawnLoc.position, Quaternion.identity);
+        GameObject fireBall = Instantiate(sunFireBallPrefab, spawnLoc.position, sunFireBallPrefab.transform.rotation);
         fireBall.GetComponent<Rigidbody2D>().linearVelocity = fireBallTrajectory * speedModifier;
         fireBall.GetComponent<SunFireball>().InitializeSunFireball(damagePerShot, pi);
 

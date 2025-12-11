@@ -341,7 +341,7 @@ PrefabInstance:
       objectReference: {fileID: 7400000, guid: f2e570a3ef76098488586dfc2e7227f6, type: 2}
     - target: {fileID: 1165566455455140612, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: HP
-      value: 160
+      value: 195
       objectReference: {fileID: 0}
     - target: {fileID: 1165566455455140612, guid: 52884c41f89f49f49904d568f59087ec, type: 3}
       propertyPath: spriteRend

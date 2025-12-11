@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selfShooter: {fileID: 0}
   player: {fileID: 0}
-  damage: 30
+  damage: 12
   projectileSpeed: 9
   projectileLifetime: 5
   direction: 0

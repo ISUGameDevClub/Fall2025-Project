@@ -2231,7 +2231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamObj: {fileID: 1658342011}
-  groupFramingOffsetY: -0.4
+  groupFramingOffsetY: -0.15
 --- !u!114 &1303505373
 MonoBehaviour:
   m_ObjectHideFlags: 0

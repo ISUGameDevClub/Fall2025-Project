@@ -1616,10 +1616,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\n<b>Music</b>\n\nSamuel Villalobos \u2014 Music Lead\r\n\r\nMalachi
-    Roy \u2014 Composer\r\n\r\nDoug McGraw \u2014 Sound Designer\r\n\r\nTristan Conoscente
-    \u2014 Composer\r\n\r\nSam Machek \u2014 Sound Designer/Composer\r\n\r\nDarren
-    Hudson \u2014 Music\r\n\r\nJustin Marrero \u2014 Trainee\n\n"
+  m_text: "\n\n<b>Music</b>\n\nSamuel Villalobos \u2014 Music Lead\r\n\nDoug McGraw
+    \u2014 Sound Designer\r\n\r\nTristan Conoscente \u2014 Composer\r\n\r\nSam Machek
+    \u2014 Sound Designer/Composer\r\n\r\nDarren Hudson \u2014 Music\r\n\r\nJustin
+    Marrero \u2014 Trainee\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 026ae8db225d38f41a6c4acf3acab45f, type: 2}
   m_sharedMaterial: {fileID: 3215608341274553825, guid: 026ae8db225d38f41a6c4acf3acab45f, type: 2}
@@ -1755,7 +1755,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.0
+  m_text: 'Version 1.1
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 026ae8db225d38f41a6c4acf3acab45f, type: 2}
   m_sharedMaterial: {fileID: 3215608341274553825, guid: 026ae8db225d38f41a6c4acf3acab45f, type: 2}
@@ -2022,7 +2024,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -156, y: -73}
+  m_AnchoredPosition: {x: -185, y: -73}
   m_SizeDelta: {x: 482.7061, y: 560.7561}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1129516219
@@ -2045,16 +2047,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\n<b>Programming</b>\n\nBryce Jodison \u2014 Programmer\r\n\r\nNoah
-    Van Til \u2014 Programmer\r\n\r\nJaden Verges \u2014 Programmer\r\n\r\nAJ Davis
-    \u2014 Programmer\r\n\r\nKrystian Hamilton \u2014 Programmer\r\n\r\nEmilee Schylz
-    \u2014 Programmer\r\n\r\nSam Mate \u2014 Programmer\r\n\r\nSamuel Douglas \u2014
-    Programmer\r\n\r\nElly N \u2014 Programmer\r\n\r\nAshley Simone \u2014 Programmer\r\n\r\nAkash
-    Kshatriya \u2014 Programmer\r\n\r\nKarolina Wojtanek \u2014 Programmer\r\n\r\nIsaac
-    Vandermyde \u2014 Programmer\r\n\r\nColin Hart \u2014 Programmer\r\n\r\nWill
-    Papcke \u2014 Programmer\r\n\r\nTrystan Knoll \u2014 Programmer\r\n\r\nAva Seward
-    \u2014 Programmer\r\n\r\nAiden McCaslen \u2014 Programmer\r\n\r\nMatthew W \u2014
-    Programmer\r\n\r\nSaad C \u2014 Programmer\r\n\r\nKyle Davies \u2014 Programmer\r\n\n\n\n"
+  m_text: "\n\n<b>Programming</b>\n\nBrandon Byers  \u2014 Programming Lead\n\nBryce
+    Jodison \u2014 Programmer\r\n\r\nNoah Van Til \u2014 Programmer\r\n\r\nJaden
+    Verges \u2014 Programmer\r\n\r\nAJ Davis \u2014 Programmer\r\n\r\nKrystian Hamilton
+    \u2014 Programmer\r\n\r\nEmilee Schylz \u2014 Programmer\r\n\r\nSam Mate \u2014
+    Programmer\r\n\r\nSamuel Douglas \u2014 Programmer\r\n\r\nElly N \u2014 Programmer\r\n\r\nAshley
+    Simone \u2014 Programmer\r\n\r\nAkash Kshatriya \u2014 Programmer\r\n\r\nKarolina
+    Wojtanek \u2014 Programmer\r\n\r\nIsaac Vandermyde \u2014 Programmer\r\n\r\nColin
+    Hart \u2014 Programmer\r\n\r\nWill Papcke \u2014 Programmer\r\n\r\nTrystan Knoll
+    \u2014 Programmer\r\n\r\nAva Seward \u2014 Programmer\r\n\r\nAiden McCaslen \u2014
+    Programmer\r\n\r\nMatthew W \u2014 Programmer\r\n\r\nSaad C \u2014 Programmer\r\n\r\nKyle
+    Davies \u2014 Programmer\r\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 026ae8db225d38f41a6c4acf3acab45f, type: 2}
   m_sharedMaterial: {fileID: 3215608341274553825, guid: 026ae8db225d38f41a6c4acf3acab45f, type: 2}
@@ -2552,12 +2555,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\n\n<b>Art</b>\n\nSarah Wierschem \u2014 Art Lead\r\n\r\nSkyler Rickard
-    \u2014 Art Lead\r\n\r\nErik Erlandson \u2014 Art\r\n\r\nKatherine Haas \u2014
-    Art\r\n\r\nJami Johnston \u2014 Art\r\n\r\nChristian Doubet \u2014 Art\r\n\r\nMax
-    Hallaron \u2014 Art\r\n\r\nAneala Martin \u2014 Art\r\n\r\nJack O\u2019Toole
-    \u2014 Art\r\n\r\nChristian Cook \u2014 Art\r\n\r\nCarter Bour \u2014 Art\r\n\r\nQuinn
-    Asher \u2014 Art\r\n\r\nPercy \u2014 Art\r\n\r\nMason Cook \u2014 Art\r\n\r\nAbbie
-    James \u2014 Art\r\n\r\n\n\n\n"
+    \u2014 Art Lead\n\nKatelyn Stewart \u2014 Art\r\n\r\nErik Erlandson \u2014 Art\r\n\r\nKatherine
+    Haas \u2014 Art\r\n\r\nJami Johnston \u2014 Art\r\n\r\nChristian Doubet \u2014
+    Art\r\n\r\nMax Hallaron \u2014 Art\r\n\r\nAneala Martin \u2014 Art\r\n\r\nJack
+    O\u2019Toole \u2014 Art\r\n\r\nChristian Cook \u2014 Art\r\n\r\nCarter Bour \u2014
+    Art\r\n\r\nQuinn Asher \u2014 Art\r\n\r\nPercy \u2014 Art\r\n\r\nMason Cook \u2014
+    Art\r\n\r\nAbbie James \u2014 Art\r\n\r\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 026ae8db225d38f41a6c4acf3acab45f, type: 2}
   m_sharedMaterial: {fileID: 3215608341274553825, guid: 026ae8db225d38f41a6c4acf3acab45f, type: 2}
@@ -2966,8 +2969,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "<b>Leadership</b>\n\nJake Ozer \u2014 President\n\nArnold Krajewski \u2014
-    Vice-President\n\n\n<b>DESIGN</b>\n\nBlake Nelson \u2014 Design Lead\n\nBen Bayne
-    \u2014 Designer\n\nCale McCombs \u2014 Designer\n\nKatelyn Stewart \u2014 Art\n\nNat
+    Vice-President\n\n\n<b>DESIGN</b>\n\nBlake Nelson \u2014 Design Lead\n\nWeston
+    Robinson \u2014 Design \n\nBen Bayne \u2014 Designer\n\nCale McCombs \u2014 Designer\n\nNat
     Harding \u2014 Design\n\nJaden Cousin \u2014 Design\n\nConnor Pope \u2014 Design\n\nJacob
     Hynd \u2014 Design\n\nNick Kimball \u2014 Design\n\n"
   m_isRightToLeft: 0
